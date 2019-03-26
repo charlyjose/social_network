@@ -28,7 +28,7 @@
 			
 				<span>University Social Network</span>
 				| <b><a href="/home" style="color: #d3d3d3; text-decoration: none;" onMouseOver="this.style.color='#FFF'" onMouseOut="this.style.color='#d3d3d3'"><small class="d-none d-sm-inline">Feeds</small></a></b>
-				| <b><a href="/Profile" style="color: #d3d3d3; text-decoration: none;" onMouseOver="this.style.color='#FFF'" onMouseOut="this.style.color='#d3d3d3'"><small class="d-none d-sm-inline">Profile</small></a></b>
+				| <b><a href="/profile" style="color: #d3d3d3; text-decoration: none;" onMouseOver="this.style.color='#FFF'" onMouseOut="this.style.color='#d3d3d3'"><small class="d-none d-sm-inline">Profile</small></a></b>
 			</div>
 
 
@@ -75,94 +75,46 @@
 					<nav id="sidebar" class="collapse collapse-disabled-md sidebar sidebar-sticky">
 						<div class="card">
 							<div class="card-header">
-								<h5 class="card-title mb-0">Main</h5>
+								<h5 class="card-title mb-0">Main Navigation</h5>
 							</div>
 							<div class="sidebar-content">
-								<a href="index.html" class="sidebar-item">
-									<i class="align-middle mr-1 fas fa-fw fa-home"></i> <span class="align-middle">Dashboard</span>
+								<a href="/home" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-home"></i> <span class="align-middle">Home</span>
 								</a>
-								<a class="sidebar-item" href="#layouts" data-toggle="collapse">
-									<i class="align-middle mr-1 fas fa-fw fa-desktop"></i> <span class="align-middle">Layouts</span>
+								<a href="/logout" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-arrow-alt-circle-right"></i> <span class="align-middle">Logout</span>
 								</a>
-								<div class="sidebar-dropdown collapse" id="layouts" data-parent="#sidebar">
-									<a class="sidebar-item" href="pages/layouts-sidebar-right.html">Right Sidebar</a>
-									<a class="sidebar-item" href="pages/layouts-sidebar-static.html">Static Sidebar</a>
-								</div>
+								
+								
+								
 							</div>
 						</div>
 
 						<div class="card">
 							<div class="card-header">
-								<h5 class="card-title mb-0">Elements</h5>
+								<h5 class="card-title mb-0">General</h5>
 							</div>
 							<div class="sidebar-content">
 								<a class="sidebar-item" href="#ui" data-toggle="collapse">
-									<i class="align-middle mr-1 fas fa-fw fa-flask"></i> <span class="align-middle">User Interface</span>
+									<i class="align-middle mr-1 fas fa-fw fa-cog"></i> <span class="align-middle">Settings</span>
 								</a>
 								<div class="sidebar-dropdown collapse" id="ui" data-parent="#sidebar">
-									<a class="sidebar-item" href="pages/ui-alerts.html">Alerts</a>
-									<a class="sidebar-item" href="pages/ui-buttons.html">Buttons</a>
-									<a class="sidebar-item" href="pages/ui-cards.html">Cards</a>
-									<a class="sidebar-item" href="pages/ui-general.html">General</a>
-									<a class="sidebar-item" href="pages/ui-grid.html">Grid</a>
-									<a class="sidebar-item" href="pages/ui-modals.html">Modals</a>
-									<a class="sidebar-item" href="pages/ui-notifications.html">Notifications</a>
-									<a class="sidebar-item" href="pages/ui-tabs.html">Tabs</a>
-									<a class="sidebar-item" href="pages/ui-typography.html">Typography</a>
+									<a class="sidebar-item" href="settings/pages/reset-username.html"><i class="align-middle mr-1 fas fa-fw fa-user"></i>Username</a>
+									<a class="sidebar-item" href="settings/pages/reset-password.html"><i class="align-middle mr-1 fas fa-fw fa-key"></i>Password</a>
+									<a class="sidebar-item" href="settings/pages/reset-contacts.html"><i class="align-middle mr-1 fas fa-fw fa-address-card"></i>Contact</a>
+									<a class="sidebar-item" href="settings/pages/delete-account.html"><i class="align-middle mr-1 fas fa-fw fa-user-slash"></i>Delete Account</a>
 								</div>
 							</div>
 							<div class="sidebar-content">
 								<a class="sidebar-item" href="#charts" data-toggle="collapse">
-									<i class="align-middle mr-1 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Charts</span>
+									<i class="align-middle mr-1 fas fa-fw fa-lightbulb"></i> <span class="align-middle">Create</span>
 								</a>
 								<div class="sidebar-dropdown collapse" id="charts" data-parent="#sidebar">
-									<a class="sidebar-item" href="pages/charts-chartjs.html">Chart.js</a>
-									<a class="sidebar-item" href="pages/charts-apexcharts.html">ApexCharts</a>
-									<a class="sidebar-item" href="pages/charts-morrisjs.html">Morris.js</a>
+									<a class="sidebar-item" href="pages/charts-chartjs.html"><i class="align-middle mr-1 fas fa-fw fa-plus"></i>Post</a>
+									<a class="sidebar-item" href="pages/charts-apexcharts.html"><i class="align-middle mr-1 fas fa-fw fa-signal"></i>Status</a>
 								</div>
 							</div>
-							<div class="sidebar-content">
-								<a class="sidebar-item" href="#forms" data-toggle="collapse">
-									<i class="align-middle mr-1 fas fa-fw fa-check-square"></i> <span class="align-middle">Forms</span>
-								</a>
-								<div class="sidebar-dropdown collapse" id="forms" data-parent="#sidebar">
-									<a class="sidebar-item" href="pages/forms-layouts.html">Layouts</a>
-									<a class="sidebar-item" href="pages/forms-basic-elements.html">Basic Elements</a>
-									<a class="sidebar-item" href="pages/forms-advanced-elements.html">Advanced Elements</a>
-									<a class="sidebar-item" href="pages/forms-input-groups.html">Input Groups</a>
-									<a class="sidebar-item" href="pages/forms-editors.html">Editors</a>
-									<a class="sidebar-item" href="pages/forms-validation.html">Validation</a>
-									<a class="sidebar-item" href="pages/forms-wizard.html">Wizard</a>
-								</div>
-							</div>
-							<div class="sidebar-content">
-								<a class="sidebar-item" href="#tables" data-toggle="collapse">
-									<i class="align-middle mr-1 fas fa-fw fa-table"></i> <span class="align-middle">Tables</span>
-								</a>
-								<div class="sidebar-dropdown collapse" id="tables" data-parent="#sidebar">
-									<a class="sidebar-item" href="pages/tables-bootstrap.html">Bootstrap</a>
-									<a class="sidebar-item" href="pages/tables-datatables.html">DataTables</a>
-								</div>
-							</div>
-							<div class="sidebar-content">
-								<a class="sidebar-item" href="#maps" data-toggle="collapse">
-									<i class="align-middle mr-1 fas fa-fw fa-map-marker-alt"></i> <span class="align-middle">Maps</span>
-								</a>
-								<div class="sidebar-dropdown collapse" id="maps" data-parent="#sidebar">
-									<a class="sidebar-item" href="pages/maps-google.html">Google Maps</a>
-									<a class="sidebar-item" href="pages/maps-vector.html">Vector Maps</a>
-								</div>
-							</div>
-							<div class="sidebar-content">
-								<a class="sidebar-item" href="#icons" data-toggle="collapse">
-									<i class="align-middle mr-1 fas fa-fw fa-heart"></i> <span class="align-middle">Icons</span>
-								</a>
-								<div class="sidebar-dropdown collapse" id="icons" data-parent="#sidebar">
-									<a class="sidebar-item" href="pages/icons-font-awesome.html">Font Awesome</a>
-									<a class="sidebar-item" href="pages/icons-ion.html">Ion Icons</a>
-									<a class="sidebar-item" href="pages/icons-feather.html">Feather Icons</a>
-								</div>
-							</div>
+							
 						</div>
 
 						<div class="card">
@@ -170,20 +122,14 @@
 								<h5 class="card-title mb-0">Extras</h5>
 							</div>
 							<div class="sidebar-content">
-								<a class="sidebar-item" href="#pages" data-toggle="collapse">
-									<i class="align-middle mr-1 fas fa-fw fa-file"></i> <span class="align-middle">Pages</span>
-								</a>
-								<div class="sidebar-dropdown collapse" id="pages" data-parent="#sidebar">
-									<a class="sidebar-item " href="pages/pages-sign-in.html">Sign In</a>
-									<a class="sidebar-item " href="pages/pages-sign-up.html">Sign Up</a>
-									<a class="sidebar-item " href="pages/pages-reset-password.html">Reset Password</a>
-									<a class="sidebar-item " href="pages/pages-blank.html">Blank Page</a>
-									<a class="sidebar-item " href="pages/pages-404.html">404 Page</a>
-									<a class="sidebar-item " href="pages/pages-500.html">500 Page</a>
-									<a class="sidebar-item " href="pages/pages-invoice.html">Invoice</a>
-								</div>
 								<a href="documentation.html" class="sidebar-item">
-									<i class="align-middle mr-1 fas fa-fw fa-book"></i> <span class="align-middle">Getting Started</span>
+									<i class="align-middle mr-1 fab fa-fw fa-connectdevelop"></i> <span class="align-middle">Connect</span>
+								</a>
+								<a href="documentation.html" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-university"></i> <span class="align-middle">University Updates</span>
+								</a>
+								<a href="documentation.html" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-school"></i> <span class="align-middle">College Updates</span>
 								</a>
 							</div>
 						</div>
@@ -203,7 +149,7 @@
 										</div>
 										<div class="col-12 col-sm-8 align-self-center text-center text-sm-right">
 											<p class="text-muted mb-1">Online Now</p>
-											<h2><i class="text-primary fas fa-caret-up"></i> 2562</h2>
+											<h2><i class="text-primary"></i> 25</h2>
 										</div>
 									</div>
 								</div>
@@ -220,7 +166,7 @@
 										</div>
 										<div class="col-12 col-sm-8 align-self-center text-center text-sm-right">
 											<p class="text-muted mb-1">Online Today</p>
-											<h2><i class="text-danger fas fa-caret-down"></i> 17212</h2>
+											<h2><i class="text-danger"></i> 172</h2>
 										</div>
 									</div>
 								</div>
@@ -237,7 +183,7 @@
 										</div>
 										<div class="col-12 col-sm-8 align-self-center text-center text-sm-right">
 											<p class="text-muted mb-1">Connections</p>
-											<h2><i class="text-primary fas fa-caret-up"></i> $ 24300</h2>
+											<h2><i class="text-primary"></i> 240</h2>
 										</div>
 									</div>
 								</div>
@@ -254,7 +200,7 @@
 										</div>
 										<div class="col-12 col-sm-8 align-self-center text-center text-sm-right">
 											<p class="text-muted mb-1">New Posts</p>
-											<h2><i class="text-danger fas fa-caret-down"></i> 43</h2>
+											<h2><i class="text-danger"></i> 43</h2>
 										</div>
 									</div>
 								</div>
@@ -390,13 +336,6 @@
 												hoverBackgroundColor: "#41D492",
 												hoverBorderColor: "#41D492",
 												data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79]
-											}, {
-												label: "This year",
-												backgroundColor: "#E8EAED",
-												borderColor: "#E8EAED",
-												hoverBackgroundColor: "#E8EAED",
-												hoverBorderColor: "#E8EAED",
-												data: [69, 66, 24, 48, 52, 51, 44, 53, 62, 79, 51, 68]
 											}]
 										},
 										options: {
