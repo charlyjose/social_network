@@ -12,11 +12,20 @@ var appCSS = require('./routes/appCSS');
 var favic = require('./routes/favic');
 var usnLogo = require('./routes/usnLogo');
 
-
 var indexRouter = require('./routes/index');
 var signupRouter = require('./routes/signup');
 var loginRouter = require('./routes/login');
 var homeRouter = require('./routes/home');
+
+var forgotPasswordRouter = require('./routes/forgotPassword');
+var resetPasswordRouter = require('./routes/resetPassword');
+var profileRouter = require('./routes/profile');
+var resetUserRouter = require('./routes/resetUser');
+var resetPassRouter = require('./routes/resetPass');
+var resetContactsRouter = require('./routes/resetContacts');
+var deleteAccRouter = require('./routes/deleteAcc');
+
+
 
 
 //var inSigninRouter = require('./routes/INSignIn');
@@ -42,18 +51,19 @@ app.use('/app.css', appCSS);
 app.use('/favicon.ico', favic);
 app.use('/usnlogo.jpeg', usnLogo);
 
-
 app.use('/', indexRouter);
+app.use('/home', homeRouter);
+app.use('/profile', profileRouter);
+
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/signin', loginRouter);
-app.use('/forgotpassword', forgotPassword);
-app.use('/reset-password', resetPassword);
-app.use('/home', homeRouter);
-app.use('/profile', profileRouter);
+
+app.use('/forgotpassword', forgotPasswordRouter);
+app.use('/reset-password', resetPasswordRouter);
 app.use('/reset-username', resetUserRouter);
 app.use('/reset-password', resetPassRouter);
-app.use('/reset-contacts', resetContRouter);
+app.use('/reset-contacts', resetContactsRouter);
 app.use('/delete-account', deleteAccRouter);
 
 
