@@ -9,7 +9,7 @@
 	<meta name="author" content="Bootlab">
 	<link rel="icon" href="favicon.ico">
 
-	<title>Spark - Responsive Admin &amp; Dashboard Template</title>
+	<title>USN | Reset Username</title>
 
 	<link href="app.css" rel="stylesheet">
 
@@ -23,23 +23,26 @@
 					<div class="d-table-cell align-middle">
 
 						<div class="text-center mt-4">
-							<h1 class="h2">Reset password</h1>
+							<h1 class="h2" style="font-size: 5ch;"><i class="far fa-grin-hearts"></i> Reset Username</h1>
 							<p class="lead">
-								Enter your email to reset your password.
+								What should we call you now.
 							</p>
 						</div>
 
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<form>
+									<form action="/changeusername" method="post">
 										<div class="form-group">
-											<label>Email</label>
-											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+											<label><b>New Username</b></label>
+											<input class="form-control form-control-lg" type="text" name="username" placeholder="Username" required />
 										</div>
+										<div class="form-group">
+												<label><b>Password</b></label>
+												<input class="form-control form-control-lg" type="password" name="password" placeholder="Password" required />
+											</div>
 										<div class="text-center mt-3">
-											<a href="index.html" class="btn btn-lg btn-primary">Reset password</a>
-											<!-- <button type="submit" class="btn btn-lg btn-primary">Reset password</button> -->
+											<button type="submit" class="btn btn-lg btn-primary">Reset Username</button>
 										</div>
 									</form>
 								</div>
