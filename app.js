@@ -43,15 +43,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-
+app.use(express.static(path.join(__dirname, 'public/profile')));
+app.use(express.static(path.join(__dirname, 'public/always')));
 
 app.use('/app.js', appJS);
 app.use('/app.css', appCSS);
 app.use('/favicon.ico', favic);
 app.use('/usnlogo.jpeg', usnLogo);
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/home', homeRouter);
 app.use('/profile', profileRouter);
 
