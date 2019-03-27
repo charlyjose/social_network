@@ -10,12 +10,13 @@ var mysql = require('mysql');
 var appJS = require('./routes/appJS');
 var appCSS = require('./routes/appCSS');
 var favic = require('./routes/favic');
+var usnLogo = require('./routes/usnLogo');
+
 
 var indexRouter = require('./routes/index');
 var signupRouter = require('./routes/signup');
 var loginRouter = require('./routes/login');
 var homeRouter = require('./routes/home');
-
 
 
 //var inSigninRouter = require('./routes/INSignIn');
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/app.js', appJS);
 app.use('/app.css', appCSS);
 app.use('/favicon.ico', favic);
+app.use('/usnlogo.jpeg', usnLogo);
 
 
 app.use('/', indexRouter);
