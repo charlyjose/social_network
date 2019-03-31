@@ -67,16 +67,14 @@ app.use('/app.css', appCSS);
 app.use('/favicon.ico', favic);
 app.use('/usnlogo.jpeg', usnLogo);
 
-app.use('/', indexRouter);
+app.use('/', homeRouter);
 app.use('/home', homeRouter);
 app.use('/profile', profileRouter);
 
 app.use('/signup', signupRouter);
-// app.use('/signup/auth', signupRouter);
-
-
 app.use('/login', loginRouter);
 app.use('/signin', loginRouter);
+
 app.use('/logout', logoutRouter);
 
 app.use('/forgotpassword', forgotPasswordRouter);
