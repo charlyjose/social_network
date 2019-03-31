@@ -1,51 +1,67 @@
-var express = require('express');
-var router = express.Router();
-var cookieParser = require('cookie-parser');
-var cookieSession = require('cookie-session');
-var Keygrip = require('keygrip');
-var crypto = require('crypto');
-var uuid = require('node-uuid');
-var mysql = require('mysql');
-var app = require('../app');
-var db = require('../connectDB');
+var express = require('express');   //rqd
+var router = express.Router();      //rqd
+var db = require('../connectDB');   //rqd
 
+// var app = require('../app');
 
-var app = express();
-
-app.use(cookieSession({
-    name: 'session',
-    keys: new Keygrip(['I have a duck, who\'s name is duckey'], 'SHA384', 'base64'),
-    maxAge: 24 * 60 * 60 * 1000,
-    genid:function(req){
-        return crypto.createHash('sha256').update(uuid.v1()).update(crypto.randomBytes(256)).digest("hex");
-    },
-}));
-
-app.use(cookieParser());
+// var app = express();
 
 
 
 router.get('/', function (req, res, next) {
     res.render('sign-up');
+    // req.session.errors = null;
 });
 
 router.get('/favicon.ico', function(req, res, next) {
     res.sendFile('/images/favicon.ico');
-})
+});
 
 router.post('/', function(req, res, next) {
-    if(!req.body.name || !req.body.email ||  !req.body.password ||  !req.body.collegeID) {
+
+    console.log(' ::: ' + req.body.email + ' ::: ' + req.body.name + ' ::: ' + req.body.password + ' ::: ' + req.body.confirmPassword + ' ::: ' + req.body.collegeID + ' ::: ' + req.body.confirmCollegeID);
+
+
+    if(!req.body.name || !req.body.email ||  !req.body.password || !req.body.confirmPassword || !req.body.collegeID || !req.body.confirmCollegeID) {
         res.render('error', {
             heading: 'Sorry',
-            title: 'Credential incorrect',
+            title: 'Credentials incorrect',
             body: 'Please provide all details'
         });
     }
 
     else {
-        // console.log('\n req.body.name || !req.body.email ||  !req.body.password ||  !req.body.collegeID : ' + req.body.name  + ' : ' + req.body.username  + ' : ' + req.body.email  + ' : ' + req.body.password  + ' : ' + req.body.collegeID);
-        console.log("OKAY");
+
+        req.session.email = req.body.email;
+        req.session.password = req.body.password;
+        res.end('done');
+
+
+        // Validation
         
+        /*
+        req.check('email', 'Invalid Email Address').isEmail();
+        req.check('password', 'Password doesn\'t match').isLength({min: 4}).equals(req.body.confirmPassword);
+        req.check('collegeID', 'Invalid College ID').isLength({min: 10}).equals(req.body.confirmCollegeID);
+        */
+
+        
+        /*
+        var errors = req.validationErrors();
+        if(errors) {
+            req.session.errors = errors;
+            req.session.success = false;
+        }
+        else {
+            req.session.errors = null;
+            req.session.success = true;
+        }
+        */
+
+
+
+
+        /*
         var sql = 'insert into user (name, email, password, collegeID) values ?'
         var values = [
             [req.body.name, req.body.email, req.body.password, req.body.collegeID]
@@ -61,8 +77,10 @@ router.post('/', function(req, res, next) {
                 
         });
 
+        */
 
-        // res.render('okay');
+
+
     }
 });
 

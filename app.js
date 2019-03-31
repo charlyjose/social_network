@@ -3,7 +3,26 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mysql = require('mysql');
+var expressValidator = require('express-validator');
+var expressSession = require('express-session');
+// var bodyParser = require('body-parser');
+
+
+
+
+/*
+var connect = require('connect')
+var errorhandler = require('errorhandler')
+var notifier = require('node-notifier')
+
+var app = connect();
+
+if (process.env.NODE_ENV === 'development') {
+  // only use in development
+  app.use(errorhandler({log: errorNotification}))
+}
+*/
+
 
 
 var appJS = require('./routes/appJS');
@@ -15,6 +34,8 @@ var indexRouter = require('./routes/index');
 var signupRouter = require('./routes/signup');
 var loginRouter = require('./routes/login');
 var homeRouter = require('./routes/home');
+
+var logoutRouter = require('./routes/logout'); 
 
 var forgotPasswordRouter = require('./routes/forgotPassword');
 var resetPasswordRouter = require('./routes/resetPassword');
@@ -34,8 +55,10 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'views')));
+app.use(expressSession({ secret: 'I have a duck, who\'s name is duckey', saveUninitialized: false, resave: false }));
 
 
 
@@ -54,6 +77,7 @@ app.use('/signup', signupRouter);
 
 app.use('/login', loginRouter);
 app.use('/signin', loginRouter);
+app.use('/logout', logoutRouter);
 
 app.use('/forgotpassword', forgotPasswordRouter);
 app.use('/reset-password', resetPasswordRouter);
