@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
     // Chk if logged in
     if(req.session.email){
         // find the corresponding user from the database
-        res.render('profile'); // actually /feeds
+        res.redirect('/profile'); // actually /feeds
     }
     else {
         res.render('home');

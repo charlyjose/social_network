@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 
-router.get('/', function(req, res, next) {
-    if(req.session.email) {
+router.get('/', function (req, res, next) {
+    if (req.session.email) {
         // get imformation from database for the logged in user
-        res.render('profile'); //feeds actually
+        res.redirect('/profile'); //feeds actually
     }
     else {
         res.render('sign-in');
@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.post('/', function(req, res, next) {
+router.post('/', function (req, res, next) {
 
 });
 

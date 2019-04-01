@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
             console.log('ERROR: ' + err);
         }
         else {
-            res.redirect('/signup');
+            res.redirect('/');
         }
     });
 

@@ -5,44 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressValidator = require('express-validator');
 var expressSession = require('express-session');
-// var bodyParser = require('body-parser');
-
-
-
-
-/*
-var connect = require('connect')
-var errorhandler = require('errorhandler')
-var notifier = require('node-notifier')
-
-var app = connect();
-
-if (process.env.NODE_ENV === 'development') {
-  // only use in development
-  app.use(errorhandler({log: errorNotification}))
-}
-*/
-
-
-
-var appJS = require('./routes/appJS');
-var appCSS = require('./routes/appCSS');
-var favic = require('./routes/favic');
-var usnLogo = require('./routes/usnLogo');
-
-var signupRouter = require('./routes/signup');
-var loginRouter = require('./routes/login');
-var homeRouter = require('./routes/home');
-
-var logoutRouter = require('./routes/logout'); 
-
-var forgotPasswordRouter = require('./routes/forgotPassword');
-var resetPasswordRouter = require('./routes/resetPassword');
-var profileRouter = require('./routes/profile');
-var resetUserRouter = require('./routes/resetUser');
-var resetPassRouter = require('./routes/resetPass');
-var resetContactsRouter = require('./routes/resetContacts');
-var deleteAccRouter = require('./routes/deleteAcc');
 
 
 var app = express();
@@ -60,11 +22,33 @@ app.use(express.static(path.join(__dirname, 'views')));
 app.use(expressSession({ secret: 'I have a duck, who\'s name is duckey', saveUninitialized: false, resave: false }));
 
 
+// Router Specifications
+var appJS = require('./routes/appJS');
+var appCSS = require('./routes/appCSS');
+var favic = require('./routes/favic');
+var usnLogo = require('./routes/usnLogo');
 
-app.use('/app.js', appJS);
-app.use('/app.css', appCSS);
-app.use('/favicon.ico', favic);
-app.use('/usnlogo.jpeg', usnLogo);
+var signupRouter = require('./routes/signup');
+var loginRouter = require('./routes/login');
+var homeRouter = require('./routes/home');
+
+var logoutRouter = require('./routes/logout');
+
+var forgotPasswordRouter = require('./routes/forgotPassword');
+var resetPasswordRouter = require('./routes/resetPassword');
+var profileRouter = require('./routes/profile');
+var resetUserRouter = require('./routes/resetUser');
+var resetPassRouter = require('./routes/resetPass');
+var resetContactsRouter = require('./routes/resetContacts');
+var deleteAccRouter = require('./routes/deleteAcc');
+
+
+// Routers
+
+// app.use('/app.js', appJS);
+// app.use('/app.css', appCSS);
+// app.use('/favicon.ico', favic);
+// app.use('/usnlogo.jpeg', usnLogo);
 
 // Home Page
 app.use('/', homeRouter);
@@ -95,13 +79,13 @@ app.use('/delete-account', deleteAccRouter);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
