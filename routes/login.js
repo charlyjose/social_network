@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
         res.render('profile'); //feeds actually
     }
     else {
-        res.redirect('/signin');
+        res.render('sign-in');
     }
 
 });
