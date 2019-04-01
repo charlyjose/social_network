@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
         res.render('profile'); // actually /feeds
     }
     else {
-        res.redirect('/signin');
+        res.render('home');
     }
 });
 
