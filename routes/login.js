@@ -5,10 +5,10 @@ var mysql = require('mysql');
 router.get('/', function(req, res, next) {
     if(req.session.email) {
         // get imformation from database for the logged in user
-        res.render('profile');
+        res.render('profile'); //feeds actually
     }
     else {
-        res.render('home');
+        res.redirect('/signin');
     }
 
 });
