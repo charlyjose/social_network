@@ -3,9 +3,7 @@ var router = express.Router();
 var mysql = require('mysql');
 
 router.get('/', function(req, res, next) {
-    res.render('login', {
-        title: 'Login'
-    });
+    res.render('sign-in');
 });
 
 module.exports = router;

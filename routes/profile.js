@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
     }
 
     else {
-        res.redirect('/signup');
+        res.redirect('/signin');
     }
 
 

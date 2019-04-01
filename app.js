@@ -30,7 +30,6 @@ var appCSS = require('./routes/appCSS');
 var favic = require('./routes/favic');
 var usnLogo = require('./routes/usnLogo');
 
-var indexRouter = require('./routes/index');
 var signupRouter = require('./routes/signup');
 var loginRouter = require('./routes/login');
 var homeRouter = require('./routes/home');
@@ -67,14 +66,24 @@ app.use('/app.css', appCSS);
 app.use('/favicon.ico', favic);
 app.use('/usnlogo.jpeg', usnLogo);
 
+// Home Page
 app.use('/', homeRouter);
 app.use('/home', homeRouter);
+
+// User Profile
 app.use('/profile', profileRouter);
 
+// User feeds
+// app.use('/feeds', feedsRouter);
+
+// Signup
 app.use('/signup', signupRouter);
+
+// Signin
 app.use('/login', loginRouter);
 app.use('/signin', loginRouter);
 
+// Logout
 app.use('/logout', logoutRouter);
 
 app.use('/forgotpassword', forgotPasswordRouter);
