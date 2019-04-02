@@ -30,9 +30,11 @@ router.post('/', function (req, res, next) {
 
     if (!req.body.name || !req.body.email || !req.body.password || !req.body.confirmPassword || !req.body.collegeID || !req.body.confirmCollegeID) {
         res.render('error', {
+            title: 'USN | SignUp Error',
             heading: 'Sorry',
-            title: 'Credentials incorrect',
-            body: 'Please provide all details'
+            subtitle: 'Credentials incorrect',
+            body: 'Please provide all details',
+            returnLink: '/signup'
         });
     }
 
@@ -42,6 +44,7 @@ router.post('/', function (req, res, next) {
         req.session.password = req.body.password;
         res.end('done');
 
+        console.log("SESSION::::: " + req.session.email);
 
         // Validation
 

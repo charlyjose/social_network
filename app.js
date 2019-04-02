@@ -91,11 +91,13 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  res.status(err.status || 404);
   res.render('error', {
+    title: 'USN | Error 404',
     heading: '404',
-    title: 'Page not found',
-    body: 'The page you are looking for might have been removed.'
+    subtitle: 'Page not found',
+    body: 'The page you are looking for might have been removed.',
+    returnLink: 'home'
   });
 });
 
