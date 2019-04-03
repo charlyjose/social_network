@@ -15,7 +15,7 @@
 
 	<script>
 
-
+/*
 		var passID = 0;
 		var passP = 0;
 		function checkID(input) {
@@ -44,6 +44,7 @@
 		}
 
 
+*/
 
 
 		function ShowPass() {
@@ -63,7 +64,7 @@
 		$(document).ready(function () {
 			var name, email, password, confirmPassword, collegeID, confirmCollegeID;
 
-			if (passID === 1 && passP === 1) {
+			//if (passID === 1 && passP === 1) {
 				$("#submit").click(function () {
 					name = $("#name").val();
 					email = $("#email").val();
@@ -89,8 +90,9 @@
 							window.location.href = "/profile"; // actually feeds
 						}
 					});
-				}
+				
 			});
+		//}
 		});
 
 	</script>
