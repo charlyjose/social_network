@@ -92,7 +92,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 404);
-  res.render('error', {
+  res.render('messageBoard', {
     title: 'USN | Error 404',
     heading: '404',
     subtitle: 'Page not found',

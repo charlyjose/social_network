@@ -29,12 +29,12 @@ router.post('/', function (req, res, next) {
 
 
     if (!req.body.name || !req.body.email || !req.body.password || !req.body.confirmPassword || !req.body.collegeID || !req.body.confirmCollegeID) {
-        res.render('error', {
+        res.render('messageBoard', {
             title: 'USN | SignUp Error',
             heading: 'Sorry',
             subtitle: 'Credentials incorrect',
             body: 'Please provide all details',
-            returnLink: '/signup'
+            returnLink: 'signup'
         });
     }
 
