@@ -6,11 +6,8 @@ var db = require('../connectDB');   //rqd
 
 // var app = express();
 
-
-
 router.get('/', function (req, res, next) {
     res.render('sign-up');
-    // req.session.errors = null;
 });
 
 router.get('/favicon.ico', function (req, res, next) {
@@ -18,31 +15,24 @@ router.get('/favicon.ico', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-
-    console.log(' ::: ' + req.body.email + ' ::: ' + req.body.name + ' ::: ' + req.body.password + ' ::: ' + req.body.confirmPassword + ' ::: ' + req.body.collegeID + ' ::: ' + req.body.confirmCollegeID);
-
+    // console.log(' ::: ' + req.body.email + ' ::: ' + req.body.name + ' ::: ' + req.body.password + ' ::: ' + req.body.confirmPassword + ' ::: ' + req.body.collegeID + ' ::: ' + req.body.confirmCollegeID);
 
     if (!req.body.name || !req.body.email || !req.body.password || !req.body.confirmPassword || !req.body.collegeID || !req.body.confirmCollegeID) {
-        res.render('error', {
+        res.render('messageBoard', {
+            title: 'USN | Sign Up Error',
             heading: 'Sorry',
-            title: 'Credentials incorrect',
-            body: 'Please provide all details'
+            subtitle: 'The account requirements are not satisfied.',
+            body: 'Please provide all details.',
+            returnLink: 'signup'
         });
     }
-
     else {
-
-
-
-
+        var session;
 
         // Validation
-
-
         req.check('email', 'Invalid Email Address').isEmail();
         req.check('password', 'Password doesn\'t match').isLength({ min: 4 }).equals(req.body.confirmPassword);
         req.check('collegeID', 'Invalid College ID').isLength({ min: 10 }).equals(req.body.confirmCollegeID);
-
 
         var errors = req.validationErrors();
         if (errors) {
@@ -70,8 +60,8 @@ router.post('/', function (req, res, next) {
         }
 
 
-        console.log(JSON.stringify(errors) + req.session.success + ':  req.session.errors : ' + ' : req.session.success : \n');
-        console.log('\n\n' + sendConfirm + '\n\n\n');
+        // console.log(JSON.stringify(errors) + req.session.success + ':  req.session.errors : ' + ' : req.session.success : \n');
+        // console.log('\n\n' + sendConfirm + '\n\n\n');
 
         /*
         
@@ -84,40 +74,33 @@ router.post('/', function (req, res, next) {
           
           */
 
-        
+        // All informations correct to policy
         if (sendConfirm === '') {
             req.session.email = req.body.email;
             req.session.password = req.body.password;
-            res.end('done');
-        }
+            session = req.session.email;
 
+            // Adding user
+            var sql = 'insert into user (name, email, password, collegeID, session) values ?'
+            var values = [
+                [req.body.name, req.body.email, req.body.password, req.body.collegeID, session]
+            ];
+            db.query(sql, [values], function (err, results, fields) {
+                if (err) {
+                    console.log('\n\nDB ERROR: ' + err);
+                }
+                else {
+                    // Account creation successful
+                    res.end('done');
+                }
+            });
+        }
+        // Account requirements are not satisfied
         else {
             res.send(sendConfirm);
         }
-
-
-
-        /*
-        var sql = 'insert into user (name, email, password, collegeID) values ?'
-        var values = [
-            [req.body.name, req.body.email, req.body.password, req.body.collegeID]
-        ];
-        db.query(sql, [values], function(err, results, fields) {
-            if(err) {
-                console.log('\n\nDB ERROR: ' + err);
-            }
-            else {
-                res.redirect('profile');
-            }
-                
-        });
-        */
-
-
-
     }
 });
-
 
 
 module.exports = router;
