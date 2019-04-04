@@ -1,7 +1,9 @@
+*
+*
 ---------------------------------------------------------------------------------------
 Wednesday, April 3, 2019 10:17:06 PM
 ------------------------------------
-
+*
 1. Validation moved to server-side
 2. FIXED bugs in frontend   [/views/sign-up.ejs]
 3. FIXED bugs in server-side    [/routes/signup.js]
@@ -10,6 +12,15 @@ Wednesday, April 3, 2019 10:17:06 PM
                 1. /routes/signup.js
                 2. /views/sign-up.ejs
                 3. CHANGELOG.txt
-
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------
+*
+*
+Thursday, April 4, 2019 11:36:35 PM
+------------------------------------
+*
+1. Updated database schema, added default 0 to session column in user table
+*
 Timestamp generated from Windows PowerShell
 ---------------------------------------------------------------------------------------
