@@ -53,3 +53,18 @@ Saturday, April 6, 2019 9:22:02 AM
 *
 Timestamp generated from Windows PowerShell
 ---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Saturday, April 6, 2019 2:46:35 PM
+------------------------------------
+*
+1. Fixed bugs in frontend   [/views/sign-up.ejs]
+2. Fixed bugs in server-side    [/routes/signup.js]
+3. Edited files:
+*                1. /views/sign-up.ejs
+*                2. /routes/signup.js
+*                3. CHANGELOG.txt
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------

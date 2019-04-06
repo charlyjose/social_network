@@ -15,7 +15,7 @@ router.get('/favicon.ico', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    // console.log(' ::: ' + req.body.email + ' ::: ' + req.body.name + ' ::: ' + req.body.password + ' ::: ' + req.body.confirmPassword + ' ::: ' + req.body.collegeID + ' ::: ' + req.body.confirmCollegeID);
+    console.log(' ::: ' + req.body.email + ' ::: ' + req.body.name + ' ::: ' + req.body.password + ' ::: ' + req.body.confirmPassword + ' ::: ' + req.body.collegeID + ' ::: ' + req.body.confirmCollegeID);
 
     if (!req.body.name || !req.body.email || !req.body.password || !req.body.confirmPassword || !req.body.collegeID || !req.body.confirmCollegeID) {
         res.render('messageBoard', {
@@ -28,8 +28,11 @@ router.post('/', function (req, res, next) {
     }
     else {
         var session;
+        var sendConfirm = '';
 
-        // Validation
+        /*
+        // Server side validation
+        req.check('name', 'Name should contain 4 letters').isLength({ min: 3 });
         req.check('email', 'Invalid Email Address').isEmail();
         req.check('password', 'Password doesn\'t match').isLength({ min: 4 }).equals(req.body.confirmPassword);
         req.check('collegeID', 'Invalid College ID').isLength({ min: 10 }).equals(req.body.confirmCollegeID);
@@ -43,62 +46,77 @@ router.post('/', function (req, res, next) {
             req.session.errors = null;
             req.session.success = true;
         }
+        */
 
-        var sendConfirm = '';
 
-        for (var i = 0; i < errors.length; ++i) {
-            if (errors[i].param === "email") {
-                sendConfirm += 'e';
+        // check if Email ID is taken
+        var sql = 'select email from user where email like ?';
+        var values = [
+            [req.body.email]
+        ];
+
+        db.query(sql, [values], function (err, results, fields) {
+            if (err) {
+                console.log('\n\nDB ERROR: ' + err);
             }
-            if (errors[i].param === "password") {
-                sendConfirm += 'p';
+            else if (results.length == 0) {
+                // Email ID is okay
+
+                // check if College ID is taken
+                var sql = 'select collegeID from user where collegeID like ?';
+                var values = [
+                    [req.body.collegeID]
+                ];
+
+                db.query(sql, [values], function (err, results, fields) {
+                    if (err) {
+                        console.log('\n\nDB ERROR: ' + err);
+                    }
+                    else if (results.length == 0) {
+                        // College ID is okay
+
+                        req.session.email = req.body.email;
+                        req.session.password = req.body.password;
+                        session = req.session.email;
+
+                        // Creating user account
+                        var sql = 'insert into user (name, email, password, collegeID, session) values ?'
+                        var values = [
+                            [req.body.name, req.body.email, req.body.password, req.body.collegeID, session]
+                        ];
+
+                        db.query(sql, [values], function (err, results, fields) {
+                            if (err) {
+                                console.log('\n\nDB ERROR: ' + err);
+                            }
+                            else {
+                                // Account creation successful
+                                sendConfirm += "done";
+                                console.log(sendConfirm);
+                                //res.send(sendConfirm);
+                                res.redirect('/profile');
+                            }
+                        });
+                    }
+                    else {
+                        // College ID is taken
+                        console.log("CollegeID taken");
+                        sendConfirm += "c";
+                        console.log(sendConfirm);
+                        //res.send(sendConfirm);
+                        res.render('sign-up');
+                    }
+                });
             }
-            if (errors[i].param === "collegeID") {
-                sendConfirm += 'c';
+            else {
+                // Email ID is taken
+                console.log("Email taken");
+                sendConfirm += "e";
+                console.log(sendConfirm);
+                //res.send(sendConfirm);
+                res.render('sign-up');
             }
-
-        }
-
-
-        // console.log(JSON.stringify(errors) + req.session.success + ':  req.session.errors : ' + ' : req.session.success : \n');
-        // console.log('\n\n' + sendConfirm + '\n\n\n');
-
-        /*
-        
-               if(req.body.password != req.body.confirmPassword) {
-                   res.send('p');
-               }
-               if(req.body.collegeID != req.body.confirmCollegeID) {
-                   res.send('c');
-               }
-          
-          */
-
-        // All informations correct to policy
-        if (sendConfirm === '') {
-            req.session.email = req.body.email;
-            req.session.password = req.body.password;
-            session = req.session.email;
-
-            // Adding user
-            var sql = 'insert into user (name, email, password, collegeID, session) values ?'
-            var values = [
-                [req.body.name, req.body.email, req.body.password, req.body.collegeID, session]
-            ];
-            db.query(sql, [values], function (err, results, fields) {
-                if (err) {
-                    console.log('\n\nDB ERROR: ' + err);
-                }
-                else {
-                    // Account creation successful
-                    res.end('done');
-                }
-            });
-        }
-        // Account requirements are not satisfied
-        else {
-            res.send(sendConfirm);
-        }
+        });
     }
 });
 

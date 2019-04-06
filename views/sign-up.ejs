@@ -16,15 +16,15 @@
 	<script>
 
 		/*
-		
+
 		document.getElementById("submit").addEventListener("click", function(event){
 		  event.preventDefault()
 		});
-		
-		
+
+
 				var passID = 0;
 				var passP = 0;
-		
+
 				function checkID(input) {
 					passID = 0;
 					if (input.value != document.getElementById('collegeID').value) {
@@ -36,8 +36,8 @@
 						passID = 1;
 					}
 				}
-		
-		
+
+
 				function checkPass(input) {
 					passP = 0;
 					if (input.value != document.getElementById('password').value) {
@@ -49,133 +49,133 @@
 						passP = 1;
 					}
 				}
-		
-		
-*/		
-		
+
+
+*/
 
 
 
 
 
-/*
 
-				function ShowPass() {
-					var x = document.getElementById("password");
-					var y = document.getElementById("confirmPassword");
-		
-					if (x.type === "password" && y.type === "password") {
-						x.type = "text";
-						y.type = "text";
-					} else {
-						x.type = "password";
-						y.type = "password";
-					}
-				}
+		/*
 
-*/				
+						function ShowPass() {
+							var x = document.getElementById("password");
+							var y = document.getElementById("confirmPassword");
 
+							if (x.type === "password" && y.type === "password") {
+								x.type = "text";
+								y.type = "text";
+							} else {
+								x.type = "password";
+								y.type = "password";
+							}
+						}
 
-
-
-
-/*		
-				$(document).ready(function () {
-					var name, email, password, confirmPassword, collegeID, confirmCollegeID;
-		
-						$("#submit").click(function () {
-							name = $("#name").val();
-							email = $("#email").val();
-							password = $("#password").val();
-							confirmPassword = $("#confirmPassword").val();
-							collegeID = $("#collegeID").val();
-							confirmCollegeID = $("#confirmCollegeID").val();
-		
-							// RESTful API call
-							$.post("/signup", {
-								name: name,
-								email: email,
-								password: password,
-								confirmPassword: confirmPassword,
-								collegeID: collegeID,
-								confirmCollegeID: confirmCollegeID
-		
-							}, function (data) {
-								if (data === "done") {
-									//redirect to admin page
-									window.location.href = "/profile"; // actually feeds
-								}
-							});
-					});
-				});
-	
 		*/
 
 
 
 
 
+		/*
+						$(document).ready(function () {
+							var name, email, password, confirmPassword, collegeID, confirmCollegeID;
 
-		$(document).ready(function () {
-			var name, email, password, confirmPassword, collegeID, confirmCollegeID;
+								$("#submit").click(function () {
+									name = $("#name").val();
+									email = $("#email").val();
+									password = $("#password").val();
+									confirmPassword = $("#confirmPassword").val();
+									collegeID = $("#collegeID").val();
+									confirmCollegeID = $("#confirmCollegeID").val();
 
-			// Show password
-            $('#check').click(function(){
-				$(this).is(':checked') ? $('#password').attr('type', 'text') : $('#password').attr('type', 'password');
-				$(this).is(':checked') ? $('#confirmPassword').attr('type', 'text') : $('#confirmPassword').attr('type', 'password');
-			});
-			
+									// RESTful API call
+									$.post("/signup", {
+										name: name,
+										email: email,
+										password: password,
+										confirmPassword: confirmPassword,
+										collegeID: collegeID,
+										confirmCollegeID: confirmCollegeID
+
+									}, function (data) {
+										if (data === "done") {
+											//redirect to admin page
+											window.location.href = "/profile"; // actually feeds
+										}
+									});
+							});
+						});
+
+				*/
 
 
 
-			$("#submit").click(function () {
-				name = $("#name").val();
-				email = $("#email").val();
-				password = $("#password").val();
-				confirmPassword = $("#confirmPassword").val();
-				collegeID = $("#collegeID").val();
-				confirmCollegeID = $("#confirmCollegeID").val();
 
-				// RESTful API call
-				$.post("/signup", {
-					name: name,
-					email: email,
-					password: password,
-					confirmPassword: confirmPassword,
-					collegeID: collegeID,
-					confirmCollegeID: confirmCollegeID
-				}, function (data) {
-					if (data === "done") {
-						//redirect to profile page
-						window.location.href = "/profile";
-					}
-					else if(data === "e") {
-						alert("Email ID is wrong")
-					}
-					else if(data === "p") {
-						alert("Passwords doesn't match")
-					}
-					else if(data === "c") {
-						alert("College ID doesn't match");
-					}
-					else if(data === "ep") {
-						alert("Email ID and Passwords are wrong");
-					}
-					else if(data === "ec") {
-						alert("Email ID and College ID are wrong");
-					}
-					else if(data === "pc") {
-						alert("Passwords and College ID are wrong");
-					}
-					else if(data === "epc") {
-						alert("Email ID, Passwords and College ID are wrong");
-					}
+
+		/*
+				$(document).ready(function () {
+					var name, email, password, confirmPassword, collegeID, confirmCollegeID;
+
+					// Show password
+					$('#check').click(function () {
+						$(this).is(':checked') ? $('#password').attr('type', 'text') : $('#password').attr('type', 'password');
+						$(this).is(':checked') ? $('#confirmPassword').attr('type', 'text') : $('#confirmPassword').attr('type', 'password');
+					});
+
+
+
+
+					$("#submit").click(function () {
+						name = $("#name").val();
+						email = $("#email").val();
+						password = $("#password").val();
+						confirmPassword = $("#confirmPassword").val();
+						collegeID = $("#collegeID").val();
+						confirmCollegeID = $("#confirmCollegeID").val();
+
+						// RESTful API call
+						$.post("/signup", {
+							name: name,
+							email: email,
+							password: password,
+							confirmPassword: confirmPassword,
+							collegeID: collegeID,
+							confirmCollegeID: confirmCollegeID
+						}, function (data) {
+							if (data === "done") {
+								//redirect to profile page
+								window.location.href = "/profile";
+							}
+							else if (data === "e") {
+								alert("Email ID is wrong")
+							}
+							else if (data === "p") {
+								alert("Passwords doesn't match")
+							}
+							else if (data === "c") {
+								alert("College ID doesn't match");
+							}
+							else if (data === "ep") {
+								alert("Email ID and Passwords are wrong");
+							}
+							else if (data === "ec") {
+								alert("Email ID and College ID are wrong");
+							}
+							else if (data === "pc") {
+								alert("Passwords and College ID are wrong");
+							}
+							else if (data === "epc") {
+								alert("Email ID, Passwords and College ID are wrong");
+							}
+						});
+					});
 				});
-			});
-		});
 
 
-
+		*/
 	</script>
 
 </head>
@@ -199,150 +199,52 @@
 							<div class="card-body">
 								<div class="m-sm-4">
 
+									<!--- form-->
+									<form id="validation-form" method="POST">
 
-
-								
-
-
-
-
-
-
-<!-----
-									
-									<form role="form" data-toggle="validator">
 										<div class="form-group">
-											<label><b>Name</b></label>
-											<input class="form-control form-control-lg" type="text" name="name"
-												id="name" placeholder="Name" required />
+											<label class="form-label">Name</label>
+											<input type="text" class="form-control" name="name" placeholder="Name" required>
+											<small class="form-text text-muted">Name should be atleast 3 letters long</small>
 										</div>
 										<div class="form-group">
-											<label><b>Email</b></label>
-											<input class="form-control form-control-lg" type="email" name="email"
-												id="email" placeholder="Email" required />
+											<label class="form-label">Email</label>
+											<input type="text" class="form-control" name="email" placeholder="Email" required>
+											<small class="form-text text-muted">A valid email for contact</small>
 										</div>
 
 										<div class="form-group">
-											<label><b>College ID</b></label>
-											<input class="form-control form-control-lg" type="text" name="collegeID"
-												id="collegeID" placeholder="College ID" required />
+											<label class="form-label">College ID</label>
+											<input type="text" class="form-control" name="collegeID" placeholder="College ID" required>
+											<small class="form-text text-muted">College ID of form the MUT16CS001</small>
 										</div>
 										<div class="form-group">
-											<label><b>Confirm College ID</b></label>
-											<input class="form-control form-control-lg" type="text"
-												name="confirmCollegeID" id="confirmCollegeID" placeholder="College ID"
-												oninput="checkID(this)" required />
-										</div>
-
-										<div class="form-group">
-											<label><b>Password</b></label>
-											<input class="form-control form-control-lg" type="password" name="password"
-												id="password" placeholder="Password" required />
+											<label class="form-label">College ID</label>
+											<input type="text" class="form-control" name="confirmCollegeID" placeholder="Confirm College ID"
+												required>
 										</div>
 										<div class="form-group">
-											<label><b>Confirm Password</b></label>
-											<input class="form-control form-control-lg" type="password"
-												name="confirmPassword" id="confirmPassword" placeholder="Password"
-												data-toggle="password" oninput="checkPass(this)" required />
+											<label class="form-label">Password</label>
+											<input type="password" class="form-control" name="password" id="password" placeholder="Password"
+												required>
+											<small class="form-text text-muted">Password should contain atleast 4 characters</small>
 										</div>
-
+										<div class="form-group">
+											<label class="form-label">Confirm password</label>
+											<input type="password" class="form-control" name="confirmPassword" id="confirmPassword"
+												placeholder="Confirm password" required>
+										</div>
 										<label class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input" data-toggle="modal"
-												data-target="#coloredModalDanger" onclick="ShowPass()">
-											<span class="custom-control-label">Show Password</span>
+											<input type='checkbox' class="custom-control-input" id='toggle' value='0'
+												onchange='togglePassword(this);'>
+											<span class="custom-control-label" id="toggleText">Show Password</span>
 										</label>
 
-										<div class="modal modal-colored modal-danger fade" id="coloredModalDanger"
-											tabindex="-1" role="dialog" aria-hidden="true">
-											<div class="modal-dialog modal-dialog-centered" role="document">
-												<div class="modal-content">
-													<div class="modal-header">
-														<h5 class="modal-title">Security Alert!</h5>
-														<button type="button" class="close" data-dismiss="modal"
-															aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-													</div>
-													<div class="modal-body m-3">
-														<p class="mb-0">Use this feature if someone's not around you.
-														</p>
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-light"
-															data-dismiss="modal">Close</button>
-													</div>
-												</div>
-											</div>
-										</div>
-									
-										<div class="text-center mt-3">
-											<button class="btn btn-lg btn-primary" id="submit">Sign up</button>
-										</div>
-
+										<center>
+											<button type="submit" class="btn btn-primary" id="submit">Sign Up</button>
+										</center>
 									</form>
-
------>						
-
-
-
-<!--- form-->
-<div class="validatedForm">
-
-<div class="form-group">
-	<label><b>Name</b></label>
-	<input class="form-control form-control-lg" type="text" name="name"
-		id="name" placeholder="Name" required />
-</div>
-<div class="form-group">
-	<label><b>Email</b></label>
-	<input class="form-control form-control-lg" type="email" name="email"
-		id="email" placeholder="Email" required />
-</div>
-<div class="form-group">
-	<label><b>College ID</b></label>
-	<input class="form-control form-control-lg" type="text" name="collegeID"
-		id="collegeID" placeholder="College ID" required />
-</div>
-<div class="form-group">
-	<label><b>Confirm College ID</b></label>
-	<input class="form-control form-control-lg" type="text"
-		name="confirmCollegeID" id="confirmCollegeID" placeholder="College ID"
-		oninput="checkID(this)" required />
-</div>
-
-<div class="form-group">
-	<label><b>Password</b></label>
-	<input class="form-control form-control-lg" type="password" name="password"
-		id="password" placeholder="Password" required />
-</div>
-<div class="form-group">
-	<label><b>Confirm Password</b></label>
-	<input class="form-control form-control-lg" type="password"
-		name="confirmPassword" id="confirmPassword" placeholder="Password"
-		data-toggle="password" oninput="checkPass(this)" required />
-</div>
-
-<label class="custom-control custom-checkbox">
-	<input type="checkbox" class="custom-control-input" data-toggle="modal"
-		data-target="#coloredModalDanger" id="check" onclick="ShowPass()">
-	<span class="custom-control-label">Show Password</span>
-</label>
-
-<div class="text-center mt-3">
-	<button type="submit" class="btn btn-lg btn-primary" id="submit">Sign up</button>
-</div>
-
-
-</div>
-<!--- form-->
-
-
-
-
-
-
-
-
+									<!--- form-->
 
 
 									<br>
@@ -351,11 +253,6 @@
 											Already have an account? <a href="/signin">Signin here</a>.
 										</small>
 									</center>
-
-
-
-
-
 
 
 
@@ -370,6 +267,261 @@
 	</main>
 
 	<script src="js/app.js"></script>
+
+
+	<script>
+
+
+
+
+
+
+		document.addEventListener("DOMContentLoaded", function (event) {
+
+			// Initialize Select2 select box
+			$('select[name="validation-select2"]').select2({
+				allowClear: true,
+				placeholder: 'Select gear...',
+			}).change(function () {
+				$(this).valid();
+			});
+			// Initialize Select2 multiselect box
+			$('select[name="validation-select2-multi"]').select2({
+				placeholder: 'Select gear...',
+			}).change(function () {
+				$(this).valid();
+			});
+			// Trigger validation on tagsinput change
+			$('input[name="validation-bs-tagsinput"]').on('itemAdded itemRemoved', function () {
+				$(this).valid();
+			});
+			// Initialize validation
+			$('#validation-form').validate({
+				ignore: '.ignore, .select2-input',
+				focusInvalid: false,
+				rules: {
+					/////////////////////////////////////
+
+					'name': {
+						required: true,
+						minlength: 3,
+						maxlength: 30
+					},
+					'email': {
+						required: true,
+						email: true
+					},
+					'collegeID': {
+						required: true,
+						minlength: 10,
+						maxlength: 10
+					},
+					'confirmCollegeID': {
+						required: true,
+						minlength: 10,
+						maxlength: 10,
+						equalTo: 'input[name="collegeID"]'
+					},
+					'password': {
+						required: true,
+						minlength: 4,
+						maxlength: 20
+					},
+					'confirmPassword': {
+						required: true,
+						minlength: 4,
+						maxlength: 20,
+						equalTo: 'input[name="password"]'
+					},
+
+					/////////////////////////////////////
+
+					'validation-select': {
+						required: true
+					},
+					'validation-multiselect': {
+						required: true,
+						minlength: 2
+					},
+					'validation-select2': {
+						required: true
+					},
+					'validation-select2-multi': {
+						required: true,
+						minlength: 2
+					},
+					'validation-text': {
+						required: true
+					},
+					'validation-file': {
+						required: true
+					},
+					'validation-radios': {
+						required: true
+					},
+					'validation-radios-custom': {
+						required: true
+					},
+					'validation-checkbox': {
+						required: true
+					},
+					'validation-checkbox-custom': {
+						required: true
+					},
+					'validation-checkbox-group-1': {
+						require_from_group: [1, 'input[name="validation-checkbox-group-1"], input[name="validation-checkbox-group-2"]']
+					},
+					'validation-checkbox-group-2': {
+						require_from_group: [1, 'input[name="validation-checkbox-group-1"], input[name="validation-checkbox-group-2"]']
+					},
+					'validation-checkbox-custom-group-1': {
+						require_from_group: [1, 'input[name="validation-checkbox-custom-group-1"], input[name="validation-checkbox-custom-group-2"]']
+					},
+					'validation-checkbox-custom-group-2': {
+						require_from_group: [1, 'input[name="validation-checkbox-custom-group-1"], input[name="validation-checkbox-custom-group-2"]']
+					}
+				},
+				// Errors
+				errorPlacement: function errorPlacement(error, element) {
+					var $parent = $(element).parents('.form-group');
+					// Do not duplicate errors
+					if ($parent.find('.jquery-validation-error').length) {
+						return;
+					}
+					$parent.append(
+						error.addClass('jquery-validation-error small form-text invalid-feedback')
+					);
+				},
+				highlight: function (element) {
+					var $el = $(element);
+					var $parent = $el.parents('.form-group');
+					$el.addClass('is-invalid');
+					// Select2 and Tagsinput
+					if ($el.hasClass('select2-hidden-accessible') || $el.attr('data-role') === 'tagsinput') {
+						$el.parent().addClass('is-invalid');
+					}
+				},
+				unhighlight: function (element) {
+					$(element).parents('.form-group').find('.is-invalid').removeClass('is-invalid');
+				}
+			});
+		});
+
+
+
+
+
+		$(document).ready(function () {
+			var name, email, password, confirmPassword, collegeID, confirmCollegeID;
+
+			$("#toggle").change(function () {
+				// Check the checkbox state
+				if ($(this).is(':checked')) {
+					// Changing type attribute
+					$("#password").attr("type", "text");
+					$("#confirmPassword").attr("type", "text");
+
+					// Change the Text
+					$("#toggleText").text("Hide Password");
+				} else {
+					// Changing type attribute
+					$("#password").attr("type", "password");
+					$("#confirmPassword").attr("type", "password");
+
+					// Change the Text
+					$("#toggleText").text("Show Password");
+
+				}
+			});
+
+
+
+			/*
+
+
+				$("#submit").click(function () {
+					name = $("#name").val();
+					email = $("#email").val();
+					password = $("#password").val();
+					confirmPassword = $("#password").val();
+					collegeID = $("#collegeID").val();
+					confirmCollegeID = $("#confirmCollegeID").val();
+					
+					// RESTful API call
+					$.post("/signup", {
+						name: name,
+						email: email,
+						password: password,
+						confirmPassword: confirmPassword,
+						collegeID: collegeID,
+						confirmCollegeID: confirmCollegeID
+					}, function (data) {
+						if (data === "done") {
+							//redirect to admin page
+							window.location.href = "/profile";
+						}
+						else if (data === "e") {
+							alert("Email ID is taken");
+						}
+						else if (data === "c") {
+							alert("College ID is taken");
+						}
+						else if (data === "ec") {
+							alert("Email ID and College ID is taken");
+						}
+					});
+				});
+
+
+*/
+
+$("#submit").click(function () {
+
+			
+
+			$.ajax({
+				url: '/users',
+				type: 'POST',
+				cache: false,
+				data: {
+					name: $("#name").val(),
+					email: $("#email").val(),
+					password: $("#password").val(),
+					confirmPassword: $("#confirmPassword").val(),
+					collegeID: $("#collegeID").val(),
+					confirmCollegeID: $("#confirmCollegeID").val()
+				},
+				success: function () {
+					alert('Your submission was successful');
+				},
+				error: function (data) {
+					if (data === "done") {
+						//redirect to admin page
+						window.location.href = "/profile";
+					}
+					else if (data === "e") {
+						alert("Email ID is taken");
+					}
+					else if (data === "c") {
+						alert("College ID is taken");
+					}
+					else if (data === "ec") {
+						alert("Email ID and College ID is taken");
+					}
+				}
+			});
+
+
+
+		});
+	});
+
+
+
+
+
+
+	</script>
 
 	<svg width="0" height="0" style="position:absolute">
 		<defs>

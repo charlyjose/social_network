@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
+	<link rel="icon" href="images/favicon.ico">
+
+	<title>USN | SignUp</title>
+
+	<link href="css/app.css" rel="stylesheet">
+	<script src="js/jquery-3.3.1.min.js"></script>
+
+	<script>
+
+		/*
+		
+		document.getElementById("submit").addEventListener("click", function(event){
+		  event.preventDefault()
+		});
+		
+		
+				var passID = 0;
+				var passP = 0;
+		
+				function checkID(input) {
+					passID = 0;
+					if (input.value != document.getElementById('collegeID').value) {
+						input.setCustomValidity('College ID Must be Matching.');
+						passID = 0;
+					} else {
+						// input is valid -- reset the error message
+						input.setCustomValidity('');
+						passID = 1;
+					}
+				}
+		
+		
+				function checkPass(input) {
+					passP = 0;
+					if (input.value != document.getElementById('password').value) {
+						input.setCustomValidity('Password Must be Matching.');
+						passP = 0;
+					} else {
+						// input is valid -- reset the error message
+						input.setCustomValidity('');
+						passP = 1;
+					}
+				}
+		
+		
+*/		
+		
+
+
+
+
+
+/*
+
+				function ShowPass() {
+					var x = document.getElementById("password");
+					var y = document.getElementById("confirmPassword");
+		
+					if (x.type === "password" && y.type === "password") {
+						x.type = "text";
+						y.type = "text";
+					} else {
+						x.type = "password";
+						y.type = "password";
+					}
+				}
+
+*/				
+
+
+
+
+
+/*		
+				$(document).ready(function () {
+					var name, email, password, confirmPassword, collegeID, confirmCollegeID;
+		
+						$("#submit").click(function () {
+							name = $("#name").val();
+							email = $("#email").val();
+							password = $("#password").val();
+							confirmPassword = $("#confirmPassword").val();
+							collegeID = $("#collegeID").val();
+							confirmCollegeID = $("#confirmCollegeID").val();
+		
+							// RESTful API call
+							$.post("/signup", {
+								name: name,
+								email: email,
+								password: password,
+								confirmPassword: confirmPassword,
+								collegeID: collegeID,
+								confirmCollegeID: confirmCollegeID
+		
+							}, function (data) {
+								if (data === "done") {
+									//redirect to admin page
+									window.location.href = "/profile"; // actually feeds
+								}
+							});
+					});
+				});
+	
+		*/
+
+
+
+
+
+
+		$(document).ready(function () {
+			var name, email, password, confirmPassword, collegeID, confirmCollegeID;
+
+			// Show password
+      $('#check').click(function(){
+				$(this).is(':checked') ? $('#password').attr('type', 'text') : $('#password').attr('type', 'password');
+				$(this).is(':checked') ? $('#confirmPassword').attr('type', 'text') : $('#confirmPassword').attr('type', 'password');
+			});
+			
+
+
+
+			$("#submit").click(function () {
+				name = $("#name").val();
+				email = $("#email").val();
+				password = $("#password").val();
+				confirmPassword = $("#confirmPassword").val();
+				collegeID = $("#collegeID").val();
+				confirmCollegeID = $("#confirmCollegeID").val();
+
+				// RESTful API call
+				$.post("/signup", {
+					name: name,
+					email: email,
+					password: password,
+					confirmPassword: confirmPassword,
+					collegeID: collegeID,
+					confirmCollegeID: confirmCollegeID
+				}, function (data) {
+					if (data === "done") {
+						//redirect to profile page
+						window.location.href = "/profile";
+					}
+					else if(data === "e") {
+						alert("Email ID is wrong")
+					}
+					else if(data === "p") {
+						alert("Passwords doesn't match")
+					}
+					else if(data === "c") {
+						alert("College ID doesn't match");
+					}
+					else if(data === "ep") {
+						alert("Email ID and Passwords are wrong");
+					}
+					else if(data === "ec") {
+						alert("Email ID and College ID are wrong");
+					}
+					else if(data === "pc") {
+						alert("Passwords and College ID are wrong");
+					}
+					else if(data === "epc") {
+						alert("Email ID, Passwords and College ID are wrong");
+					}
+				});
+			});
+		});
+
+
+
+	</script>
+
+</head>
+
+<body>
+	<main class="main h-100 w-100">
+		<div class="container h-100">
+			<div class="row h-100">
+				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+					<div class="d-table-cell align-middle">
+
+						<div class="text-center mt-4">
+							<img src="images/usnlogo.jpeg" width="15%" height="15%"><br><br>
+							<h1 class="h2">Get started</h1>
+							<p class="lead">
+								Woow! We are excited about getting you in.
+							</p>
+						</div>
+
+						<div class="card">
+							<div class="card-body">
+								<div class="m-sm-4">
+
+
+
+								
+
+
+
+
+
+
+<!-----
+									
+									<form role="form" data-toggle="validator">
+										<div class="form-group">
+											<label><b>Name</b></label>
+											<input class="form-control form-control-lg" type="text" name="name"
+												id="name" placeholder="Name" required />
+										</div>
+										<div class="form-group">
+											<label><b>Email</b></label>
+											<input class="form-control form-control-lg" type="email" name="email"
+												id="email" placeholder="Email" required />
+										</div>
+
+										<div class="form-group">
+											<label><b>College ID</b></label>
+											<input class="form-control form-control-lg" type="text" name="collegeID"
+												id="collegeID" placeholder="College ID" required />
+										</div>
+										<div class="form-group">
+											<label><b>Confirm College ID</b></label>
+											<input class="form-control form-control-lg" type="text"
+												name="confirmCollegeID" id="confirmCollegeID" placeholder="College ID"
+												oninput="checkID(this)" required />
+										</div>
+
+										<div class="form-group">
+											<label><b>Password</b></label>
+											<input class="form-control form-control-lg" type="password" name="password"
+												id="password" placeholder="Password" required />
+										</div>
+										<div class="form-group">
+											<label><b>Confirm Password</b></label>
+											<input class="form-control form-control-lg" type="password"
+												name="confirmPassword" id="confirmPassword" placeholder="Password"
+												data-toggle="password" oninput="checkPass(this)" required />
+										</div>
+
+										<label class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" data-toggle="modal"
+												data-target="#coloredModalDanger" onclick="ShowPass()">
+											<span class="custom-control-label">Show Password</span>
+										</label>
+
+										<div class="modal modal-colored modal-danger fade" id="coloredModalDanger"
+											tabindex="-1" role="dialog" aria-hidden="true">
+											<div class="modal-dialog modal-dialog-centered" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title">Security Alert!</h5>
+														<button type="button" class="close" data-dismiss="modal"
+															aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+													<div class="modal-body m-3">
+														<p class="mb-0">Use this feature if someone's not around you.
+														</p>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-light"
+															data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="text-center mt-3">
+											<button class="btn btn-lg btn-primary" id="submit">Sign up</button>
+										</div>
+
+									</form>
+
+----->						
+
+
+
+<!--- form-->
+<div class="validatedForm">
+
+<div class="form-group">
+	<label><b>Name</b></label>
+	<input class="form-control form-control-lg" type="text" name="name"
+		id="name" placeholder="Name" required />
+</div>
+<div class="form-group">
+	<label><b>Email</b></label>
+	<input class="form-control form-control-lg" type="email" name="email"
+		id="email" placeholder="Email" required />
+</div>
+<div class="form-group">
+	<label><b>College ID</b></label>
+	<input class="form-control form-control-lg" type="text" name="collegeID"
+		id="collegeID" placeholder="College ID" required />
+</div>
+<div class="form-group">
+	<label><b>Confirm College ID</b></label>
+	<input class="form-control form-control-lg" type="text"
+		name="confirmCollegeID" id="confirmCollegeID" placeholder="College ID"
+		oninput="checkID(this)" required />
+</div>
+
+<div class="form-group">
+	<label><b>Password</b></label>
+	<input class="form-control form-control-lg" type="password" name="password"
+		id="password" placeholder="Password" required />
+</div>
+<div class="form-group">
+	<label><b>Confirm Password</b></label>
+	<input class="form-control form-control-lg" type="password"
+		name="confirmPassword" id="confirmPassword" placeholder="Password"
+		data-toggle="password" oninput="checkPass(this)" required />
+</div>
+
+<label class="custom-control custom-checkbox">
+	<input type="checkbox" class="custom-control-input" data-toggle="modal"
+		data-target="#coloredModalDanger" id="check" onclick="ShowPass()">
+	<span class="custom-control-label">Show Password</span>
+</label>
+
+<div class="text-center mt-3">
+	<button type="submit" class="btn btn-lg btn-primary" id="submit">Sign up</button>
+</div>
+
+
+</div>
+<!--- form-->
+
+
+
+
+
+
+
+
+
+
+									<br>
+									<center>
+										<small style="font-size: 1em">
+											Already have an account? <a href="/signin">Signin here</a>.
+										</small>
+									</center>
+
+
+
+
+
+
+
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="js/app.js"></script>
+
+	<svg width="0" height="0" style="position:absolute">
+		<defs>
+			<symbol viewBox="0 0 512 512" id="ion-ios-pulse-strong">
+				<path
+					d="M448 273.001c-21.27 0-39.296 13.999-45.596 32.999h-38.857l-28.361-85.417a15.999 15.999 0 0 0-15.183-10.956c-.112 0-.224 0-.335.004a15.997 15.997 0 0 0-15.049 11.588l-44.484 155.262-52.353-314.108C206.535 54.893 200.333 48 192 48s-13.693 5.776-15.525 13.135L115.496 306H16v31.999h112c7.348 0 13.75-5.003 15.525-12.134l45.368-182.177 51.324 307.94c1.229 7.377 7.397 11.92 14.864 12.344.308.018.614.028.919.028 7.097 0 13.406-3.701 15.381-10.594l49.744-173.617 15.689 47.252A16.001 16.001 0 0 0 352 337.999h51.108C409.973 355.999 427.477 369 448 369c26.511 0 48-22.492 48-49 0-26.509-21.489-46.999-48-46.999z">
+				</path>
+			</symbol>
+		</defs>
+	</svg>
+</body>
+
+</html>
