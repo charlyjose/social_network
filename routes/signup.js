@@ -2,9 +2,6 @@ var express = require('express');   //rqd
 var router = express.Router();      //rqd
 var db = require('../connectDB');   //rqd
 
-// var app = require('../app');
-
-// var app = express();
 
 router.get('/', function (req, res, next) {
     res.render('sign-up');

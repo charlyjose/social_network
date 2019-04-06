@@ -42,7 +42,7 @@ Timestamp generated from Windows PowerShell
 Saturday, April 6, 2019 9:22:02 AM
 ------------------------------------
 *
-1. Update package.json file
+1. Updated package.json file
 2. Added new file feeds.ejs [/views/feeds.ejs]
 3. Added new file write-post.ejs    [/views/write-post.ejs]
 4. Edited files:
@@ -65,6 +65,38 @@ Saturday, April 6, 2019 2:46:35 PM
 *                1. /views/sign-up.ejs
 *                2. /routes/signup.js
 *                3. CHANGELOG.txt
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Saturday, April 6, 2019 2:46:35 PM
+------------------------------------
+*
+1. Added 2 new routes /feeds and /you
+2. Added new file you.js [/routes/you.js]
+3. Added new file feeds.js  [/routes/feeds.js]
+3. Updated profile.js  [/routes/profile.js]
+4. Edited files:
+*                1. /routes/you.js
+*                2. /routes/feeds.js
+*                3. /routes/profile.js
+*                4. CHANGELOG.txt
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Saturday, April 6, 2019 4:41:27 PM
+------------------------------------
+*
+1. Fixed error in feeds.js
+2. Fixed error in you.js
+3. Edited files:
+*                1. /routes/you.js
+*                2. /routes/feeds.js
 *
 Timestamp generated from Windows PowerShell
 ---------------------------------------------------------------------------------------

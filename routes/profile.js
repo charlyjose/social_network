@@ -1,30 +1,83 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express');   //rqd
+var router = express.Router();      //rqd
+var db = require('../connectDB');   //rqd
 
-router.get('/', function(req, res, next) {
-    // chk if session is set
 
-    if(req.session.email) {
-        res.render('profile', {
-            name: 'Name Here',
-            address: 'line1, ' + 'line2, ' + 'line3',
-            connections: '240',
-    
-            onlinenow: '25',
-            onlineToday: '172',
-    
-            newPosts: '43'
-    
+router.get('/', function (req, res, next) {
+    // Check if signed in
+    if (req.session.email) {
+
+        var sql = 'select name, collegeID from user where session like ?';
+        var values = [
+            [req.session.email]
+        ];
+
+        db.query(sql, [values], function (err, results, fields) {
+            if (err) {
+                console.log('\n\nDB ERROR: ' + err);
+            }
+            else if (results.length == 0) {
+                // Session deleted from db
+                res.redirect('/signin');
+            }
+            else {
+                // Session is set in db
+                var Name = results[0].name;
+
+                // Get user details from address table
+                var sql = 'select addressline1, addressline2, city from address where address where collegeID like ?'
+                var values = [
+                    [results[0].collegeID]
+                ];
+                db.query(sql, [values], function (err, results, fields) {
+                    if (err) {
+                        console.log('\n\nDB ERROR: ' + err);
+                    }
+                    else if (results.length == 0) {
+                        // Basics profile is not set
+                        res.redirect('/you');
+                    }
+                    else {
+                        // Basics profile okay
+                        res.render('profile', {
+                            name: Name,
+                            address: results[0].addressline1 + ', ' + results[0].addressline2 + ', ' + results[0].city,
+                            
+                            connections: '240',        
+                            onlinenow: '25',
+                            onlineToday: '172',
+
+                            newPosts: '43'
+        
+                        });
+                    }
+                });
+
+                
+                
+                
+                
+
+
+
+
+
+            }
         });
-    }
 
+
+
+
+
+    }
     else {
+        // Not signed in
         res.redirect('/signin');
     }
 
 
 
-   
+
 });
 
 module.exports = router;

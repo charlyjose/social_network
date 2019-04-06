@@ -42,12 +42,12 @@ CREATE TABLE IF NOT EXISTS `address` (
     `collegeID` varchar(10) NOT NULL,
     `addressline1` varchar(30) NOT NULL,
     `addressline2` varchar(30) NOT NULL,
-    `country` varchar(30) NOT NULL,
     `city` varchar(30) NOT NULL,
+    `country` varchar(30) NOT NULL,    
     `zip` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
+ insert into address (collegeID, addressline1, addressline2, city, country, zip) values("MUT16CS001", "Karimugal", "Karimugal PO", "Ernakulam", "IN","682303");
 # TABLE 3 posts
 
 CREATE TABLE IF NOT EXISTS `posts` (
