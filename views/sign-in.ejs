@@ -33,32 +33,51 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<div class="text-center">
-									</div>
-									<form action="/signin" method="post">
-										<div class="form-group">
-											<label>Email</label>
-											<input class="form-control form-control-lg" type="email" name="email"
-												placeholder="Email" />
-										</div>
-										<div class="form-group">
-											<label>Password</label>
-											<input class="form-control form-control-lg" type="password" name="password"
-												placeholder="Password" />
-											<small>
-												<a href="/forgotPassword">Forgot password?</a>
-											</small>
-											<br>
-											<small style="font-size: 1em">
-												New to USN? <a href="/signup">Create an account</a>.
-											</small>
 
+
+
+									<!--- form-->
+									<form id="validation-form" method="POST">
+
+										<div class="form-group">
+											<label class="form-label">Email</label>
+											<input type="text" class="form-control" name="email" id="email"
+												placeholder="Email" required>
 										</div>
 
-										<div class="text-center mt-3">
-											<button type="submit" class="btn btn-lg btn-primary">Sign in</button>
+										<div class="form-group">
+											<label class="form-label">Password</label>
+											<input type="password" class="form-control" name="password" id="password"
+												placeholder="Password" required>
 										</div>
+										<label class="custom-control custom-checkbox">
+											<input type='checkbox' class="custom-control-input" id='toggle' value='0'>
+											<span class="custom-control-label" id="toggleText">Show Password</span>
+										</label>
+										<small>
+											<a href="/forgotPassword">Forgot password?</a>
+										</small>
+
+										<br>
+
+										<center>
+											<div class="text-center mt-3">
+												<button type="submit" class="btn btn-lg btn-primary">Sign in</button>
+											</div>
+										</center>
+
 									</form>
+									<!--- form-->
+
+									<br />
+
+									<center>
+										<small style="font-size: 1em">
+											New to USN? <a href="/signup">Create an account</a>.
+										</small>
+									</center>
+
+									
 								</div>
 							</div>
 						</div>
@@ -70,6 +89,128 @@
 	</main>
 
 	<script src="js/app.js"></script>
+
+
+	<script>
+
+		document.addEventListener("DOMContentLoaded", function (event) {
+
+			// Initialize Select2 select box
+			$('select[name="validation-select2"]').select2({
+				allowClear: true,
+				placeholder: 'Select gear...',
+			}).change(function () {
+				$(this).valid();
+			});
+			// Initialize Select2 multiselect box
+			$('select[name="validation-select2-multi"]').select2({
+				placeholder: 'Select gear...',
+			}).change(function () {
+				$(this).valid();
+			});
+			// Trigger validation on tagsinput change
+			$('input[name="validation-bs-tagsinput"]').on('itemAdded itemRemoved', function () {
+				$(this).valid();
+			});
+			// Initialize validation
+			$('#validation-form').validate({
+				ignore: '.ignore, .select2-input',
+				focusInvalid: false,
+				rules: {
+					/////////////////////////////////////
+
+					'email': {
+						required: true,
+						email: true
+					},
+
+					'password': {
+						required: true,
+						minlength: 4,
+						maxlength: 20
+					}
+
+					/////////////////////////////////////
+
+				},
+				// Errors
+				errorPlacement: function errorPlacement(error, element) {
+					var $parent = $(element).parents('.form-group');
+					// Do not duplicate errors
+					if ($parent.find('.jquery-validation-error').length) {
+						return;
+					}
+					$parent.append(
+						error.addClass('jquery-validation-error small form-text invalid-feedback')
+					);
+				},
+				highlight: function (element) {
+					var $el = $(element);
+					var $parent = $el.parents('.form-group');
+					$el.addClass('is-invalid');
+					// Select2 and Tagsinput
+					if ($el.hasClass('select2-hidden-accessible') || $el.attr('data-role') === 'tagsinput') {
+						$el.parent().addClass('is-invalid');
+					}
+				},
+				unhighlight: function (element) {
+					$(element).parents('.form-group').find('.is-invalid').removeClass('is-invalid');
+				}
+			});
+		});
+
+
+		$(document).ready(function () {
+			var name, email, password, confirmPassword, collegeID, confirmCollegeID;
+
+			$("#toggle").change(function () {
+				// Check the checkbox state
+				if ($(this).is(':checked')) {
+					// Changing type attribute
+					$("#password").attr("type", "text");
+
+					// Change the Text
+					$("#toggleText").text("Hide Password");
+				} else {
+					// Changing type attribute
+					$("#password").attr("type", "password");
+
+					// Change the Text
+					$("#toggleText").text("Show Password");
+
+				}
+			});
+
+
+			$("#submit").click(function () {
+
+				$.ajax({
+					url: '/signin',
+					type: 'POST',
+					cache: false,
+					data: {
+						email: $("#email").val(),
+						password: $("#password").val(),
+					},
+					success: function () {
+						alert('Your submission was successful');
+					},
+					error: function (data) {
+						if (data === "done") {
+							//redirect to admin page
+							window.location.href = "/profile";
+						}
+						else if (data === "e") {
+							alert("Email ID or Password is wrong");
+						}
+					}
+				});
+			});
+		});
+
+	</script>
+
+
 
 	<svg width="0" height="0" style="position:absolute">
 		<defs>

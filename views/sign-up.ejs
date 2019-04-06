@@ -12,172 +12,6 @@
 
 	<link href="css/app.css" rel="stylesheet">
 	<script src="js/jquery-3.3.1.min.js"></script>
-
-	<script>
-
-		/*
-
-		document.getElementById("submit").addEventListener("click", function(event){
-		  event.preventDefault()
-		});
-
-
-				var passID = 0;
-				var passP = 0;
-
-				function checkID(input) {
-					passID = 0;
-					if (input.value != document.getElementById('collegeID').value) {
-						input.setCustomValidity('College ID Must be Matching.');
-						passID = 0;
-					} else {
-						// input is valid -- reset the error message
-						input.setCustomValidity('');
-						passID = 1;
-					}
-				}
-
-
-				function checkPass(input) {
-					passP = 0;
-					if (input.value != document.getElementById('password').value) {
-						input.setCustomValidity('Password Must be Matching.');
-						passP = 0;
-					} else {
-						// input is valid -- reset the error message
-						input.setCustomValidity('');
-						passP = 1;
-					}
-				}
-
-
-*/
-
-
-
-
-
-
-		/*
-
-						function ShowPass() {
-							var x = document.getElementById("password");
-							var y = document.getElementById("confirmPassword");
-
-							if (x.type === "password" && y.type === "password") {
-								x.type = "text";
-								y.type = "text";
-							} else {
-								x.type = "password";
-								y.type = "password";
-							}
-						}
-
-		*/
-
-
-
-
-
-		/*
-						$(document).ready(function () {
-							var name, email, password, confirmPassword, collegeID, confirmCollegeID;
-
-								$("#submit").click(function () {
-									name = $("#name").val();
-									email = $("#email").val();
-									password = $("#password").val();
-									confirmPassword = $("#confirmPassword").val();
-									collegeID = $("#collegeID").val();
-									confirmCollegeID = $("#confirmCollegeID").val();
-
-									// RESTful API call
-									$.post("/signup", {
-										name: name,
-										email: email,
-										password: password,
-										confirmPassword: confirmPassword,
-										collegeID: collegeID,
-										confirmCollegeID: confirmCollegeID
-
-									}, function (data) {
-										if (data === "done") {
-											//redirect to admin page
-											window.location.href = "/profile"; // actually feeds
-										}
-									});
-							});
-						});
-
-				*/
-
-
-
-
-
-		/*
-				$(document).ready(function () {
-					var name, email, password, confirmPassword, collegeID, confirmCollegeID;
-
-					// Show password
-					$('#check').click(function () {
-						$(this).is(':checked') ? $('#password').attr('type', 'text') : $('#password').attr('type', 'password');
-						$(this).is(':checked') ? $('#confirmPassword').attr('type', 'text') : $('#confirmPassword').attr('type', 'password');
-					});
-
-
-
-
-					$("#submit").click(function () {
-						name = $("#name").val();
-						email = $("#email").val();
-						password = $("#password").val();
-						confirmPassword = $("#confirmPassword").val();
-						collegeID = $("#collegeID").val();
-						confirmCollegeID = $("#confirmCollegeID").val();
-
-						// RESTful API call
-						$.post("/signup", {
-							name: name,
-							email: email,
-							password: password,
-							confirmPassword: confirmPassword,
-							collegeID: collegeID,
-							confirmCollegeID: confirmCollegeID
-						}, function (data) {
-							if (data === "done") {
-								//redirect to profile page
-								window.location.href = "/profile";
-							}
-							else if (data === "e") {
-								alert("Email ID is wrong")
-							}
-							else if (data === "p") {
-								alert("Passwords doesn't match")
-							}
-							else if (data === "c") {
-								alert("College ID doesn't match");
-							}
-							else if (data === "ep") {
-								alert("Email ID and Passwords are wrong");
-							}
-							else if (data === "ec") {
-								alert("Email ID and College ID are wrong");
-							}
-							else if (data === "pc") {
-								alert("Passwords and College ID are wrong");
-							}
-							else if (data === "epc") {
-								alert("Email ID, Passwords and College ID are wrong");
-							}
-						});
-					});
-				});
-
-
-		*/
-	</script>
-
 </head>
 
 <body>
@@ -204,39 +38,44 @@
 
 										<div class="form-group">
 											<label class="form-label">Name</label>
-											<input type="text" class="form-control" name="name" placeholder="Name" required>
-											<small class="form-text text-muted">Name should be atleast 3 letters long</small>
+											<input type="text" class="form-control" name="name" placeholder="Name"
+												required>
+											<small class="form-text text-muted">Name should be atleast 3 letters
+												long</small>
 										</div>
 										<div class="form-group">
 											<label class="form-label">Email</label>
-											<input type="text" class="form-control" name="email" placeholder="Email" required>
+											<input type="text" class="form-control" name="email" placeholder="Email"
+												required>
 											<small class="form-text text-muted">A valid email for contact</small>
 										</div>
 
 										<div class="form-group">
 											<label class="form-label">College ID</label>
-											<input type="text" class="form-control" name="collegeID" placeholder="College ID" required>
-											<small class="form-text text-muted">College ID of form the MUT16CS001</small>
+											<input type="text" class="form-control" name="collegeID"
+												placeholder="College ID" required>
+											<small class="form-text text-muted">College ID of form the
+												MUT16CS001</small>
 										</div>
 										<div class="form-group">
 											<label class="form-label">College ID</label>
-											<input type="text" class="form-control" name="confirmCollegeID" placeholder="Confirm College ID"
-												required>
+											<input type="text" class="form-control" name="confirmCollegeID"
+												placeholder="Confirm College ID" required>
 										</div>
 										<div class="form-group">
 											<label class="form-label">Password</label>
-											<input type="password" class="form-control" name="password" id="password" placeholder="Password"
-												required>
-											<small class="form-text text-muted">Password should contain atleast 4 characters</small>
+											<input type="password" class="form-control" name="password" id="password"
+												placeholder="Password" required>
+											<small class="form-text text-muted">Password should contain atleast 4
+												characters</small>
 										</div>
 										<div class="form-group">
 											<label class="form-label">Confirm password</label>
-											<input type="password" class="form-control" name="confirmPassword" id="confirmPassword"
-												placeholder="Confirm password" required>
+											<input type="password" class="form-control" name="confirmPassword"
+												id="confirmPassword" placeholder="Confirm password" required>
 										</div>
 										<label class="custom-control custom-checkbox">
-											<input type='checkbox' class="custom-control-input" id='toggle' value='0'
-												onchange='togglePassword(this);'>
+											<input type='checkbox' class="custom-control-input" id='toggle' value='0'>
 											<span class="custom-control-label" id="toggleText">Show Password</span>
 										</label>
 
@@ -247,14 +86,12 @@
 									<!--- form-->
 
 
-									<br>
+									<br />
 									<center>
 										<small style="font-size: 1em">
 											Already have an account? <a href="/signin">Signin here</a>.
 										</small>
 									</center>
-
-
 
 								</div>
 							</div>
@@ -270,11 +107,6 @@
 
 
 	<script>
-
-
-
-
-
 
 		document.addEventListener("DOMContentLoaded", function (event) {
 
@@ -332,54 +164,10 @@
 						minlength: 4,
 						maxlength: 20,
 						equalTo: 'input[name="password"]'
-					},
+					}
 
 					/////////////////////////////////////
 
-					'validation-select': {
-						required: true
-					},
-					'validation-multiselect': {
-						required: true,
-						minlength: 2
-					},
-					'validation-select2': {
-						required: true
-					},
-					'validation-select2-multi': {
-						required: true,
-						minlength: 2
-					},
-					'validation-text': {
-						required: true
-					},
-					'validation-file': {
-						required: true
-					},
-					'validation-radios': {
-						required: true
-					},
-					'validation-radios-custom': {
-						required: true
-					},
-					'validation-checkbox': {
-						required: true
-					},
-					'validation-checkbox-custom': {
-						required: true
-					},
-					'validation-checkbox-group-1': {
-						require_from_group: [1, 'input[name="validation-checkbox-group-1"], input[name="validation-checkbox-group-2"]']
-					},
-					'validation-checkbox-group-2': {
-						require_from_group: [1, 'input[name="validation-checkbox-group-1"], input[name="validation-checkbox-group-2"]']
-					},
-					'validation-checkbox-custom-group-1': {
-						require_from_group: [1, 'input[name="validation-checkbox-custom-group-1"], input[name="validation-checkbox-custom-group-2"]']
-					},
-					'validation-checkbox-custom-group-2': {
-						require_from_group: [1, 'input[name="validation-checkbox-custom-group-1"], input[name="validation-checkbox-custom-group-2"]']
-					}
 				},
 				// Errors
 				errorPlacement: function errorPlacement(error, element) {
@@ -409,8 +197,6 @@
 
 
 
-
-
 		$(document).ready(function () {
 			var name, email, password, confirmPassword, collegeID, confirmCollegeID;
 
@@ -435,27 +221,24 @@
 			});
 
 
+			$("#submit").click(function () {
 
-			/*
-
-
-				$("#submit").click(function () {
-					name = $("#name").val();
-					email = $("#email").val();
-					password = $("#password").val();
-					confirmPassword = $("#password").val();
-					collegeID = $("#collegeID").val();
-					confirmCollegeID = $("#confirmCollegeID").val();
-					
-					// RESTful API call
-					$.post("/signup", {
-						name: name,
-						email: email,
-						password: password,
-						confirmPassword: confirmPassword,
-						collegeID: collegeID,
-						confirmCollegeID: confirmCollegeID
-					}, function (data) {
+				$.ajax({
+					url: '/signup',
+					type: 'POST',
+					cache: false,
+					data: {
+						name: $("#name").val(),
+						email: $("#email").val(),
+						password: $("#password").val(),
+						confirmPassword: $("#confirmPassword").val(),
+						collegeID: $("#collegeID").val(),
+						confirmCollegeID: $("#confirmCollegeID").val()
+					},
+					success: function () {
+						alert('Your submission was successful');
+					},
+					error: function (data) {
 						if (data === "done") {
 							//redirect to admin page
 							window.location.href = "/profile";
@@ -469,59 +252,17 @@
 						else if (data === "ec") {
 							alert("Email ID and College ID is taken");
 						}
-					});
+					}
 				});
-
-
-*/
-
-$("#submit").click(function () {
-
-			
-
-			$.ajax({
-				url: '/users',
-				type: 'POST',
-				cache: false,
-				data: {
-					name: $("#name").val(),
-					email: $("#email").val(),
-					password: $("#password").val(),
-					confirmPassword: $("#confirmPassword").val(),
-					collegeID: $("#collegeID").val(),
-					confirmCollegeID: $("#confirmCollegeID").val()
-				},
-				success: function () {
-					alert('Your submission was successful');
-				},
-				error: function (data) {
-					if (data === "done") {
-						//redirect to admin page
-						window.location.href = "/profile";
-					}
-					else if (data === "e") {
-						alert("Email ID is taken");
-					}
-					else if (data === "c") {
-						alert("College ID is taken");
-					}
-					else if (data === "ec") {
-						alert("Email ID and College ID is taken");
-					}
-				}
 			});
-
-
-
 		});
-	});
-
-
-
-
 
 
 	</script>
+
+
+
+
 
 	<svg width="0" height="0" style="position:absolute">
 		<defs>

@@ -4,7 +4,13 @@ var db = require('../connectDB');   //rqd
 
 
 router.get('/', function (req, res, next) {
-    res.render('sign-up');
+    if (req.session.email) {
+        // get imformation from database for the logged in user
+        res.redirect('/profile'); //feeds actually
+    }
+    else {
+        res.render('sign-up');
+    }
 });
 
 router.get('/favicon.ico', function (req, res, next) {
@@ -56,7 +62,7 @@ router.post('/', function (req, res, next) {
             if (err) {
                 console.log('\n\nDB ERROR: ' + err);
             }
-            else if (results.length == 0) {
+            else if (results.length === 0) {
                 // Email ID is okay
 
                 // check if College ID is taken
@@ -71,7 +77,7 @@ router.post('/', function (req, res, next) {
                     }
                     else if (results.length == 0) {
                         // College ID is okay
-
+                        // Set sessions
                         req.session.email = req.body.email;
                         req.session.password = req.body.password;
                         session = req.session.email;

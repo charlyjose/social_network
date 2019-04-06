@@ -25,7 +25,7 @@ router.get('/', function (req, res, next) {
                 var Name = results[0].name;
 
                 // Get user details from address table
-                var sql = 'select addressline1, addressline2, city from address where address where collegeID like ?'
+                var sql = 'select addressline1, addressline2, city from address where collegeID like ?'
                 var values = [
                     [results[0].collegeID]
                 ];
@@ -33,7 +33,7 @@ router.get('/', function (req, res, next) {
                     if (err) {
                         console.log('\n\nDB ERROR: ' + err);
                     }
-                    else if (results.length == 0) {
+                    else if (results.length === 0) {
                         // Basics profile is not set
                         res.redirect('/you');
                     }
@@ -52,32 +52,17 @@ router.get('/', function (req, res, next) {
                         });
                     }
                 });
-
-                
-                
-                
-                
-
-
-
-
-
             }
         });
-
-
-
-
-
     }
     else {
         // Not signed in
         res.redirect('/signin');
     }
+});
 
-
-
-
+router.get('/favicon.ico', function (req, res, next) {
+    res.sendFile('/images/favicon.ico');
 });
 
 module.exports = router;

@@ -47,7 +47,10 @@ CREATE TABLE IF NOT EXISTS `address` (
     `zip` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
- insert into address (collegeID, addressline1, addressline2, city, country, zip) values("MUT16CS001", "Karimugal", "Karimugal PO", "Ernakulam", "IN","682303");
+insert into address (collegeID, addressline1, addressline2, city, country, zip) values("MUT16CS001", "Karimugal", "Karimugal PO", "Ernakulam", "IN","682303");
+insert into address (collegeID, addressline1, addressline2, city, country, zip) values("MUT16CS020", "Koothattukulam", "Koothattukulam PO", "Ernakulam", "IN","682569");
+
+
 # TABLE 3 posts
 
 CREATE TABLE IF NOT EXISTS `posts` (

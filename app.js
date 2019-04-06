@@ -29,7 +29,7 @@ var favic = require('./routes/favic');
 var usnLogo = require('./routes/usnLogo');
 
 var signupRouter = require('./routes/signup');
-var loginRouter = require('./routes/login');
+var signinRouter = require('./routes/signin');
 var homeRouter = require('./routes/home');
 
 var logoutRouter = require('./routes/logout');
@@ -69,8 +69,8 @@ app.use('/feeds', feedsRouter);
 app.use('/signup', signupRouter);
 
 // Signin
-app.use('/login', loginRouter);
-app.use('/signin', loginRouter);
+app.use('/login', signinRouter);
+app.use('/signin', signinRouter);
 
 // Logout
 app.use('/logout', logoutRouter);
