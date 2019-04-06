@@ -36,3 +36,20 @@ Friday, April 5, 2019 12:03:34 AM
 *
 Timestamp generated from Windows PowerShell
 ---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Saturday, April 6, 2019 9:22:02 AM
+------------------------------------
+*
+1. Update package.json file
+2. Added new file feeds.ejs [/views/feeds.ejs]
+3. Added new file write-post.ejs    [/views/write-post.ejs]
+4. Edited files:
+*                1. package.json
+*                2. /views/feeds.ejs
+*                3. /views/write-post.ejs
+*                4. CHANGELOG.txt
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------

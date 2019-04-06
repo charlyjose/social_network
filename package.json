@@ -20,9 +20,6 @@
     "http-errors": "~1.6.2",
     "morgan": "^1.9.1",
     "mysql": "^2.16.0",
-    "node-notifier": "^5.4.0",
-    "node-uuid": "^1.4.8",
-    "nodemon": "^1.18.10",
-    "serve-favicon": "^2.5.0"
+    "nodemon": "^1.18.10"
   }
 }
