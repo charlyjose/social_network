@@ -5,7 +5,7 @@ var db = require('../connectDB');   //rqd
 
 router.get('/', function (req, res, next) {
     if (req.session.email) {
-        // get imformation from database for the logged in user
+        // get information from database for the logged in user
         res.redirect('/profile'); //feeds actually
     }
     else {

@@ -194,3 +194,30 @@ Monday, April 8, 2019 12:45:25 AM
 *
 Timestamp generated from Windows PowerShell
 ---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Monday, April 8, 2019 12:45:25 AM
+------------------------------------
+*
+1. Updated fronted [/views/you.ejs]
+2. Edited files: 
+*                1. /views/you.ejs
+*                2. CHANGELOG.txt
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------
+Monday, April 8, 2019 1:16:28 AM
+------------------------------------
+*
+1. Updated fronted      [/views/you.ejs]
+2. Updated server-side  [/routes/signup.js]
+3. Updated server-side  [/routes/profile.js]
+4. Edited files: 
+*                1. /views/you.ejs
+*                2. /routes/signup.js
+*                3. /routes/profile.js
+*                4. CHANGELOG.txt
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------

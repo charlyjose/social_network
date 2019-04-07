@@ -4,6 +4,11 @@ var db = require('../connectDB');   //rqd
 
 
 router.get('/', function (req, res, next) {
+    var skip = 0;
+    var skip = req.query.skip;
+
+    console.log("\n\nSKIP:::" + skip + "\n\n");
+
     // Check if signed in
     if (req.session.email) {
 
@@ -35,20 +40,37 @@ router.get('/', function (req, res, next) {
                     }
                     else if (results.length === 0) {
                         // Basics profile is not set
-                        res.redirect('/you');
+                        if (skip === 0) {
+                            res.redirect('/you');
+                        }
+                        else {
+                            // Basics profile okay
+                            res.render('profile', {
+                                name: Name,
+                                address: 'Fill your details',
+
+                                connections: '240',
+                                onlinenow: '25',
+                                onlineToday: '172',
+
+                                newPosts: '43'
+
+                            });
+                        }
+
                     }
                     else {
                         // Basics profile okay
                         res.render('profile', {
                             name: Name,
                             address: results[0].addressline1 + ', ' + results[0].addressline2 + ', ' + results[0].city,
-                            
-                            connections: '240',        
+
+                            connections: '240',
                             onlinenow: '25',
                             onlineToday: '172',
 
                             newPosts: '43'
-        
+
                         });
                     }
                 });
