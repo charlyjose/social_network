@@ -182,3 +182,15 @@ Sunday, April 7, 2019 11:36:12 PM
 *
 Timestamp generated from Windows PowerShell
 ---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Monday, April 8, 2019 12:45:25 AM
+------------------------------------
+*
+1. Updated CHANGELOG.md to extention CHANGELOG.txt
+2. Edited files: 
+*                1. CHANGELOG.txt
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------
