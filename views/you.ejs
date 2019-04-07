@@ -93,21 +93,52 @@
 								<div class="card-header">
 									<h5 class="card-title">Summary</h5>
 									<h6 class="card-subtitle text-muted">Frame your words to catch others attention</h6>
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='summaryToggle' value='0' checked>
+										<span class="custom-control-label" id="summaryToggleText">This info is now Public</span>
+									</label>
+
+
+
+									<script>
+											$(document).ready(function () {
+				
+												$("#summaryToggle").change(function () {
+													// Check the checkbox state
+													if ($(this).is(':checked')) {
+														// Change the Text
+														$("#summaryToggleText").text("This info is now Public");
+														$("#summaryToggle").val('0');
+													} else {
+														// Change the Text
+														$("#summaryToggleText").text("This info is now Private");
+														$("#summaryToggle").val('1');
+													}
+												});
+				
+											});
+										</script>
+
+
+
+
 								</div>
 
 								<div class="card-body">
-
 									<div class="form-group">
 										<textarea class="form-control" name='summary' placeholder="Write about you"
 											rows="3" style="height: 84px;"></textarea>
 									</div>
-
 								</div>
 
 							</div>
 						</div>
 						<!------------------------------SUMMARY------------------------------>
 
+
+						
 
 
 
@@ -118,12 +149,40 @@
 								<div class="card-header">
 									<h5 class="card-title">Skills</h5>
 									<h6 class="card-subtitle text-muted">Showcase your skills</h6>
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='skillsToggle' value='0' checked>
+										<span class="custom-control-label" id="skillsToggleText">This info is now Public</span>
+									</label>
+
+
+									<script>
+											$(document).ready(function () {
+				
+												$("#skillsToggle").change(function () {
+													// Check the checkbox state
+													if ($(this).is(':checked')) {
+														// Change the Text
+														$("#skillsToggleText").text("This info is now Public");
+														$("#skillsToggle").val('0');
+													} else {
+														// Change the Text
+														$("#skillsToggleText").text("This info is now Private");
+														$("#skillsToggle").val('1');
+													}
+												});
+				
+											});
+										</script>
+
+
+
+
 								</div>
 
 								<div class="card-body">
-
 									<div class="form-group row">
-
 										<div class="col-sm-10">
 											<div id="dynamicSkill">
 												<input type="text" id='skill1' class="form-control" value=''
@@ -178,6 +237,35 @@
 								<div class="card-header">
 									<h5 class="card-title">Contacts</h5>
 									<h6 class="card-subtitle text-muted">Add your immediate contacts</h6>
+
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='contactToggle' value='0' checked>
+										<span class="custom-control-label" id="contactToggleText">This info is now Public</span>
+									</label>
+
+
+									<script>
+											$(document).ready(function () {
+				
+												$("#contactToggle").change(function () {
+													// Check the checkbox state
+													if ($(this).is(':checked')) {
+														// Change the Text
+														$("#contactToggleText").text("This info is now Public");
+														$("#contactToggle").val('0');
+													} else {
+														// Change the Text
+														$("#contactToggleText").text("This info is now Private");
+														$("#contactToggle").val('1');
+													}
+												});
+				
+											});
+										</script>
+
+
 								</div>
 								<div class="card-body">
 
@@ -218,12 +306,14 @@
 
 										<div class="form-group col-md-5">
 											<label for="city">City</label>
-											<input type="text" class="form-control" id="city" class="city" placeholder="City">
+											<input type="text" class="form-control" id="city" class="city"
+												placeholder="City">
 										</div>
 
 										<div class="form-group col-md-2">
 											<label for="zip">Zip</label>
-											<input type="text" class="form-control" id="zip" class="zip" placeholder="Zip Code">
+											<input type="text" class="form-control" id="zip" class="zip"
+												placeholder="Zip Code">
 										</div>
 
 									</div>
@@ -290,6 +380,37 @@
 								<div class="card-header">
 									<h5 class="card-title">Education</h5>
 									<h6 class="card-subtitle text-muted">Add your School, degree and duration</h6>
+
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='eduToggle' value='0' checked>
+										<span class="custom-control-label" id="eduToggleText">This info is now Public</span>
+									</label>
+
+
+									<script>
+											$(document).ready(function () {
+				
+												$("#eduToggle").change(function () {
+													// Check the checkbox state
+													if ($(this).is(':checked')) {
+														// Change the Text
+														$("#eduToggleText").text("This info is now Public");
+														$("#eduToggle").val('0');
+													} else {
+														// Change the Text
+														$("#eduToggleText").text("This info is now Private");
+														$("#eduToggle").val('1');
+													}
+												});
+				
+											});
+										</script>
+
+
+
+
 								</div>
 
 
@@ -463,6 +584,36 @@
 								<div class="card-header">
 									<h5 class="card-title">Accomplishments</h5>
 									<h6 class="card-subtitle text-muted">Add your certifications</h6>
+
+
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='accomToggle' value='0' checked>
+										<span class="custom-control-label" id="accomToggleText">This info is now Public</span>
+									</label>
+
+
+									<script>
+											$(document).ready(function () {
+				
+												$("#accomToggle").change(function () {
+													// Check the checkbox state
+													if ($(this).is(':checked')) {
+														// Change the Text
+														$("#accomToggleText").text("This info is now Public");
+														$("#accomToggle").val('0');
+													} else {
+														// Change the Text
+														$("#accomToggleText").text("This info is now Private");
+														$("#accomToggle").val('1');
+													}
+												});
+				
+											});
+										</script>
+
+
 								</div>
 
 								<div class="card-body">
@@ -472,19 +623,20 @@
 											<div class="row">
 												<div class="form-group col-md-4">
 													<label for="inputAddress">Course</label>
-													<input type="text" class="form-control" id="course1"
-														name="course1" placeholder="Course Name">
+													<input type="text" class="form-control" id="course1" name="course1"
+														placeholder="Course Name">
 												</div>
 												<div class="form-group col-md-4">
 													<label for="inputAddress">License</label>
-													<input type="text" class="form-control" id="license1" name="license1"
-														placeholder="License">
+													<input type="text" class="form-control" id="license1"
+														name="license1" placeholder="License">
 												</div>
 												<div class="col-12 col-xl-4">
 													<div class="form-group">
 														<label class="form-label">Duration</label>
-														<input class="form-control daterange" type="text" id="cduration1"
-															name="cduration1" value="03/25/2019 - 04/15/2019"
+														<input class="form-control daterange" type="text"
+															id="cduration1" name="cduration1"
+															value="03/25/2019 - 04/15/2019"
 															onclick="datePick('cduration1')" />
 														<span class="font-13 text-muted">e.g "MM/DD/YYYY -
 															MM/DD/YYYY"</span>
