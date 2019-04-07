@@ -4,7 +4,19 @@ var db = require('../connectDB');   //rqd
 
 
 router.get('/', function (req, res, next) {
-    res.render('feeds');
+    // Check if signed in
+    if (req.session.email) {
+        res.render('feeds', {
+            name: 'Charly Jose',
+            likes: '12',
+            views: '344',
+            circulations: '24'
+        });
+    }
+    else {
+        // Not signed in
+        res.redirect('/signin');
+    }
 });
 
 module.exports = router;

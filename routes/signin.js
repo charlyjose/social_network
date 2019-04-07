@@ -25,14 +25,14 @@ router.post('/', function (req, res, next) {
             heading: 'Sorry',
             subtitle: 'The account requirements are not satisfied.',
             body: 'Please provide all details.',
+            diagnose: '',
+            comments: '',
             returnLink: 'signin'
         });
     }
     else {
         var session;
         var sendConfirm = '';
-
-        console.log("\n\n HERE1::::" + req.body.email + "::::" + req.body.password);
 
         // Check for user account
         var sql = 'select password from user where email like ?';
@@ -45,7 +45,6 @@ router.post('/', function (req, res, next) {
                 console.log('\n\nDB ERROR: ' + err);
             }
             else if (results.length === 0) {
-                console.log("\n\n HERE2::::" + req.body.email + "::::" + req.body.password);
 
                 // No such user
                 res.render('messageBoard', {
@@ -53,6 +52,8 @@ router.post('/', function (req, res, next) {
                     heading: 'Sorry',
                     subtitle: 'The account requirements are not satisfied.',
                     body: 'Email ID or Password is wrong.',
+                    diagnose: '',
+                    comments: '',
                     returnLink: 'signin'
                 });
             }
@@ -76,6 +77,8 @@ router.post('/', function (req, res, next) {
                         heading: 'Sorry',
                         subtitle: 'The account requirements are not satisfied.',
                         body: 'Email ID or Password is wrong.',
+                        diagnose: '',
+                        comments: '',
                         returnLink: 'signin'
                     });
                 }

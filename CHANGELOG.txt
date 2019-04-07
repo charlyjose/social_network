@@ -261,3 +261,40 @@ Monday, April 8, 2019 1:56:55 AM
 *
 Timestamp generated from Windows PowerShell
 ---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Monday, April 8, 2019 3:29:04 AM
+------------------------------------
+*
+1. Updated fronted              [/views/deleteAccount.ejs]
+2. Updated fronted              [/views/messageBoard.ejs]
+3. Updated fronted              [/views/profile.ejs]
+4. Updated fronted              [/views/reset-contacts.ejs]
+5. Updated fronted              [/views/reset-password.ejs]
+6. Updated fronted              [/views/you.ejs]
+7. Added new file upcoming.ejs  [/views/upcoming.ejs]
+8. Updated server-side          [app.js]
+9. Updated server-side          [/routes/feeds.js]
+10. Updated server-side         [/routes/profile.js]
+11. Updated server-side         [/routes/you.js]
+12. Updated server-side         [/routes/signin.js]
+13. Updated server-side         [/routes/signup.js]
+14. Edited files: 
+*                1. /views/deleteAccount.ejs
+*                2. /views/messageBoard.ejs
+*                3. /views/profile.ejs
+*                4. /views/reset-contacts.ejs
+*                5. /views/reset-password.ejs
+*                6. /views/you.ejs
+*                7. /views/upcoming.ejs
+*                8. app.js
+*                9. /routes/feeds.js
+*                10./routes/profile.js
+*                11. /routes/you.js
+*                12. /routes/signin.js
+*                13. /routes/signup.js
+*                14. CHANGELOG.txt
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------

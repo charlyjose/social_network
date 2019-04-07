@@ -4,10 +4,15 @@ var db = require('../connectDB');   //rqd
 
 
 router.get('/', function (req, res, next) {
-    var skip = 0;
     var skip = req.query.skip;
 
-    console.log("\n\nSKIP:::" + skip + "\n\n");
+    if(skip === undefined) {
+        // No skip
+        skip = 0;
+    }
+    else {
+        skip = 1;
+    }
 
     // Check if signed in
     if (req.session.email) {
@@ -43,7 +48,7 @@ router.get('/', function (req, res, next) {
                         if (skip === 0) {
                             res.redirect('/you');
                         }
-                        else {
+                        else if (skip == 1) {
                             // Basics profile okay
                             res.render('profile', {
                                 name: Name,

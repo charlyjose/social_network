@@ -26,6 +26,8 @@ router.post('/', function (req, res, next) {
             heading: 'Sorry',
             subtitle: 'The account requirements are not satisfied.',
             body: 'Please provide all details.',
+            diagnose: '',
+            comments: '',
             returnLink: 'signup'
         });
     }

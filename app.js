@@ -100,6 +100,8 @@ app.use(function (err, req, res, next) {
     heading: '404',
     subtitle: 'Page not found',
     body: 'The page you are looking for might have been removed.',
+    diagnose: '',
+    comments: '',
     returnLink: 'home'
   });
 });
