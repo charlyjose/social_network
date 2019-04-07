@@ -126,3 +126,20 @@ Saturday, April 6, 2019 4:41:27 PM
 *
 Timestamp generated from Windows PowerShell
 ---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Sunday, April 7, 2019 7:26:11 PM
+------------------------------------
+*
+1. Added script for counties lists  [/views/js/countries.js]
+2. Edited frontend  [/views/profile.ejs]
+3. Edited frontend  [/views/you.ejs]
+4. Edited files: 
+*                1. /views/js/countries.js
+*                2. /views/profile.ejs
+*                3. /views/you.ejs
+*                4. CHANGELOG.txt
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------
