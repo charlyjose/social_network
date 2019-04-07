@@ -5,8 +5,8 @@ Wednesday, April 3, 2019 10:17:06 PM
 ------------------------------------
 *
 1. Validation moved to server-side
-2. FIXED bugs in frontend       [/views/sign-up.ejs]
-3. FIXED bugs in server-side    [/routes/signup.js]
+2. FIXED bugs in frontend           [/views/sign-up.ejs]
+3. FIXED bugs in server-side        [/routes/signup.js]
 4. Validation includes checking basic requirements for email, password, and collegeID
 5. Edited files: 
 *                1. /routes/signup.js
@@ -133,8 +133,8 @@ Sunday, April 7, 2019 7:26:11 PM
 ------------------------------------
 *
 1. Added script for counties lists  [/views/js/countries.js]
-2. Edited frontend  [/views/profile.ejs]
-3. Edited frontend  [/views/you.ejs]
+2. Edited frontend                  [/views/profile.ejs]
+3. Edited frontend                  [/views/you.ejs]
 4. Edited files: 
 *                1. /views/js/countries.js
 *                2. /views/profile.ejs
@@ -232,12 +232,32 @@ Monday, April 8, 2019 1:40:29 AM
 *
 1. Updated fronted      [/views/profile.ejs]
 2. Updated fronted      [/views/feeds.ejs]
-3. Updated server-side  [/routes/app.js]
+3. Updated server-side  [app.js]
 4. Edited files: 
 *                1. /views/profile.ejs
 *                2. /routes/feeds.js
-*                3. /routes/app.js
+*                3. app.js
 *                4. CHANGELOG.txt
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Monday, April 8, 2019 1:56:55 AM
+------------------------------------
+*
+1. Updated deleteAcc.js to deleteAccount.js
+2. Updated fronted                          [/views/feeds.ejs]
+3. Updated server-side                      [app.js]
+3. Updated server-side                      [/routes/resetContacts.js]
+3. Updated server-side                      [/routes/resetPassword.js]
+4. Edited files: 
+*                1. /routes/feeds.js
+*                2. app.js
+*                3. /routes/resetContacts.js
+*                4. /routes/resetPassword.js
+*                5. CHANGELOG.txt
 *
 Timestamp generated from Windows PowerShell
 ---------------------------------------------------------------------------------------
