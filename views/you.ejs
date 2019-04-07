@@ -13,6 +13,9 @@
 	<link href="css/app.css" rel="stylesheet">
 	<script src="js/jquery-3.3.1.min.js"></script>
 
+	<link href="css/slider.css" rel="stylesheet">
+	<script src="js/bootstrap-slider.js"></script>
+
 </head>
 
 <body>
@@ -96,30 +99,32 @@
 
 									<br />
 									<label class="custom-control custom-switch">
-										<input type='checkbox' class="custom-control-input" id='summaryToggle' value='0' checked>
-										<span class="custom-control-label" id="summaryToggleText">This info is now Public</span>
+										<input type='checkbox' class="custom-control-input" id='summaryToggle' value='0'
+											checked>
+										<span class="custom-control-label" id="summaryToggleText">This info is now
+											Public</span>
 									</label>
 
 
 
 									<script>
-											$(document).ready(function () {
-				
-												$("#summaryToggle").change(function () {
-													// Check the checkbox state
-													if ($(this).is(':checked')) {
-														// Change the Text
-														$("#summaryToggleText").text("This info is now Public");
-														$("#summaryToggle").val('0');
-													} else {
-														// Change the Text
-														$("#summaryToggleText").text("This info is now Private");
-														$("#summaryToggle").val('1');
-													}
-												});
-				
+										$(document).ready(function () {
+
+											$("#summaryToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#summaryToggleText").text("This info is now Public");
+													$("#summaryToggle").val('0');
+												} else {
+													// Change the Text
+													$("#summaryToggleText").text("This info is now Private");
+													$("#summaryToggle").val('1');
+												}
 											});
-										</script>
+
+										});
+									</script>
 
 
 
@@ -138,7 +143,7 @@
 						<!------------------------------SUMMARY------------------------------>
 
 
-						
+
 
 
 
@@ -152,29 +157,31 @@
 
 									<br />
 									<label class="custom-control custom-switch">
-										<input type='checkbox' class="custom-control-input" id='skillsToggle' value='0' checked>
-										<span class="custom-control-label" id="skillsToggleText">This info is now Public</span>
+										<input type='checkbox' class="custom-control-input" id='skillsToggle' value='0'
+											checked>
+										<span class="custom-control-label" id="skillsToggleText">This info is now
+											Public</span>
 									</label>
 
 
 									<script>
-											$(document).ready(function () {
-				
-												$("#skillsToggle").change(function () {
-													// Check the checkbox state
-													if ($(this).is(':checked')) {
-														// Change the Text
-														$("#skillsToggleText").text("This info is now Public");
-														$("#skillsToggle").val('0');
-													} else {
-														// Change the Text
-														$("#skillsToggleText").text("This info is now Private");
-														$("#skillsToggle").val('1');
-													}
-												});
-				
+										$(document).ready(function () {
+
+											$("#skillsToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#skillsToggleText").text("This info is now Public");
+													$("#skillsToggle").val('0');
+												} else {
+													// Change the Text
+													$("#skillsToggleText").text("This info is now Private");
+													$("#skillsToggle").val('1');
+												}
 											});
-										</script>
+
+										});
+									</script>
 
 
 
@@ -197,22 +204,22 @@
 
 
 									<script type="text/javascript">
-										var counter = 2;
-										var limit = 200;
-										var select;
+										var skcounter = 2;
+										var sklimit = 200;
+										var skselect;
 										function addSkill(divName) {
-											if (counter == limit) {
-												alert("You have reached the limit of adding " + counter + " inputs");
+											if (skcounter == sklimit) {
+												alert("You have reached the limit of adding " + skcounter + " inputs");
 											}
 											else {
-												select = counter - 1;
-												if (document.getElementById('skill' + select).value != '') {
+												skselect = skcounter - 1;
+												if (document.getElementById('skill' + skselect).value != '') {
 													var newdiv = document.createElement('div');
-													newdiv.innerHTML = "<br><input type='text' id='skill" + counter + "' class='form-control' value='' name='skill" + counter + "'>";
+													newdiv.innerHTML = "<br><input type='text' id='skill" + skcounter + "' class='form-control' value='' name='skill" + skcounter + "'>";
 													document.getElementById(divName).appendChild(newdiv);
 
 													// alert(document.getElementById('skill' + select).value);
-													counter++;
+													skcounter++;
 												}
 												else {
 													alert('Type your skills to add more');
@@ -241,35 +248,37 @@
 
 									<br />
 									<label class="custom-control custom-switch">
-										<input type='checkbox' class="custom-control-input" id='contactToggle' value='0' checked>
-										<span class="custom-control-label" id="contactToggleText">This info is now Public</span>
+										<input type='checkbox' class="custom-control-input" id='contactToggle' value='0'
+											checked>
+										<span class="custom-control-label" id="contactToggleText">This info is now
+											Public</span>
 									</label>
 
 
 									<script>
-											$(document).ready(function () {
-				
-												$("#contactToggle").change(function () {
-													// Check the checkbox state
-													if ($(this).is(':checked')) {
-														// Change the Text
-														$("#contactToggleText").text("This info is now Public");
-														$("#contactToggle").val('0');
-													} else {
-														// Change the Text
-														$("#contactToggleText").text("This info is now Private");
-														$("#contactToggle").val('1');
-													}
-												});
-				
+										$(document).ready(function () {
+
+											$("#contactToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#contactToggleText").text("This info is now Public");
+													$("#contactToggle").val('0');
+												} else {
+													// Change the Text
+													$("#contactToggleText").text("This info is now Private");
+													$("#contactToggle").val('1');
+												}
 											});
-										</script>
+
+										});
+									</script>
 
 
 								</div>
 								<div class="card-body">
 
-									<h5 class="card-title">Offline Address</h5>
+									<h5 class="card-title">Offline Contacts</h5>
 
 
 									<div class="form-group">
@@ -320,7 +329,7 @@
 
 									<hr>
 
-									<h5 class="card-title">Online Address</h5>
+									<h5 class="card-title">Online Contacts</h5>
 
 									<div class="form-row">
 
@@ -332,7 +341,7 @@
 
 										<div class="form-group col-md-6">
 											<label for="url">Your Portfolio URL</label>
-											<input type="email" class="form-control" id="url" name="url"
+											<input type="url" class="form-control" id="url" name="url"
 												placeholder="URL">
 										</div>
 
@@ -340,6 +349,14 @@
 										<form class="form-inline">
 
 											&nbsp;&nbsp;
+											<div class="input-group mb-2 mr-sm-5">
+												<div class="input-group-prepend">
+													<span class="input-group-text">@</span>
+												</div>
+												<input type="text" class="form-control" id="linkedInID"
+													name="linkedInID" placeholder="LinkedIn ID">
+											</div>
+
 											<div class="input-group mb-2 mr-sm-5">
 												<div class="input-group-prepend">
 													<span class="input-group-text">@</span>
@@ -384,29 +401,31 @@
 
 									<br />
 									<label class="custom-control custom-switch">
-										<input type='checkbox' class="custom-control-input" id='eduToggle' value='0' checked>
-										<span class="custom-control-label" id="eduToggleText">This info is now Public</span>
+										<input type='checkbox' class="custom-control-input" id='eduToggle' value='0'
+											checked>
+										<span class="custom-control-label" id="eduToggleText">This info is now
+											Public</span>
 									</label>
 
 
 									<script>
-											$(document).ready(function () {
-				
-												$("#eduToggle").change(function () {
-													// Check the checkbox state
-													if ($(this).is(':checked')) {
-														// Change the Text
-														$("#eduToggleText").text("This info is now Public");
-														$("#eduToggle").val('0');
-													} else {
-														// Change the Text
-														$("#eduToggleText").text("This info is now Private");
-														$("#eduToggle").val('1');
-													}
-												});
-				
+										$(document).ready(function () {
+
+											$("#eduToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#eduToggleText").text("This info is now Public");
+													$("#eduToggle").val('0');
+												} else {
+													// Change the Text
+													$("#eduToggleText").text("This info is now Private");
+													$("#eduToggle").val('1');
+												}
 											});
-										</script>
+
+										});
+									</script>
 
 
 
@@ -453,34 +472,34 @@
 
 
 									<script>
-										var counter = 2;
-										var select = 1;
+										var scounter = 2;
+										var sselect = 1;
 
 										$(document).ready(function () {
 											$("#addSchool").click(function () {
-												if ((document.getElementById('institute' + select).value != '') && (document.getElementById('degree' + select).value != '') && (document.getElementById('duration' + select).value != '')) {
+												if ((document.getElementById('institute' + sselect).value != '') && (document.getElementById('degree' + sselect).value != '') && (document.getElementById('duration' + sselect).value != '')) {
 
-													var HTML = "";
-													HTML += "<h5 class='card-title'>School " + counter + " </h5>";
-													HTML += "<div class='row'>";
-													HTML += "<div class='form-group col-md-4'>";
-													HTML += "<label for='inputAddress'>Institution</label>";
-													HTML += "<input type='text' class='form-control' id='institute" + counter + "' name='institute" + counter + "' placeholder='Institution Name'>";
-													HTML += "</div>";
-													HTML += "<div class='form-group col-md-4'>";
-													HTML += "<label for='inputAddress'>Degree</label>";
-													HTML += "<input type='text' class='form-control' id='degree" + counter + "' name='degree" + counter + "' placeholder='Degree'>";
-													HTML += "</div>";
-													HTML += "<div class='col-12 col-xl-4'>";
-													HTML += "<div class='form-group'>";
-													HTML += "<label class='form-label'>Duration</label>";
+													var sHTML = "";
+													sHTML += "<h5 class='card-title'>School " + scounter + " </h5>";
+													sHTML += "<div class='row'>";
+													sHTML += "<div class='form-group col-md-4'>";
+													sHTML += "<label for='inputAddress'>Institution</label>";
+													sHTML += "<input type='text' class='form-control' id='institute" + scounter + "' name='institute" + scounter + "' placeholder='Institution Name'>";
+													sHTML += "</div>";
+													sHTML += "<div class='form-group col-md-4'>";
+													sHTML += "<label for='inputAddress'>Degree</label>";
+													sHTML += "<input type='text' class='form-control' id='degree" + scounter + "' name='degree" + scounter + "' placeholder='Degree'>";
+													sHTML += "</div>";
+													sHTML += "<div class='col-12 col-xl-4'>";
+													sHTML += "<div class='form-group'>";
+													sHTML += "<label class='form-label'>Duration</label>";
 													// var test = "onclick=" + "datePick(" + "duration" + counter + ");";
-													HTML += "<input class='form-control daterange' type='text' id='duration" + counter + "' name='duration" + counter + "' value='03/25/2019 - 04/15/2019' >";
-													HTML += "<span class='font-13 text-muted'>e.g 'MM/DD/YYYY - MM/DD/YYYY'</span>";
-													HTML += "</div>";
-													HTML += "</div>";
-													HTML += "</div>";
-													HTML += "<hr />";
+													sHTML += "<input class='form-control daterange' type='text' id='duration" + scounter + "' name='duration" + scounter + "' value='03/25/2019 - 04/15/2019' >";
+													sHTML += "<span class='font-13 text-muted'>e.g 'MM/DD/YYYY - MM/DD/YYYY'</span>";
+													sHTML += "</div>";
+													sHTML += "</div>";
+													sHTML += "</div>";
+													sHTML += "<hr />";
 													// <input class="form-control daterange" type="text" id="duration2" name="duration2" value="03/25/2019 - 04/15/2019" onclick="datePick(" duration2')'="">
 
 													// <input class="form-control daterange" type="text" id="duration2" name="duration2" value="03/25/2019 - 04/15/2019" onclick="datePick(" duration2')'="">
@@ -492,10 +511,10 @@
 													// var test = "onclick=" + "datePick(" + "\'duration" + counter + "\');";
 													// alert(test);
 
-													counter++;
-													select = counter - 1;
+													scounter++;
+													sselect = scounter - 1;
 
-													$(".school").append(HTML);
+													$(".school").append(sHTML);
 												}
 												else {
 													alert('Type your Education to add more');
@@ -589,29 +608,31 @@
 
 									<br />
 									<label class="custom-control custom-switch">
-										<input type='checkbox' class="custom-control-input" id='accomToggle' value='0' checked>
-										<span class="custom-control-label" id="accomToggleText">This info is now Public</span>
+										<input type='checkbox' class="custom-control-input" id='accomToggle' value='0'
+											checked>
+										<span class="custom-control-label" id="accomToggleText">This info is now
+											Public</span>
 									</label>
 
 
 									<script>
-											$(document).ready(function () {
-				
-												$("#accomToggle").change(function () {
-													// Check the checkbox state
-													if ($(this).is(':checked')) {
-														// Change the Text
-														$("#accomToggleText").text("This info is now Public");
-														$("#accomToggle").val('0');
-													} else {
-														// Change the Text
-														$("#accomToggleText").text("This info is now Private");
-														$("#accomToggle").val('1');
-													}
-												});
-				
+										$(document).ready(function () {
+
+											$("#accomToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#accomToggleText").text("This info is now Public");
+													$("#accomToggle").val('0');
+												} else {
+													// Change the Text
+													$("#accomToggleText").text("This info is now Private");
+													$("#accomToggle").val('1');
+												}
 											});
-										</script>
+
+										});
+									</script>
 
 
 								</div>
@@ -698,6 +719,122 @@
 							</div>
 						</div>
 						<!------------------------------ACCOMPLISHMENTS------------------------------>
+
+
+
+
+
+
+						<!------------------------------ACCOMPLISHMENTS------------------------------>
+
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Interests</h5>
+									<h6 class="card-subtitle text-muted">Add your interests to find friends</h6>
+
+
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='interestToggle'
+											value='0' checked>
+										<span class="custom-control-label" id="interestToggleText">This info is now
+											Public</span>
+									</label>
+
+
+									<script>
+										$(document).ready(function () {
+
+											$("#interestToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#interestToggleText").text("This info is now Public");
+													$("#interestToggle").val('0');
+												} else {
+													// Change the Text
+													$("#interestToggleText").text("This info is now Private");
+													$("#interestToggle").val('1');
+												}
+											});
+
+										});
+									</script>
+
+
+								</div>
+
+								<div class="card-body">
+									<div id="dynamicSchool">
+										<div class='interestList'>
+											<h5 class='card-title'>Interest 1</h5>
+											<div class="row">
+												<div class="form-group col-md-4">
+													<label for="inputAddress">Interest</label>
+													<input type="text" class="form-control" id="interest1"
+														name="interest1" placeholder="Interest">
+												</div>
+												<div class="form-group col-md-2">
+													<label for="inputAddress">Rating</label>
+													<input type="text" class="form-control" id="rating1" name="rating1"
+														placeholder="Rating">
+												</div>
+
+											</div>
+
+											<hr />
+										</div>
+									</div>
+
+									<br />
+									<input type="button" class="btn btn-primary" id='addInterest'
+										value="Add More Interests">
+
+
+
+									<script>
+										var icounter = 2;
+										var iselect = 1;
+
+										$(document).ready(function () {
+											$("#addInterest").click(function () {
+												if ((document.getElementById('interest' + iselect).value != '') && (document.getElementById('rating' + iselect).value != '')) {
+
+													var iHTML = "";
+													iHTML += "<h5 class='card-title'>Interest " + icounter + " </h5>";
+													iHTML += "<div class='row'>";
+													iHTML += "<div class='form-group col-md-4'>";
+													iHTML += "<label for='inputAddress'>Interest</label>";
+													iHTML += "<input type='text' class='form-control' id='interest" + icounter + "' name='interest" + icounter + "' placeholder='Interest'>";
+													iHTML += "</div>";
+													iHTML += "<div class='form-group col-md-2'>";
+													iHTML += "<label for='inputAddress'>Rating</label>";
+													iHTML += "<input type='text' class='form-control' id='rating" + icounter + "' name='rating" + icounter + "' placeholder='Rating'>";
+													iHTML += "</div>";
+													iHTML += "</div>";
+													iHTML += "<hr />";
+
+													icounter++;
+													iselect = icounter - 1;
+
+													$(".interestList").append(iHTML);
+												}
+												else {
+													alert('Type your Interest to add more');
+												}
+											});
+										});
+
+									</script>
+
+								</div>
+							</div>
+						</div>
+						<!------------------------------ACCOMPLISHMENTS------------------------------>
+
+
 
 
 					</div>
