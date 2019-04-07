@@ -218,12 +218,12 @@
 
 										<div class="form-group col-md-5">
 											<label for="city">City</label>
-											<input type="text" class="form-control" id="city" class="city">
+											<input type="text" class="form-control" id="city" class="city" placeholder="City">
 										</div>
 
 										<div class="form-group col-md-2">
 											<label for="zip">Zip</label>
-											<input type="text" class="form-control" id="zip" class="zip">
+											<input type="text" class="form-control" id="zip" class="zip" placeholder="Zip Code">
 										</div>
 
 									</div>
@@ -340,15 +340,15 @@
 												if ((document.getElementById('institute' + select).value != '') && (document.getElementById('degree' + select).value != '') && (document.getElementById('duration' + select).value != '')) {
 
 													var HTML = "";
-													HTML += "<h5 class='card-title'>School " + counter + " </h5>"
+													HTML += "<h5 class='card-title'>School " + counter + " </h5>";
 													HTML += "<div class='row'>";
 													HTML += "<div class='form-group col-md-4'>";
 													HTML += "<label for='inputAddress'>Institution</label>";
-													HTML += "<input type='text' class='form-control' id='institute" + counter + "' name='institute" + counter + "' placeholder='Institution Name'>";///
+													HTML += "<input type='text' class='form-control' id='institute" + counter + "' name='institute" + counter + "' placeholder='Institution Name'>";
 													HTML += "</div>";
 													HTML += "<div class='form-group col-md-4'>";
 													HTML += "<label for='inputAddress'>Degree</label>";
-													HTML += "<input type='text' class='form-control' id='degree" + counter + "' name='degree" + counter + "' placeholder='Degree'>";///
+													HTML += "<input type='text' class='form-control' id='degree" + counter + "' name='degree" + counter + "' placeholder='Degree'>";
 													HTML += "</div>";
 													HTML += "<div class='col-12 col-xl-4'>";
 													HTML += "<div class='form-group'>";
@@ -361,15 +361,15 @@
 													HTML += "</div>";
 													HTML += "<hr />";
 													// <input class="form-control daterange" type="text" id="duration2" name="duration2" value="03/25/2019 - 04/15/2019" onclick="datePick(" duration2')'="">
-													
+
 													// <input class="form-control daterange" type="text" id="duration2" name="duration2" value="03/25/2019 - 04/15/2019" onclick="datePick(" duration2')'="">
 
 													// <input class="form-control daterange" type="text" id="duration2" name="duration2" value="03/25/2019 - 04/15/2019" onclick="datePick(" duration'2')'="">
-													
+
 													// <input class="form-control daterange" type="text" id="duration2" name="duration2" value="03/25/2019 - 04/15/2019" onclick="datePick(" duration2)'="">
-													
-														// var test = "onclick=" + "datePick(" + "\'duration" + counter + "\');";
-														// alert(test);
+
+													// var test = "onclick=" + "datePick(" + "\'duration" + counter + "\');";
+													// alert(test);
 
 													counter++;
 													select = counter - 1;
@@ -385,7 +385,7 @@
 
 										/*
 																				document.addEventListener("DOMContentLoaded", function (event) {
-										
+
 																					$("input[id='daterange']").daterangepicker({
 																						opens: 'left'
 																					});
@@ -456,103 +456,98 @@
 
 
 
+						<!------------------------------ACCOMPLISHMENTS------------------------------>
 
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Accomplishments</h5>
+									<h6 class="card-subtitle text-muted">Add your certifications</h6>
+								</div>
 
-												<!------------------------------ACCOMPLISHMENTS------------------------------>
-
-												<div class="col-md-12">
-														<div class="card">
-															<div class="card-header">
-																<h5 class="card-title">Accomplishments</h5>
-																<h6 class="card-subtitle text-muted">Add your certifications</h6>
-															</div>
-							
-							
-															<div class="card-body">
-																<div id="dynamicCourse">
-																	<div class='certification'>
-																		<h5 class='card-title'>Course 1</h5>
-																		<div class="row">
-																			<div class="form-group col-md-4">
-																				<label for="inputAddress">Course</label>
-																				<input type="text" class="form-control" id="course1"
-																					name="course1" placeholder="Course Name">
-																			</div>
-																			<div class="form-group col-md-4">
-																				<label for="inputAddress">Licence</label>
-																				<input type="text" class="form-control" id="licence1" name="licence1"
-																					placeholder="Licence">
-																			</div>
-																			<div class="col-12 col-xl-4">
-																				<div class="form-group">
-																					<label class="form-label">Duration</label>
-																					<input class="form-control daterange" type="text" id="cduration1"
-																						name="cduration1" value="03/25/2019 - 04/15/2019"
-																						onclick="datePick('cduration1')" />
-																					<span class="font-13 text-muted">e.g "MM/DD/YYYY -
-																						MM/DD/YYYY"</span>
-																				</div>
-																			</div>
-							
-																		</div>
-							
-																		<hr />
-																	</div>
-																</div>
-							
-							
-																<br />
-																<input type="button" class="btn btn-primary" id='addCourse' value="Add More">
-							
-							
-							
-																<script>
-																	var ccounter = 2;
-																	var cselect = 1;
-							
-																	$(document).ready(function () {
-																		$("#addCourse").click(function () {
-																			if ((document.getElementById('course' + cselect).value != '') && (document.getElementById('license' + cselect).value != '') && (document.getElementById('cduration' + cselect).value != '')) {
-							
-																				var cHTML = "";
-																				cHTML += "<h5 class='card-title'>Course " + ccounter + " </h5>"
-																				cHTML += "<div class='row'>";
-																				cHTML += "<div class='form-group col-md-4'>";
-																				cHTML += "<label for='inputAddress'>Course</label>";
-																				cHTML += "<input type='text' class='form-control' id='course" + ccounter + "' name='course" + ccounter + "' placeholder='Course Name'>";
-																				cHTML += "</div>";
-																				cHTML += "<div class='form-group col-md-4'>";
-																				cHTML += "<label for='inputAddress'>License</label>";
-																				cHTML += "<input type='text' class='form-control' id='license" + ccounter + "' name='license" + ccounter + "' placeholder='License'>";
-																				cHTML += "</div>";
-																				cHTML += "<div class='col-12 col-xl-4'>";
-																				cHTML += "<div class='form-group'>";
-																				cHTML += "<label class='form-label'>Duration</label>";
-																				cHTML += "<input class='form-control daterange' type='text' id='cduration" + ccounter + "' name='cduration" + ccounter + "' value='03/25/2019 - 04/15/2019' >";
-																				cHTML += "<span class='font-13 text-muted'>e.g 'MM/DD/YYYY - MM/DD/YYYY'</span>";
-																				cHTML += "</div>";
-																				cHTML += "</div>";
-																				cHTML += "</div>";
-																				cHTML += "<hr />";
-																											
-																				ccounter++;
-																				cselect = ccounter - 1;
-							
-																				$(".certification").append(HTML);
-																			}
-																			else {
-																				alert('Type your Certifications to add more');
-																			}
-																		});
-																	});
-
-																</script>							
-							
-															</div>
-														</div>
+								<div class="card-body">
+									<div id="dynamicSchool">
+										<div class='certification'>
+											<h5 class='card-title'>Certification 1</h5>
+											<div class="row">
+												<div class="form-group col-md-4">
+													<label for="inputAddress">Course</label>
+													<input type="text" class="form-control" id="course1"
+														name="course1" placeholder="Course Name">
+												</div>
+												<div class="form-group col-md-4">
+													<label for="inputAddress">License</label>
+													<input type="text" class="form-control" id="license1" name="license1"
+														placeholder="License">
+												</div>
+												<div class="col-12 col-xl-4">
+													<div class="form-group">
+														<label class="form-label">Duration</label>
+														<input class="form-control daterange" type="text" id="cduration1"
+															name="cduration1" value="03/25/2019 - 04/15/2019"
+															onclick="datePick('cduration1')" />
+														<span class="font-13 text-muted">e.g "MM/DD/YYYY -
+															MM/DD/YYYY"</span>
 													</div>
-													<!------------------------------ACCOMPLISHMENTS------------------------------>
-							
+												</div>
+
+											</div>
+
+											<hr />
+										</div>
+									</div>
+
+									<br />
+									<input type="button" class="btn btn-primary" id='addCert' value="Add More">
+
+									<script>
+										var ccounter = 2;
+										var cselect = 1;
+
+										$(document).ready(function () {
+											$("#addCert").click(function () {
+												if ((document.getElementById('course' + cselect).value != '') && (document.getElementById('license' + cselect).value != '') && (document.getElementById('cduration' + cselect).value != '')) {
+
+													var cHTML = "";
+													cHTML += "<h5 class='card-title'>Certification " + ccounter + " </h5>";
+													cHTML += "<div class='row'>";
+													cHTML += "<div class='form-group col-md-4'>";
+													cHTML += "<label for='inputAddress'>Course</label>";
+													cHTML += "<input type='text' class='form-control' id='course" + ccounter + "' name='course" + ccounter + "' placeholder='Course Name'>";
+													cHTML += "</div>";
+													cHTML += "<div class='form-group col-md-4'>";
+													cHTML += "<label for='inputAddress'>License</label>";
+													cHTML += "<input type='text' class='form-control' id='license" + ccounter + "' name='license" + ccounter + "' placeholder='License'>";
+													cHTML += "</div>";
+													cHTML += "<div class='col-12 col-xl-4'>";
+													cHTML += "<div class='form-group'>";
+													cHTML += "<label class='form-label'>Duration</label>";
+													cHTML += "<input class='form-control daterange' type='text' id='cduration" + ccounter + "' name='cduration" + ccounter + "' value='03/25/2019 - 04/15/2019' >";
+													cHTML += "<span class='font-13 text-muted'>e.g 'MM/DD/YYYY - MM/DD/YYYY'</span>";
+													cHTML += "</div>";
+													cHTML += "</div>";
+													cHTML += "</div>";
+													cHTML += "<hr />";
+
+													ccounter++;
+													cselect = ccounter - 1;
+
+													$(".certification").append(cHTML);
+												}
+												else {
+													alert('Type your Cerification to add more');
+												}
+											});
+										});
+
+									</script>
+
+								</div>
+							</div>
+						</div>
+						<!------------------------------ACCOMPLISHMENTS------------------------------>
+
+
 					</div>
 
 
@@ -595,7 +590,7 @@
 								$(this)
 									.wrap('<div class="position-relative"></div>')
 									.select2({
-										placeholder: 'Select value',
+										placeholder: 'Select State',
 										dropdownParent: $(this).parent()
 									});
 							}); ////;
