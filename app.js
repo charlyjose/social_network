@@ -77,7 +77,7 @@ app.use('/logout', logoutRouter);
 
 app.use('/forgotpassword', forgotPasswordRouter);
 app.use('/reset-password', resetPasswordRouter);
-app.use('/reset-username', resetUserRouter);
+// app.use('/reset-username', resetUserRouter);
 app.use('/reset-password', resetPassRouter);
 app.use('/reset-contacts', resetContactsRouter);
 app.use('/delete-account', deleteAccRouter);
