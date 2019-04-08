@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `address` (
 insert into address (collegeID, addressline1, addressline2, city, country, zip) values("MUT16CS001", "Karimugal", "Karimugal PO", "Ernakulam", "IN","682303");
 insert into address (collegeID, addressline1, addressline2, city, country, zip) values("MUT16CS020", "Koothattukulam", "Koothattukulam PO", "Ernakulam", "IN","682569");
 
+update user set password = req.body.passwordnew where session = req.session.email
 
 # TABLE 3 posts
 

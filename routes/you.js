@@ -6,7 +6,7 @@ var db = require('../connectDB');   //rqd
 router.get('/', function (req, res, next) {
    // Check if signed in
    if (req.session.email) {
-
+    
     var sql = 'select name from user where session like ?';
     var values = [
         [req.session.email]
@@ -28,13 +28,14 @@ router.get('/', function (req, res, next) {
               });
         }
         else {
-
+            // Session set
+            res.render('you', {
+                name: results[0].name
+            });
         }
     });
     
-    res.render('you', {
-        name: 'Name'
-    });
+    
    
     }
    else {

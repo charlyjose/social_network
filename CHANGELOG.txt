@@ -290,11 +290,42 @@ Monday, April 8, 2019 3:29:04 AM
 *                7. /views/upcoming.ejs
 *                8. app.js
 *                9. /routes/feeds.js
-*                10./routes/profile.js
+*                10. /routes/profile.js
 *                11. /routes/you.js
 *                12. /routes/signin.js
 *                13. /routes/signup.js
 *                14. CHANGELOG.txt
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Monday, April 8, 2019 5:56:00 AM
+------------------------------------
+*
+1. Updated fronted                  [/views/deleteAccount.ejs]
+2. Updated fronted                  [/views/okay.ejs]
+3. Updated fronted                  [/views/reset-password.ejs]
+4. Added new file upcoming.ejs      [/views/upcoming.ejs]
+5. Updated server-side              [app.js]
+6. Updated db Schema for testing    [dbSchema.txt]
+7. Updated server-side              [/routes/resetPassword.js]
+8. Updated server-side              [/routes/resetContacts.js]
+9. Updated server-side              [/routes/deleteAccount.js]
+10. Updated server-side             [/routes/you.js]
+11. Edited files: 
+*                1. /views/deleteAccount.ejs
+*                2. /views/okay.ejs
+*                3. /views/reset-password.ejs
+*                4. /views/upcoming.ejs
+*                5. app.js
+*                6. dbSchema.txt
+*                7. /routes/resetPassword.js
+*                8. /routes/resetContacts.js
+*                9. /routes/deleteAccount.js
+*                10. /routes/you.js
+*                11. CHANGELOG.txt
 *
 Timestamp generated from Windows PowerShell
 ---------------------------------------------------------------------------------------
