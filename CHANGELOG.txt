@@ -329,3 +329,28 @@ Monday, April 8, 2019 5:56:00 AM
 *
 Timestamp generated from Windows PowerShell
 ---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+*
+*   SKIPPED UNDER LAZYNESS
+*
+---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Wed Apr 10 12:22:47 IST 2019
+------------------------------------
+*
+1. Updated fronted                          [/views/write-post.ejs]
+2. Updated server-side                      [app.js]
+3. Updated db Schema added posts table      [dbSchema.txt]
+4. Added new file in server-side            [/routes/posts.js]
+5. Edited files: 
+*                1. /views/write-post.ejs
+*                2. app.js
+*                3. dbSchema.txt
+*                4. /routes/posts.js
+*
+Timestamp generated from Ubuntu shell
+---------------------------------------------------------------------------------------

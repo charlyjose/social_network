@@ -57,12 +57,18 @@ update user set password = req.body.passwordnew where session = req.session.emai
 CREATE TABLE IF NOT EXISTS `posts` (
     `postid` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     `collegeID` varchar(10) NOT NULL,
+    `parent` int NOT NULL,
     `views` int,
     `likes` int,
     `data` tinyint(1) NOT NULL,
     `file_name` varchar(64) NOT NULL,
     `create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE posts AUTO_INCREMENT=100;
+
+
+
 
 
 ## data = 1 ---> text

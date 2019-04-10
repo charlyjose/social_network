@@ -39,6 +39,7 @@ var resetPasswordRouter = require('./routes/resetPassword');
 var profileRouter = require('./routes/profile');
 var youRouter = require('./routes/you');
 var feedsRouter = require('./routes/feeds');
+var postsRouter = require('./routes/posts');
 var resetUserRouter = require('./routes/resetUser');
 var resetContactsRouter = require('./routes/resetContacts');
 var deleteAccRouter = require('./routes/deleteAccount');
@@ -57,6 +58,9 @@ app.use('/home', homeRouter);
 
 // User Profile
 app.use('/profile', profileRouter);
+
+// Write Post
+app.use('/write-post', postsRouter);
 
 // Complete basic profile
 app.use('/you', youRouter);
