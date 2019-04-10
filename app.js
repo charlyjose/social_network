@@ -44,7 +44,7 @@ var resetUserRouter = require('./routes/resetUser');
 var resetContactsRouter = require('./routes/resetContacts');
 var deleteAccRouter = require('./routes/deleteAccount');
 
-
+;
 // Routers
 
 // app.use('/app.js', appJS);

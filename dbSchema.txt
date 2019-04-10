@@ -70,7 +70,6 @@ ALTER TABLE posts AUTO_INCREMENT=100;
 
 
 
-
 ## data = 1 ---> text
 ## data = 2 ---> image
 ## data = 3 ---> video
