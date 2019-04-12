@@ -6,7 +6,7 @@ var db = require('../connectDB');   //rqd
 router.get('/', function (req, res, next) {
     var skip = req.query.skip;
 
-    if(skip === undefined) {
+    if (skip === undefined) {
         // No skip
         skip = 0;
     }
@@ -51,27 +51,32 @@ router.get('/', function (req, res, next) {
                         else if (skip == 1) {
                             // Basics profile okay
                             res.render('writepost', {
+                                pageTitle: 'USN | Write Post',
                                 name: Name,
-                                address: 'Fill your details',
-
+                                goBack: '1',
+    
+                                address: results[0].addressline1 + ', ' + results[0].addressline2 + ', ' + results[0].city,
+    
                                 connections: '240',
-                                onlinenow: '25',
+                                onlineNow: '25',
                                 onlineToday: '172',
-
+    
                                 newPosts: '43'
-
+    
                             });
                         }
-
                     }
                     else {
                         // Basics profile okay
                         res.render('writepost', {
+                            pageTitle: 'USN | Write Post',
                             name: Name,
+                            goBack: '1',
+
                             address: results[0].addressline1 + ', ' + results[0].addressline2 + ', ' + results[0].city,
 
                             connections: '240',
-                            onlinenow: '25',
+                            onlineNow: '25',
                             onlineToday: '172',
 
                             newPosts: '43'

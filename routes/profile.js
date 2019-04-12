@@ -51,11 +51,13 @@ router.get('/', function (req, res, next) {
                         else if (skip == 1) {
                             // Basics profile okay
                             res.render('profile', {
+                                pageTitle: 'USN | Home',
                                 name: Name,
                                 address: 'Fill your details',
+                                goBack: '0',
 
                                 connections: '240',
-                                onlinenow: '25',
+                                onlineNow: '25',
                                 onlineToday: '172',
 
                                 newPosts: '43'
@@ -67,11 +69,14 @@ router.get('/', function (req, res, next) {
                     else {
                         // Basics profile okay
                         res.render('profile', {
+                            pageTitle: 'USN | Home',
                             name: Name,
+                            goBack: '0',
+
                             address: results[0].addressline1 + ', ' + results[0].addressline2 + ', ' + results[0].city,
 
                             connections: '240',
-                            onlinenow: '25',
+                            onlineNow: '25',
                             onlineToday: '172',
 
                             newPosts: '43'
