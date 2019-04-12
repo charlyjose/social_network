@@ -60,7 +60,7 @@ app.use('/home', homeRouter);
 app.use('/profile', profileRouter);
 
 // Write Post
-app.use('/write-post', postsRouter);
+app.use('/writepost', postsRouter);
 
 // Complete basic profile
 app.use('/you', youRouter);

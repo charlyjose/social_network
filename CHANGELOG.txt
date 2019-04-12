@@ -354,3 +354,19 @@ Wed Apr 10 12:22:47 IST 2019
 *
 Timestamp generated from Ubuntu shell
 ---------------------------------------------------------------------------------------
+*
+*
+---------------------------------------------------------------------------------------
+Fri, Apr 12, 2019  9:24:58 PM
+------------------------------------
+*
+1. Updated fronted, Changes filename        [/views/writepost.ejs]
+2. Updated server-side                      [app.js]
+3. Updated server-side                      [/routes/posts.js]
+4. Edited files: 
+*                1. /views/writepost.ejs
+*                2. app.js
+*                3. /routes/posts.js
+*
+Timestamp generated from Windows PowerShell
+---------------------------------------------------------------------------------------

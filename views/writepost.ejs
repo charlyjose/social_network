@@ -27,10 +27,6 @@
 				<img src="images/usnlogo.jpeg" width="15%" height="15%">
 
 				<span>University Social Network</span>
-				| <b><a href="/home" style="color: #d3d3d3; text-decoration: none;" onMouseOver="this.style.color='#FFF'"
-						onMouseOut="this.style.color='#d3d3d3'"><small class="d-none d-sm-inline">Feeds</small></a></b>
-				| <b><a href="/profile" style="color: #d3d3d3; text-decoration: none;" onMouseOver="this.style.color='#FFF'"
-						onMouseOut="this.style.color='#d3d3d3'"><small class="d-none d-sm-inline">Profile</small></a></b>
 			</div>
 
 
@@ -83,46 +79,49 @@
 								<h5 class="card-title mb-0">Main Navigation</h5>
 							</div>
 							<div class="sidebar-content">
-								<a href="/home" class="sidebar-item">
-									<i class="align-middle mr-1 fas fa-fw fa-home"></i> <span class="align-middle">Home</span>
+								<a href="/feeds" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-stream"></i> <span
+										class="align-middle">Feeds</span>
+								</a>
+								<a href="/profile" class="sidebar-item">
+									<i class="align-middle mr-1 fas fa-fw fa-user-circle"></i> <span
+										class="align-middle">Profile</span>
 								</a>
 								<a href="/logout" class="sidebar-item">
-									<i class="align-middle mr-1 fas fa-fw fa-arrow-alt-circle-right"></i> <span
-										class="align-middle">Logout</span>
+									<i class="align-middle mr-1 fas fa-fw fa-arrow-alt-circle-right"></i> <span class="align-middle">Logout</span>
 								</a>
-
-
-
 							</div>
 						</div>
+
+
+
+
+						<!-- onmouseover="this.style.backgroundColor ='#5c59ed'; this.style.color='#fff';" onmouseout="this.style.backgroundColor ='#fff'; this.style.color='#495057'" -->
+
 
 						<div class="card">
 							<div class="card-header">
 								<h5 class="card-title mb-0">General</h5>
 							</div>
 							<div class="sidebar-content">
-								<a class="sidebar-item" href="#ui" data-toggle="collapse">
+								<a class="sidebar-item btn" href="#ui" data-toggle="collapse" >
 									<i class="align-middle mr-1 fas fa-fw fa-cog"></i> <span class="align-middle">Settings</span>
 								</a>
 								<div class="sidebar-dropdown collapse" id="ui" data-parent="#sidebar">
-									<a class="sidebar-item" href="pages/settings/reset-username.html"><i
-											class="align-middle mr-1 fas fa-fw fa-user"></i>Username</a>
-									<a class="sidebar-item" href="pages/settings/reset-password.html"><i
-											class="align-middle mr-1 fas fa-fw fa-key"></i>Password</a>
-									<a class="sidebar-item" href="pages/settings/reset-contacts.html"><i
-											class="align-middle mr-1 fas fa-fw fa-address-card"></i>Contact</a>
-									<a class="sidebar-item" href="pages/settings/pages/delete-account.html"><i
-											class="align-middle mr-1 fas fa-fw fa-user-slash"></i>Delete Account</a>
+									<a class="sidebar-item" href="/reset-username"><i class="align-middle mr-1 fas fa-fw fa-user"></i>Username</a>
+									<a class="sidebar-item" href="/reset-password"><i class="align-middle mr-1 fas fa-fw fa-key"></i>Password</a>
+									<a class="sidebar-item" href="/reset-contacts"><i class="align-middle mr-1 fas fa-fw fa-address-card"></i>Contact</a>
+									<a class="sidebar-item" href="/delete-account"><i class="align-middle mr-1 fas fa-fw fa-user-slash"></i>Delete Account</a>
 								</div>
 							</div>
-							<div class="sidebar-content">
+							<div class="sidebar-content" >
 								<a class="sidebar-item" href="#charts" data-toggle="collapse">
 									<i class="align-middle mr-1 fas fa-fw fa-lightbulb"></i> <span class="align-middle">Create</span>
 								</a>
 								<div class="sidebar-dropdown collapse" id="charts" data-parent="#sidebar">
-									<a class="sidebar-item" href="/write-post"><i
+									<a class="sidebar-item" href="/writepost"><i
 											class="align-middle mr-1 fas fa-fw fa-plus"></i>Post</a>
-									<a class="sidebar-item" href="/write-status"><i
+									<a class="sidebar-item" href="/writestatus"><i
 											class="align-middle mr-1 fas fa-fw fa-signal"></i>Status</a>
 								</div>
 							</div>
@@ -148,6 +147,20 @@
 								</a>
 							</div>
 						</div>
+
+						<!-- #6610f2; -->
+						<!-- #5c59ed; -->
+
+						<div class="card" >
+							<div class="card-header btn" style="background-color:#41d492;; text-align: left;" onmouseover="this.style.backgroundColor ='#5c59ed'" onmouseout="this.style.backgroundColor ='#41d492'" >
+								<a href="/profile" style="text-decoration:none; color: white;" >
+									<i class="align-middle mr-1 fas fa-fw fa-arrow-left"></i> <span class="align-middle">Go back</span>
+								</a>
+							</div>
+							
+						</div>
+
+
 					</nav>
 				</div>
 				<!-----------------------------------SIDEBAR----------------------------------->
@@ -172,10 +185,16 @@
 									<form id="validation-form">
 
 
+										<!----POST HEAD---->
+										<div class="form-group">
+											 <label class="form-label">Title</label>   
+											<textarea rows="1" maxlength="80" class="form-control" name="post-title" placeholder="Post Title" required></textarea>
+										</div>
+
 										<!----POST TEXT---->
 										<div class="form-group">
-											<!---      <label class="form-label" ></label>    -->
-											<textarea rows="10" class="form-control" name="post-text" placeholder="Write something here..." required></textarea>
+											<label class="form-label">Content</label>   
+											<textarea rows="10" maxlength="1000" class="form-control" name="post-text" placeholder="Write something here..." required></textarea>
 										</div>
 
 										<!----POST IMAGE---->
