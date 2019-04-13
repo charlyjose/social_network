@@ -4,6 +4,8 @@ var db = require('../connectDB');   //rqd
 
 
 router.get('/', function (req, res, next) {
+    console.log("\n\n PROFILE\n\n");
+
     var skip = req.query.skip;
 
     if(skip === undefined) {
@@ -64,7 +66,6 @@ router.get('/', function (req, res, next) {
 
                             });
                         }
-
                     }
                     else {
                         // Basics profile okay
@@ -72,7 +73,6 @@ router.get('/', function (req, res, next) {
                             pageTitle: 'USN | Home',
                             name: Name,
                             goBack: '0',
-
                             address: results[0].addressline1 + ', ' + results[0].addressline2 + ', ' + results[0].city,
 
                             connections: '240',

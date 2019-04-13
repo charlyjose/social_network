@@ -4,21 +4,22 @@ var db = require('../connectDB');   //rqd
 
 
 router.get('/', function (req, res, next) {
-    console.log("\n\n FEEDS\n\n");
+    console.log("\n\n POSTS\n\n");
 
     // Check if signed in
     if (req.session.email) {
-        res.render('feeds', {
-            name: 'Charly Jose',
-            likes: '12',
-            views: '344',
-            circulations: '24'
+        res.render('writepost', {
+            name: 'CHARLY JOSE'
         });
     }
     else {
         // Not signed in
         res.redirect('/signin');
     }
+});
+
+router.get('/favicon.ico', function (req, res, next) {
+    res.sendFile('/images/favicon.ico');
 });
 
 module.exports = router;
