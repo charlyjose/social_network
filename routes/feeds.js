@@ -9,6 +9,7 @@ router.get('/', function (req, res, next) {
     // Check if signed in
     if (req.session.email) {
         res.render('feeds', {
+            pageTitle: 'USN | Feeds',
             name: 'Charly Jose',
             likes: '12',
             views: '344',
