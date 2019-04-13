@@ -9,7 +9,9 @@ router.get('/', function (req, res, next) {
     // Check if signed in
     if (req.session.email) {
         res.render('writepost', {
-            name: 'CHARLY JOSE'
+            pageTitle: 'USN | Write Post',
+            name: 'CHARLY JOSE',
+            goBack: '1',
         });
     }
     else {
