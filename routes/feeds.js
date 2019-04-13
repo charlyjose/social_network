@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
     console.log("\n\n FEEDS\n\n");
 
     // Check if signed in
-    if (req.session.email) {
+    // if (req.session.email) {
         res.render('feeds', {
             pageTitle: 'USN | Feeds',
             name: 'Charly Jose',
@@ -15,11 +15,11 @@ router.get('/', function (req, res, next) {
             views: '344',
             circulations: '24'
         });
-    }
-    else {
-        // Not signed in
-        res.redirect('/signin');
-    }
+    // }
+    // else {
+    //     // Not signed in
+    //     res.redirect('/signin');
+    // }
 });
 
 module.exports = router;
