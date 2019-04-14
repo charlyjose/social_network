@@ -44,6 +44,7 @@ var resetUserRouter = require('./routes/resetUser');
 var resetContactsRouter = require('./routes/resetContacts');
 var deleteAccRouter = require('./routes/deleteAccount');
 
+var errorHandle = require('./routes/error');
 
 // Routers
 
@@ -79,6 +80,8 @@ app.use('/reset-username', resetUserRouter);
 app.use('/reset-contacts', resetContactsRouter);
 app.use('/delete-account', deleteAccRouter);
 
+// Error
+app.use('/error', errorHandle);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -94,15 +97,17 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 404);
-  res.render('messageBoard', {
-    title: 'USN | Error 404',
-    heading: '404',
-    subtitle: 'Page not found',
-    body: 'The page you are looking for might have been removed.',
-    diagnose: '',
-    comments: '',
-    returnLink: 'home'
-  });
+  // res.render('messageBoard', {
+  //   title: 'USN | Error 404',
+  //   heading: '404',
+  //   subtitle: 'Page not found',
+  //   body: 'The page you are looking for might have been removed.',
+  //   diagnose: '',
+  //   comments: '',
+  //   returnLink: 'home'
+  // });
+
+  res.redirect('/error');
 });
 
 
