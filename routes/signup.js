@@ -15,7 +15,6 @@ router.get('/', function (req, res, next) {
 
 
 router.post('/', function (req, res, next) {
-    console.log(' ::: ' + req.body.email + ' ::: ' + req.body.name + ' ::: ' + req.body.password + ' ::: ' + req.body.confirmPassword + ' ::: ' + req.body.collegeID + ' ::: ' + req.body.confirmCollegeID);
 
     if (!req.body.name || !req.body.email || !req.body.password || !req.body.confirmPassword || !req.body.collegeID || !req.body.confirmCollegeID) {
         res.render('messageBoard', {
@@ -126,7 +125,6 @@ router.post('/', function (req, res, next) {
                             else {
                                 // Account creation successful
                                 sendConfirm += "done";
-                                console.log(sendConfirm);
                                 //res.send(sendConfirm);
                                 res.redirect('/profile');
                             }
@@ -134,9 +132,7 @@ router.post('/', function (req, res, next) {
                     }
                     else {
                         // College ID is taken
-                        console.log("CollegeID taken");
                         sendConfirm += "c";
-                        console.log(sendConfirm);
                         //res.send(sendConfirm);
                         res.render('sign-up');
                     }
@@ -144,9 +140,7 @@ router.post('/', function (req, res, next) {
             }
             else {
                 // Email ID is taken
-                console.log("Email taken");
                 sendConfirm += "e";
-                console.log(sendConfirm);
                 //res.send(sendConfirm);
                 res.render('sign-up');
             }

@@ -4,7 +4,6 @@ var db = require('../connectDB');   //rqd
 
 
 router.get('/', function (req, res, next) {
-    console.log("\n\n PROFILE\n\n");
 
     var skip = req.query.skip;
 

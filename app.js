@@ -47,11 +47,6 @@ var deleteAccRouter = require('./routes/deleteAccount');
 
 // Routers
 
-// app.use('/app.js', appJS);
-// app.use('/app.css', appCSS);
-// app.use('/favicon.ico', favic);
-// app.use('/usnlogo.jpeg', usnLogo);
-
 // Home Page
 app.use('/', homeRouter);
 app.use('/home', homeRouter);
