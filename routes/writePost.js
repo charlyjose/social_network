@@ -1,14 +1,36 @@
 var express = require('express');   //rqd
 var router = express.Router();      //rqd
 var db = require('../connectDB');   //rqd
-var formidable = require('formidable');
-var fs = require('fs');
 var path = require('path');
 var multer = require('multer');
+var randomstring = require('randomstring');
 
-var DIR = path.join(__dirname, '../../usn_images/');
-// console.log("\n\n POSTS POSTING DIRNAME: \n\n" + DIR);
 
+var DIR = path.join(__dirname, '../../usn_posts_images/');
+
+var IMAGENAME = "";
+var data = 0;
+var imageFile = "";
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, DIR)
+    },
+    filename: function (req, file, cb) {
+        
+        var RAND = randomstring.generate({
+            length: 6,
+            charset: file.originalname
+        });
+
+        var DATE =  Date.now();
+        IMAGENAME = RAND + '-' + DATE + '-' + file.originalname;
+        console.log(IMAGENAME);
+        cb(null, IMAGENAME)
+    }
+})
+
+var uploading =  multer({storage: storage}).single('postImage');
 
 
 
@@ -51,45 +73,7 @@ router.get('/', function (req, res, next) {
 
 
 
-
-var IMAGENAME = "";
-// get data type
-var data = 0;
-var imageFile = "";
-
-// var upload = multer({ dest: 'uploads/' });
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/')
-    },
-    filename: function (req, file, cb) {
-        var DATE =  Date.now();
-        IMAGENAME = DATE + file.originalname;
-        console.log(IMAGENAME);
-        cb(null, IMAGENAME)
-    }
-})
-
-var uploading =  multer({storage: storage}).single('postImage');
-
-
-
-/*
-app.post('/profile', upload.single('postImage'), function (req, res, next) {
-  // req.file is the `avatar` file
-  // req.body will hold the text fields, if there were any
-})
-
-*/
-
-
-
-
 router.post('/', /*upload.single('postImage'),*/ function (req, res, next) {
-    // console.log("\n\n POSTS POSTING DIRNAME: \n\n" + req.file + " : \n " + req.body.postTitle + " : " + req.body.postBody);
-
-
 
     uploading(req, res, function (err) {
         if (err) {
@@ -109,7 +93,7 @@ router.post('/', /*upload.single('postImage'),*/ function (req, res, next) {
 
         
 
-        res.send('Successfully uploaded files!');
+        console.log('Successfully uploaded files!');
 
         console.log("\n\n POSTS POSTING DIRNAME: \n\n : \n " + req.body.postTitle + " : " + req.body.postBody);
 

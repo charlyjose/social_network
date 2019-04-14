@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
     `data` tinyint(1) DEFAULT 0,
     `postTitle` varchar(100) NOT NULL,
     `postBody` MEDIUMTEXT  NOT NULL,
-    `imageFile` varchar(64) DEFAULT NULL,
+    `imageFile` varchar(200) DEFAULT NULL,
     `create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
