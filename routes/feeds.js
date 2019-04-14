@@ -4,7 +4,6 @@ var db = require('../connectDB');   //rqd
 
 
 router.get('/', function (req, res, next) {
-    console.log("\n\n FEEDS\n\n");
 
     // Check if signed in
     // if (req.session.email) {

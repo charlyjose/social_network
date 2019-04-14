@@ -100,8 +100,6 @@ router.post('/', /*upload.single('postImage'),*/ function (req, res, next) {
 
         IMAGENAME = "";
 
-        console.log('Successfully uploaded files!');
-
         // Check if signed in
         if (req.session.email) {
             if (!req.body.postTitle || !req.body.postBody) {
@@ -116,8 +114,6 @@ router.post('/', /*upload.single('postImage'),*/ function (req, res, next) {
                 });
             }
             else {
-
-
                 // get college ID
                 var sql = 'select collegeID from user where session like ?';
                 var values = [
