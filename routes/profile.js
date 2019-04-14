@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
 
     var skip = req.query.skip;
 
-    if(skip === undefined) {
+    if (skip === undefined) {
         // No skip
         skip = 0;
     }
@@ -26,7 +26,18 @@ router.get('/', function (req, res, next) {
 
         db.query(sql, [values], function (err, results, fields) {
             if (err) {
+                // DB ERROR
                 console.log('\n\nDB ERROR: ' + err);
+
+                res.render('messageBoard', {
+                    title: 'USN | Error',
+                    heading: 'Ouch!',
+                    subtitle: 'Something went wrong on our side ?',
+                    body: 'Our engineers are looking into it, if you see them tell them code give below.',
+                    diagnose: '',
+                    comments: '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
+                    returnLink: 'logout'
+                });
             }
             else if (results.length == 0) {
                 // Session deleted from db
@@ -43,7 +54,18 @@ router.get('/', function (req, res, next) {
                 ];
                 db.query(sql, [values], function (err, results, fields) {
                     if (err) {
+                        // DB ERROR
                         console.log('\n\nDB ERROR: ' + err);
+
+                        res.render('messageBoard', {
+                            title: 'USN | Error',
+                            heading: 'Ouch!',
+                            subtitle: 'Something went wrong on our side ?',
+                            body: 'Our engineers are looking into it, if you see them tell them code give below.',
+                            diagnose: '',
+                            comments: '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
+                            returnLink: 'logout'
+                        });
                     }
                     else if (results.length === 0) {
                         // Basics profile is not set

@@ -2,9 +2,10 @@ var express = require('express');   //rqd
 var router = express.Router();      //rqd
 var db = require('../connectDB');   //rqd
 
+
 router.get('/', function (req, res, next) {
     if (req.session.email) {
-        // get imformation from database for the logged in user
+        // get information from database for the logged in user
         res.redirect('/profile'); //feeds actually
     }
     else {
@@ -17,7 +18,6 @@ router.get('/favicon.ico', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    console.log(' ::: ' + req.body.email + ' ::: ' + req.body.password);
 
     if (!req.body.email || !req.body.password) {
         res.render('messageBoard', {
@@ -31,9 +31,6 @@ router.post('/', function (req, res, next) {
         });
     }
     else {
-        var session;
-        var sendConfirm = '';
-
         // Check for user account
         var sql = 'select password from user where email like ?';
         var values = [
@@ -42,10 +39,20 @@ router.post('/', function (req, res, next) {
 
         db.query(sql, [values], function (err, results, fields) {
             if (err) {
+                // DB ERROR
                 console.log('\n\nDB ERROR: ' + err);
+
+                res.render('messageBoard', {
+                    title: 'USN | Error',
+                    heading: 'Ouch!',
+                    subtitle: 'Something went wrong on our side ?',
+                    body: 'Our engineers are looking into it, if you see them tell them code give below.',
+                    diagnose: '',
+                    comments: '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
+                    returnLink: 'logout'
+                });
             }
             else if (results.length === 0) {
-
                 // No such user
                 res.render('messageBoard', {
                     title: 'USN | Sign In Error',
@@ -58,8 +65,6 @@ router.post('/', function (req, res, next) {
                 });
             }
             else {
-                console.log("\n\n HERE3::::" + req.body.email + "::::" + req.body.password);
-
                 // The user is registered in db
                 // Check if password is correct
                 if (results[0].password === req.body.password) {
