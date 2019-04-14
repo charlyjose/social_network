@@ -6,7 +6,7 @@ var multer = require('multer');
 var randomstring = require('randomstring');
 
 // Posts image store directory
-var DIR = path.join(__dirname, '../../usn_posts_images/');
+var DIR = path.join(__dirname, '../usn_posts_images');
 
 var IMAGENAME = "";
 var data = 0;
