@@ -13,9 +13,6 @@ router.get('/', function (req, res, next) {
     }
 });
 
-router.get('/favicon.ico', function (req, res, next) {
-    res.sendFile('/images/favicon.ico');
-});
 
 router.post('/', function (req, res, next) {
     console.log(' ::: ' + req.body.email + ' ::: ' + req.body.name + ' ::: ' + req.body.password + ' ::: ' + req.body.confirmPassword + ' ::: ' + req.body.collegeID + ' ::: ' + req.body.confirmCollegeID);
@@ -123,6 +120,11 @@ router.post('/', function (req, res, next) {
             }
         });
     }
+});
+
+
+router.get('/favicon.ico', function (req, res, next) {
+    res.sendFile('/images/favicon.ico');
 });
 
 

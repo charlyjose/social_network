@@ -190,20 +190,20 @@
 									<h5 class="card-title mb-0">Create a Post</h5>
 								</div>
 								<div class="card-body">
-									<form id="validation-form">
+									<form id="validation-form" action="/writepost" method="POST" enctype="multipart/form-data">
 
-
+										
 										<!----POST HEAD---->
 										<div class="form-group">
 											<label class="form-label">Title</label>
-											<textarea rows="1" maxlength="80" class="form-control" name="post-title"
+											<textarea rows="1" maxlength="80" class="form-control" name="postTitle"
 												placeholder="Post Title" required></textarea>
 										</div>
 
-										<!----POST TEXT---->
+										<!----POST BODY---->
 										<div class="form-group">
 											<label class="form-label">Content</label>
-											<textarea rows="10" maxlength="1000" class="form-control" name="post-text"
+											<textarea rows="10" maxlength="1000" class="form-control" name="postBody"
 												placeholder="Write something here..." required></textarea>
 										</div>
 
@@ -211,12 +211,12 @@
 										<div class="form-group">
 											<label class="form-label">Add Photo</label>
 											<div>
-												<input type="file" class="validation-file" name="post-image">
+												<input type="file" class="validation-file" name="postImage">
 											</div>
 										</div>
 
-
 										<button type="submit" class="btn btn-primary">Post</button>
+
 									</form>
 								</div>
 							</div>
