@@ -10,12 +10,12 @@ Schema
 CREATE database sn;
 use sn;
 
-###################################################################
+##############################################################
 CREATE USER 'user'@'localhost' IDENTIFIED BY '*******';
 GRANT ALL PRIVILEGES ON vyapti19 . * TO 'user'@'localhost';
 mysql -u root -p sn < sn.sql
 FLUSH PRIVILEGES;
-###################################################################
+##############################################################
 
 
 
