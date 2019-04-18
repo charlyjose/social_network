@@ -178,62 +178,82 @@
 				<div class="col-12 col-md-8 col-lg-9 col-xl-10 pl-lg-4">
 
 
-					<%- include('feeds-posts.ejs'); -%>
+
+					<!-- FEEDS ROW -->
+					<div class="row">
 
 
-					<div id="modify"></div>
+
+
+						<div class="col-12 col-md-6 col-lg-1">
+							<!-- CHANGE WIDTH-->
+						</div>
+
+						<!-- MAIN FEEDS CONTENT -->
+						<div class="col-12 col-md-7 col-lg-8">
+							<div class="card">
+
+								<!-- AVATAR AND POST AUTHOR -->
+								<div class="card-header">
+									<img src="images/charly.jpg" class="avatar img-fluid rounded-circle mr-3"
+										alt="Charly Jose" />
+									<h5 class="card-title mb-0">Posted by <a href="/u/georgymrajan" class="card-link">
+											Georgy</a></h5>
+								</div>
+								<!-- AVATAR AND POST AUTHOR -->
+
+
+								<!-- POST IMAGE IF ANY -->
+								<img class="card-img-top" src="images/charly.jpg" alt="Unsplash">
+								<!-- POST IMAGE IF ANY -->
+
+
+								<!-- POST TITLE IF ANY -->
+								<div class="card-header">
+									<h5 class="card-title mb-0">Post title if any</h5>
+								</div>
+								<!-- POST TITLE IF ANY -->
+
+								<!-- POST BODY IF ANY -->
+								<div class="card-body">
+									<p class="card-text">Some quick example text to build on the card title and make up
+										the bulk of the
+										card's content.</p>
+									<a href="ui-cards.html" class="card-link"><i class="far fa-thumbs-up"></i> Like</a>
+									<a href="ui-cards.html" class="card-link"><i class="fas fa-redo"></i> Circulate</a>
+
+
+									<!----ACTIVITY---->
+									<a class="card-link" href="#activity1" data-toggle="collapse">
+										<i class="align-middle mr-1 fas fa-chart-line"></i>
+										<span class="align-middle">Activity</span>
+									</a>
+
+									<div class="collapse" id="activity1" data-parent="#sidebar">
+										<a href="#" style="text-decoration:none;"> <%= likes %></a> Likes
+										<a href="#" style="text-decoration:none;"> <%= views %></a> Views
+										<a href="#" style="text-decoration:none;"> <%= circulations %></a> Circulations
+									</div>
+									<!----ACTIVITY---->
+								</div>
+								<!-- POST BODY IF ANY -->
+
+							</div>
+						</div>
+						<!-- MAIN FEEDS CONTENT -->
+
+
+						<div class="col-12 col-md-6 col-lg-2">
+							<!-- CHANGE WIDTH-->
+						</div>
+
+
+
+					</div>
+					<!-- FEEDS ROW -->
+
 
 				</div>
-
-
-				<script src="https://code.jquery.com/jquery-3.4.0.min.js"
-					integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-
-				<script>
-
-					/*
-					function random_no() {
-						var ran = Math.random();
-						jQuery('#random_no_container').html(ran);
-					}
-
-					window.setInterval(function () {
-						// call your function here
-						random_no();
-					}, 1000);  // Change Interval here to test. For eg: 5000 for 5 sec
-					*/
-
-
-					$(document).ready(function () {
-						var win = $(window);
-
-						// Each time the user scrolls
-						win.scroll(function () {
-							// End of the document reached?
-							if ($(document).height() - win.height() == win.scrollTop()) {
-
-								//an AJAX request with given parameters
-								$.ajax({
-									type: 'POST',
-									// data: JSON.stringify(data),
-									dataType: 'html',
-									url: 'http://localhost:3000/feeds',
-
-									//on success, received data is used as 'data' function input
-									success: function (html) {
-										// window.alert('Request sent; data received.');
-
-										$('#modify').append(html);
-
-									}
-								});
-							}
-						});
-					});
-
-
-
-				</script>
 
 				<!-----------------------------------POST BODY----------------------------------->
 
