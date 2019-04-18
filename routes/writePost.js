@@ -153,7 +153,7 @@ router.post('/', /*upload.single('postImage'),*/ function (req, res, next) {
                         var CollegeID = results[0].collegeID;
 
                         // Save post to db
-                        var sql = 'insert into posts(collegeID, parent, views, likes, data, postTitle, postBody, imageFile) values ?';
+                        var sql = 'insert into posts(collegeID, parent, likes, views, data, postTitle, postBody, imageFile) values ?';
                         var values = [
                             [CollegeID, CollegeID, 0, 0, data, req.body.postTitle, req.body.postBody, imageFile]
                         ];
