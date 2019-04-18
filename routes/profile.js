@@ -17,6 +17,7 @@ router.get('/', function (req, res, next) {
 
     // Check if signed in
     if (req.session.email) {
+        console.log("Here1");
 
         var sql = 'select name, collegeID from user where email like ?';
         var values = [
@@ -46,8 +47,11 @@ router.get('/', function (req, res, next) {
                 // Session is set in db
                 var Name = results[0].name;
 
-                // Get user details from address table
-                var sql = 'select addressline1, addressline2, city from address where collegeID like ?'
+                console.log("Here2");
+
+
+                // Get user details from details table
+                var sql = 'select avatar, summary, skills, contacts, education, accomplishments, interests from details where collegeID like ?'
                 var values = [
                     [results[0].collegeID]
                 ];
@@ -67,6 +71,10 @@ router.get('/', function (req, res, next) {
                         });
                     }
                     else if (results.length === 0) {
+
+                        console.log("Here3");
+
+
                         // Basics profile is not set
                         if (skip === 0) {
                             res.redirect('/you');

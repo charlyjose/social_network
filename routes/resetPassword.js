@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
     // Check if signed in
     if (req.session.email) {
-        var sql = "select email, password from user where session = '" + req.session.email + "' and password = '" + req.body.passwordold + "'";
+        var sql = "select email, password from user where email = '" + req.session.email + "' and password = '" + req.body.passwordold + "'";
 
         db.query(sql, function (err, results, fields) {
             if (err) {
@@ -58,7 +58,7 @@ router.post('/', function (req, res, next) {
                     }
                     else {
                         // Old password != new password
-                        var sql = "update user set password = '" + req.body.passwordnew1 + "' where session = '" + req.session.email + "'";
+                        var sql = "update user set password = '" + req.body.passwordnew1 + "' where email = '" + req.session.email + "'";
                         db.query(sql, function (err, results, fields) {
                             if (err) {
                                 console.log('\n\nDB ERROR: ' + err);

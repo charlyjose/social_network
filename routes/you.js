@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
    // Check if signed in
    if (req.session.email) {
     
-    var sql = 'select name from user where session like ?';
+    var sql = 'select name from user where email like ?';
     var values = [
         [req.session.email]
     ];

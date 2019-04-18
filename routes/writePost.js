@@ -38,7 +38,7 @@ router.get('/', function (req, res, next) {
     // Check if signed in
     if (req.session.email) {
 
-        var sql = 'select name from user where session like ?';
+        var sql = 'select name from user where email like ?';
         var values = [
             [req.session.email]
         ];
@@ -115,7 +115,7 @@ router.post('/', /*upload.single('postImage'),*/ function (req, res, next) {
             }
             else {
                 // get college ID
-                var sql = 'select collegeID from user where session like ?';
+                var sql = 'select collegeID from user where email like ?';
                 var values = [
                     [req.session.email]
                 ];

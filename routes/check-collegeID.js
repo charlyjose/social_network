@@ -4,7 +4,6 @@ var db = require('../connectDB');   //rqd
 
 
 router.post('/', function (req, res, next) {
-    // chk if session is set
 
     var sql = 'select collegeID from user where collegeID like ?';
     var values = [
