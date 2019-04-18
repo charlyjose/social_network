@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
         author1: 'Charly',
         authorProfile1: '/u/charlyjose',
         avatarImage1: 'usn_avatar_images/charly.jpg',
-        postImage1: '../usn_posts_images/ban.qo-1555281676255-love_is_in_the_air___jump_67_by_escaped_emotions-d4pqnnj.jpg',
+        postImage1: '../usn_posts_images/j.ajaj-1555574761308-aerial-shot-beach-bird-s-eye-view-2017299.jpg',
         postTitle1: 'POST TITLE HERE',
         postBody1: 'POST BODY HERE Some quick example text to build on the card title and make up the bulk of the cards content.',
         likes1: '12',

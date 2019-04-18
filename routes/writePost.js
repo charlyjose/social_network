@@ -82,7 +82,7 @@ router.get('/', function (req, res, next) {
 
 
 
-router.post('/', /*upload.single('postImage'),*/ function (req, res, next) {
+router.post('/', function (req, res, next) {
 
     uploading(req, res, function (err) {
         if (err) {
