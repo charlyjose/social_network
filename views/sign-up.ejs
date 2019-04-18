@@ -56,7 +56,7 @@
 												<div class="form-group col-md-6">
 													<label for="name">Name</label>
 													<input type="text" class="form-control" id="name" name="name"
-														placeholder="Name" required>
+														placeholder="Name" style="text-transform: capitalize;" required>
 													<small class="form-text text-muted">Name should be atleast 3 letters
 														long</small>
 												</div>
@@ -64,7 +64,8 @@
 												<div class="form-group col-md-6">
 													<label for="uname">Username</label>
 													<input type="text" class="form-control" id="uname" name="uname"
-														placeholder="Username" required>
+														placeholder="Username" style="text-transform: lowercase;"
+														required>
 													<small class="form-text text-muted">We'll call you by this
 														name</small>
 												</div>
@@ -103,7 +104,7 @@
 												<div class="form-group col-md-12">
 													<label for="email">Email</label>
 													<input type="email" class="form-control" id="email" name="email"
-														placeholder="Email" required>
+														placeholder="Email" style="text-transform: lowercase;" required>
 													<small class="form-text text-muted">A valid email for
 														contact</small>
 												</div>
@@ -111,7 +112,8 @@
 												<div class="form-group col-md-6">
 													<label for="collegeID">College ID</label>
 													<input type="text" class="form-control" id="collegeID"
-														name="collegeID" placeholder="College ID" required>
+														name="collegeID" placeholder="College ID"
+														style="text-transform: lowercase;" required>
 													<small class="form-text text-muted">College ID of form the
 														MUT16CS001</small>
 												</div>
@@ -120,7 +122,7 @@
 													<label for="confirmCollegeID">Confirm College ID</label>
 													<input type="text" class="form-control" id="confirmCollegeID"
 														name="confirmCollegeID" placeholder="Confirm college ID"
-														required>
+														style="text-transform: lowercase;" required>
 
 												</div>
 
@@ -142,8 +144,8 @@
 												<div class="form-group col-md-12">
 													<label for="password"></label>
 													<label class="custom-control custom-checkbox">
-														<input type='checkbox' class="custom-control-input" id='toggle' name="toggle"
-															value='0'>
+														<input type='checkbox' class="custom-control-input" id='toggle'
+															name="toggle" value='0'>
 														<span class="custom-control-label" id="toggleText">Show
 															Password</span>
 													</label>
@@ -244,6 +246,25 @@
 		var vuname = 0;
 		var vemail = 0;
 		var vcollegeID = 0;
+
+
+		// Disable spacebar
+		$('#uname').keypress(function (e) {
+			if (e.which === 32)
+				return false;
+		});
+		$('#email').keypress(function (e) {
+			if (e.which === 32)
+				return false;
+		});
+		$('#collegeID').keypress(function (e) {
+			if (e.which === 32)
+				return false;
+		});
+		$('#confirmCollegeID').keypress(function (e) {
+			if (e.which === 32)
+				return false;
+		});
 
 
 		// just for the demos, avoids form submit
@@ -470,67 +491,76 @@
 			$("#submit").click(function () {
 
 
-				var name =  $("#name").val();						
-				var uname = $("#uname").val();
+				var name = $("#name").val().toLowerCase();
+
+				name = name.split(" ");
+				for (var i = 0, x = name.length; i < x; i++) {
+					name[i] = name[i][0].toUpperCase() + name[i].substr(1);
+				}
+				name = name.join(" ");
+
+
+				var uname = $("#uname").val().toLowerCase();
+				uname = uname.replace(/\s+/g, '');
 				var dob = $("#dob").val();
 				var gender = $("#gender").val();
-				var email = $("#email").val();
-				var collegeID = $("#collegeID").val();
-				var confirmCollegeID = $("#confirmCollegeID").val();
+				var email = $("#email").val().toLowerCase();
+				var collegeID = $("#collegeID").val().toLowerCase();
+				var confirmCollegeID = $("#confirmCollegeID").val().toLowerCase();
 				var password = $("#password").val();
 				var confirmPassword = $("#confirmPassword").val();
 
-				if(name != '' & uname != '' & dob != '' & gender != '' & email != '' & collegeID != '' & confirmCollegeID != '' & password != '' & confirmPassword != '') {
+				if (name != '' & uname != '' & dob != '' & gender != '' & email != '' & collegeID != '' & confirmCollegeID != '' & password != '' & confirmPassword != '') {
 
 					$.ajax({
-					url: '/signup',
-					type: 'POST',
-					cache: false,
-					data: {
-						name: name,
-						uname: uname,
-						dob: dob,
-						gender: gender,
-						email: email,
-						collegeID: collegeID,
-						confirmCollegeID: confirmCollegeID,
-						password: password,
-						confirmPassword: confirmPassword						
-					},
-					success: function (DATA) {
-						// alert('Your submission was successful');
+						url: '/signup',
+						type: 'POST',
+						cache: false,
+						data: {
+							name: name,
+							uname: uname,
+							dob: dob,
+							gender: gender,
+							email: email,
+							collegeID: collegeID,
+							confirmCollegeID: confirmCollegeID,
+							password: password,
+							confirmPassword: confirmPassword
+						},
+						success: function (DATA) {
+							// alert('Your submission was successful');
 
-						if (DATA === "done") {
-							//redirect to admin page
-							window.location.href = "/profile";
+							if (DATA === "done") {
+								//redirect to admin page
+								window.location.href = "/profile";
+							}
+							else if (DATA === "u") {
+								alert("Username is taken");
+							}
+							else if (DATA === "e") {
+								alert("Email ID is taken");
+							}
+							else if (DATA === "c") {
+								alert("College ID is taken");
+							}
+							else if (DATA === "ue") {
+								alert("Username and Email ID is taken");
+							}
+							else if (DATA === "ec") {
+								alert("Email ID and College ID is taken");
+							}
+							else if (DATA === "uc") {
+								alert("Username and College ID is taken");
+							}
+							else if (DATA === "uec") {
+								alert("Username, Email ID and College ID is taken");
+							}
+						},
+						error: function (DATA) {
+							alert("Some Error");
+							window.location.href = "/home";
 						}
-						else if (DATA === "u") {
-							alert("Username is taken");
-						}
-						else if (DATA === "e") {
-							alert("Email ID is taken");
-						}
-						else if (DATA === "c") {
-							alert("College ID is taken");
-						}
-						else if (DATA === "ue") {
-							alert("Username and Email ID is taken");
-						}
-						else if (DATA === "ec") {
-							alert("Email ID and College ID is taken");
-						}						
-						else if (DATA === "uc") {
-							alert("Username and College ID is taken");
-						}
-						else if (DATA === "uec") {
-							alert("Username, Email ID and College ID is taken");
-						}
-					},
-					error: function (DATA) {
-						alert("Some Error");
-						window.location.href = "/home";
-					}
-				});
+					});
 
 
 
@@ -538,7 +568,7 @@
 
 				}
 
-				
+
 
 
 
