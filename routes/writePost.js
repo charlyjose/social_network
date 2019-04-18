@@ -3,10 +3,11 @@ var router = express.Router();      //rqd
 var db = require('../connectDB');   //rqd
 var path = require('path');
 var multer = require('multer');
-var randomstring = require('randomstring');
+// var randomstring = require('randomstring');
+var cryptoRandomString = require('crypto-random-string');
 
 // Posts image store directory
-var DIR = path.join(__dirname, '../usn_posts_images');
+var DIR = path.join(__dirname, '../views/usn_posts_images');
 
 var IMAGENAME = "";
 var data = 0;
@@ -18,10 +19,12 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
 
-        var RAND = randomstring.generate({
-            length: 6,
-            charset: file.originalname
-        });
+        // var RAND = randomstring.generate({
+        //     length: 6,
+        //     charset: file.originalname
+        // });
+
+        var RAND = cryptoRandomString(10);
 
         var DATE = Date.now();
         IMAGENAME = RAND + '-' + DATE + '-' + file.originalname;
@@ -152,10 +155,23 @@ router.post('/', function (req, res, next) {
                         // College ID present
                         var CollegeID = results[0].collegeID;
 
+
+                        let posts = {
+                            collegeID: CollegeID,
+                            parent: CollegeID,
+                            data: data,
+                            postTitle: req.body.postTitle,
+                            postBody: req.body.postBody,
+                            imageFile: imageFile
+                        };
+
+                        let POST = JSON.stringify(posts);
+                        console.log(POST);
+
                         // Save post to db
-                        var sql = 'insert into posts(collegeID, parent, likes, views, data, postTitle, postBody, imageFile) values ?';
+                        var sql = 'insert into posts(likes, views, shares, edit, content) values ?';
                         var values = [
-                            [CollegeID, CollegeID, 0, 0, data, req.body.postTitle, req.body.postBody, imageFile]
+                            [0, 0, 0, 0, POST]
                         ];
 
                         db.query(sql, [values], function (err, results, fields) {
