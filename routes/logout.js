@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express');   //rqd
+var router = express.Router();      //rqd
+
 
 router.get('/', function(req, res, next) {
     // chk if session is set

@@ -43,6 +43,9 @@ var writePostRouter = require('./routes/writePost');
 var resetUserRouter = require('./routes/resetUser');
 var resetContactsRouter = require('./routes/resetContacts');
 var deleteAccRouter = require('./routes/deleteAccount');
+var checkUsernameRouter = require('./routes/check-username');
+var checkEmailRouter = require('./routes/check-email');
+var checkCollegeIDRouter = require('./routes/check-collegeID');
 
 var errorHandle = require('./routes/error');
 
@@ -79,6 +82,13 @@ app.use('/reset-password', resetPasswordRouter);
 app.use('/reset-username', resetUserRouter);
 app.use('/reset-contacts', resetContactsRouter);
 app.use('/delete-account', deleteAccRouter);
+
+// Check Username
+app.use('/check-username', checkUsernameRouter);
+// Check Email ID
+app.use('/check-email', checkEmailRouter);
+// Check CollegeID ID
+app.use('/check-collegeID', checkCollegeIDRouter);
 
 // Error
 app.use('/error', errorHandle);
