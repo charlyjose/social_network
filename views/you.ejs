@@ -15,6 +15,7 @@
 
 	<link href="css/slider.css" rel="stylesheet">
 	<script src="js/bootstrap-slider.js"></script>
+	<script src="js/jquery-cropper.js"></script>
 
 </head>
 
@@ -99,7 +100,9 @@
 							<div class="sidebar-content">
 
 								<a href="/profile?skip=1" class="sidebar-item"
-									style="background-color:#41d492; color:white;">
+									style="background-color:#41d492; color:white;"
+									onmouseover="this.style.backgroundColor ='#5c59ed'"
+									onmouseout="this.style.backgroundColor ='#41d492'">
 									<i class="align-middle mr-1 fas fa-fw fa-forward"></i> <span
 										class="align-middle">Skip for now</span>
 								</a>
@@ -133,6 +136,86 @@
 				<div class="col-12 col-md-8 col-lg-9 col-xl-10 pl-lg-4">
 
 					<div class="row">
+
+
+
+
+
+
+						
+
+
+
+
+
+
+
+
+
+
+						<!------------------------------AVATAR------------------------------>
+						<div class="col-12 col-xl-6">
+							<div class="card">
+
+								<div class="card-header">
+									<h5 class="card-title">Profile Photo</h5>
+									<h6 class="card-subtitle text-muted">Add your profile photo for people to recognize
+										you</h6>
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='profilePhotoToggle'
+											value='0' checked>
+										<span class="custom-control-label" id="profilePhotoToggleText">This info is now
+											Public</span>
+									</label>
+
+
+
+									<script>
+										$(document).ready(function () {
+
+											$("#profilePhotoToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#profilePhotoToggleText").text("This info is now Public");
+													$("#profilePhotoToggle").val('0');
+												} else {
+													// Change the Text
+													$("#profilePhotoToggleText").text("This info is now Private");
+													$("#profilePhotoToggle").val('1');
+												}
+											});
+
+										});
+									</script>
+
+
+
+
+								</div>
+
+								<div class="card-body">
+									<div class="form-group">
+										<input type="file" class="validation-file" name="profilePhoto">
+										<br />
+										<br />
+										<br />
+										<br />
+
+
+										
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<!------------------------------AVATAR------------------------------>
+
+
+
 
 
 						<!------------------------------SUMMARY------------------------------>
@@ -193,91 +276,7 @@
 
 
 
-						<!------------------------------SKILLS------------------------------>
-						<div class="col-12 col-xl-6">
-							<div class="card">
 
-								<div class="card-header">
-									<h5 class="card-title">Skills</h5>
-									<h6 class="card-subtitle text-muted">Showcase your skills</h6>
-
-									<br />
-									<label class="custom-control custom-switch">
-										<input type='checkbox' class="custom-control-input" id='skillsToggle' value='0'
-											checked>
-										<span class="custom-control-label" id="skillsToggleText">This info is now
-											Public</span>
-									</label>
-
-
-									<script>
-										$(document).ready(function () {
-
-											$("#skillsToggle").change(function () {
-												// Check the checkbox state
-												if ($(this).is(':checked')) {
-													// Change the Text
-													$("#skillsToggleText").text("This info is now Public");
-													$("#skillsToggle").val('0');
-												} else {
-													// Change the Text
-													$("#skillsToggleText").text("This info is now Private");
-													$("#skillsToggle").val('1');
-												}
-											});
-
-										});
-									</script>
-
-
-
-
-								</div>
-
-								<div class="card-body">
-									<div class="form-group row">
-										<div class="col-sm-10">
-											<div id="dynamicSkill">
-												<input type="text" id='skill1' class="form-control" value=''
-													name='skill1'>
-											</div>
-											<br />
-											<input type="button" class="btn btn-primary" value="Add More Skills"
-												onClick="addSkill('dynamicSkill');">
-										</div>
-
-									</div>
-
-
-									<script type="text/javascript">
-										var skcounter = 2;
-										var sklimit = 200;
-										var skselect;
-										function addSkill(divName) {
-											if (skcounter == sklimit) {
-												alert("You have reached the limit of adding " + skcounter + " inputs");
-											}
-											else {
-												skselect = skcounter - 1;
-												if (document.getElementById('skill' + skselect).value != '') {
-													var newdiv = document.createElement('div');
-													newdiv.innerHTML = "<br><input type='text' id='skill" + skcounter + "' class='form-control' value='' name='skill" + skcounter + "'>";
-													document.getElementById(divName).appendChild(newdiv);
-
-													// alert(document.getElementById('skill' + select).value);
-													skcounter++;
-												}
-												else {
-													alert('Type your skills to add more');
-												}
-											}
-										}
-									</script>
-
-								</div>
-							</div>
-						</div>
-						<!------------------------------SKILLS------------------------------>
 
 
 
@@ -771,9 +770,9 @@
 
 
 
-						<!------------------------------ACCOMPLISHMENTS------------------------------>
+						<!------------------------------INTERESTS------------------------------>
 
-						<div class="col-md-12">
+						<div class="col-md-7">
 							<div class="card">
 								<div class="card-header">
 									<h5 class="card-title">Interests</h5>
@@ -878,7 +877,99 @@
 								</div>
 							</div>
 						</div>
-						<!------------------------------ACCOMPLISHMENTS------------------------------>
+						<!------------------------------INTERESTS------------------------------>
+
+
+
+
+
+						<!------------------------------SKILLS------------------------------>
+						<div class="col-12 col-xl-5">
+							<div class="card">
+
+								<div class="card-header">
+									<h5 class="card-title">Skills</h5>
+									<h6 class="card-subtitle text-muted">Showcase your skills</h6>
+
+									<br />
+									<label class="custom-control custom-switch">
+										<input type='checkbox' class="custom-control-input" id='skillsToggle' value='0'
+											checked>
+										<span class="custom-control-label" id="skillsToggleText">This info is now
+											Public</span>
+									</label>
+
+
+									<script>
+										$(document).ready(function () {
+
+											$("#skillsToggle").change(function () {
+												// Check the checkbox state
+												if ($(this).is(':checked')) {
+													// Change the Text
+													$("#skillsToggleText").text("This info is now Public");
+													$("#skillsToggle").val('0');
+												} else {
+													// Change the Text
+													$("#skillsToggleText").text("This info is now Private");
+													$("#skillsToggle").val('1');
+												}
+											});
+
+										});
+									</script>
+
+
+
+
+								</div>
+
+								<div class="card-body">
+									<div class="form-group row">
+										<div class="col-sm-10">
+											<div id="dynamicSkill">
+												<input type="text" id='skill1' class="form-control" value=''
+													name='skill1'>
+											</div>
+											<br />
+											<input type="button" class="btn btn-primary" value="Add More Skills"
+												onClick="addSkill('dynamicSkill');">
+										</div>
+
+									</div>
+
+
+									<script type="text/javascript">
+										var skcounter = 2;
+										var sklimit = 200;
+										var skselect;
+										function addSkill(divName) {
+											if (skcounter == sklimit) {
+												alert("You have reached the limit of adding " + skcounter + " inputs");
+											}
+											else {
+												skselect = skcounter - 1;
+												if (document.getElementById('skill' + skselect).value != '') {
+													var newdiv = document.createElement('div');
+													newdiv.innerHTML = "<br><input type='text' id='skill" + skcounter + "' class='form-control' value='' name='skill" + skcounter + "'>";
+													document.getElementById(divName).appendChild(newdiv);
+
+													// alert(document.getElementById('skill' + select).value);
+													skcounter++;
+												}
+												else {
+													alert('Type your skills to add more');
+												}
+											}
+										}
+									</script>
+
+								</div>
+							</div>
+						</div>
+						<!------------------------------SKILLS------------------------------>
+
+
 
 
 

@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
         res.redirect('/profile'); //feeds actually
     }
     else {
-        res.render('sign-up2');
+        res.render('sign-up');
     }
 });
 
@@ -130,10 +130,27 @@ db.query(sql, [values], function (err, results, fields) {
                         req.session.password = req.body.password;
                         // session = req.session.email;
 
+                        var avatar = 'default/avatar-anonymous.png';
+
+                        if (req.body.gender == 3) {
+                            avatar = 'default/avatar-female.png';
+                        }
+                        else if (req.body.gender == 2) {
+                            avatar = 'default/avatar-male.png';
+                        }
+                        else if (req.body.gender == 1) {
+                            avatar = 'default/avatar-other.png';
+                        }
+                        else if (req.body.gender == 0) {
+                            avatar = 'default/avatar-anonymous.png';
+                        }
+
+                        console.log("\n\n\:::::::::::::" + avatar);
+
                         // Creating user account
-                        var sql = 'insert into user (name, uname, email, collegeID, password, gender, dob) values ?'
+                        var sql = 'insert into user (name, uname, email, collegeID, password, gender, dob, avatar) values ?';
                         var values = [
-                            [req.body.name, req.body.uname, req.body.email, req.body.collegeID, req.body.password, req.body.gender, req.body.dob]
+                            [req.body.name, req.body.uname, req.body.email, req.body.collegeID, req.body.password, req.body.gender, req.body.dob, avatar]
                         ];
 
                         db.query(sql, [values], function (err, results, fields) {

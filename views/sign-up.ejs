@@ -29,94 +29,230 @@
 							</p>
 						</div>
 
-						<div class="card">
-							<div class="card-body">
-								<div class="m-sm-4">
-
-									<!--- form-->
-									<form id="validation-form" method="POST">
 
 
 
 
-										<div class="form-group">
-											<label class="form-label">Username</label>
-											<input type="text" class="form-control" name="name" placeholder="Name"
-												required>
-											<small class="form-text text-muted">Name should be atleast 3 letters
-												long</small>
-										</div>
 
 
 
-										<div class="form-group">
-											<label class="form-label">Email</label>
-											<input type="text" class="form-control" name="email" placeholder="Email"
-												required>
-											<small class="form-text text-muted">A valid email for contact</small>
-										</div>
-
-										<div class="form-group">
-											<label class="form-label">College ID</label>
-											<input type="text" class="form-control" name="collegeID"
-												placeholder="College ID" required>
-											<small class="form-text text-muted">College ID of form the
-												MUT16CS001</small>
-										</div>
-
-										<!--
-										<div class="form-group">
-											<label class="form-label">College ID</label>
-											<input type="text" class="form-control" name="confirmCollegeID"
-												placeholder="Confirm College ID" required>
-										</div> -->
 
 
-										<div class="form-group">
-											<label class="form-label">Password</label>
-											<input type="password" class="form-control" name="password" id="password"
-												placeholder="Password" required>
-											<small class="form-text text-muted">Password should contain atleast 4
-												characters</small>
-										</div>
-										<div class="form-group">
-											<label class="form-label">Confirm password</label>
-											<input type="password" class="form-control" name="confirmPassword"
-												id="confirmPassword" placeholder="Confirm password" required>
-										</div>
-										<label class="custom-control custom-checkbox">
-											<input type='checkbox' class="custom-control-input" id='toggle' value='0'>
-											<span class="custom-control-label" id="toggleText">Show Password</span>
-										</label>
 
+
+						<!------------------------------FORM------------------------------>
+
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-body">
+
+									<div class="m-sm-3">
+
+										<!--- form-->
+										<form id="validation-form" method="POST">
+
+											<div class="form-row">
+
+												<div class="form-group col-md-6">
+													<label for="name">Name</label>
+													<input type="text" class="form-control" id="name" name="name"
+														placeholder="Name" required>
+													<small class="form-text text-muted">Name should be atleast 3 letters
+														long</small>
+												</div>
+
+												<div class="form-group col-md-6">
+													<label for="uname">Username</label>
+													<input type="text" class="form-control" id="uname" name="uname"
+														placeholder="Username" required>
+													<small class="form-text text-muted">We'll call you by this
+														name</small>
+												</div>
+
+
+												<div class="col-12 col-xl-4">
+													<div class="form-group mb-xl-0">
+														<label class="form-label">Date of Birth</label>
+														<input class="form-control" type="text" id="dob" name="dob"
+															required />
+														<small class="form-text text-muted">You should be atleast 18
+															years
+															old</small>
+													</div>
+												</div>
+
+
+												<div class="form-group col-md-3">
+													<label for="gender">Gender</label>
+													<select class="form-control select2" data-toggle="select2"
+														id="gender" name="gender" required>
+														<option value="3">Female</option>
+														<option value="2">Male</option>
+														<option value="1">Other</option>
+														<option value="0">Prefer not to say</option>
+													</select>
+													<small class="form-text text-muted">We promise you, we'll keep this
+														secret</small>
+												</div>
+
+												<div class="form-group col-md-1">
+
+												</div>
+
+
+												<div class="form-group col-md-12">
+													<label for="email">Email</label>
+													<input type="email" class="form-control" id="email" name="email"
+														placeholder="Email" required>
+													<small class="form-text text-muted">A valid email for
+														contact</small>
+												</div>
+
+												<div class="form-group col-md-6">
+													<label for="collegeID">College ID</label>
+													<input type="text" class="form-control" id="collegeID"
+														name="collegeID" placeholder="College ID" required>
+													<small class="form-text text-muted">College ID of form the
+														MUT16CS001</small>
+												</div>
+
+												<div class="form-group col-md-6">
+													<label for="confirmCollegeID">Confirm College ID</label>
+													<input type="text" class="form-control" id="confirmCollegeID"
+														name="confirmCollegeID" placeholder="Confirm college ID"
+														required>
+
+												</div>
+
+												<div class="form-group col-md-6">
+													<label for="password">Password</label>
+													<input type="password" class="form-control" id="password"
+														name="password" placeholder="Password" required>
+													<small class="form-text text-muted">Password should contain atleast
+														4
+														characters long</small>
+												</div>
+
+												<div class="form-group col-md-6">
+													<label for="password">Confirm Password</label>
+													<input type="password" class="form-control" id="confirmPassword"
+														name="confirmPassword" placeholder="Confirm password" required>
+												</div>
+
+												<div class="form-group col-md-12">
+													<label for="password"></label>
+													<label class="custom-control custom-checkbox">
+														<input type='checkbox' class="custom-control-input" id='toggle' name="toggle"
+															value='0'>
+														<span class="custom-control-label" id="toggleText">Show
+															Password</span>
+													</label>
+												</div>
+
+
+
+											</div>
+
+											<hr />
+
+											<center>
+												<button type="submit" class="btn btn-primary" id="submit">Sign
+													Up</button>
+											</center>
+
+										</form>
+										<!--- form-->
+
+
+										<br />
 										<center>
-											<button type="submit" class="btn btn-primary" id="submit">Sign Up</button>
+											<small style="font-size: 1em">
+												Already have an account? <a href="/signin">Signin here</a>.
+											</small>
 										</center>
-									</form>
-									<!--- form-->
 
 
-									<br />
-									<center>
-										<small style="font-size: 1em">
-											Already have an account? <a href="/signin">Signin here</a>.
-										</small>
-									</center>
-
+									</div>
 								</div>
 							</div>
 						</div>
 
+
 					</div>
 				</div>
 			</div>
+			<!------------------------------FORM------------------------------>
+
+
+
+
+
+
+
 		</div>
+
+
+
+
 	</main>
 
 	<script src="js/app.js"></script>
 
 
+
+
 	<script>
+		document.addEventListener("DOMContentLoaded", function (event) {
+			// Select2
+			$('.select2').each(function () {
+				$(this)
+					.wrap('<div class="position-relative"></div>')
+					.select2({
+						placeholder: 'Select value',
+						dropdownParent: $(this).parent()
+					});
+			})
+			// Daterangepicker
+			var startD = (parseInt(moment().format('YYYY')) - 17);
+
+			$('input[name="dob"]').daterangepicker({
+				singleDatePicker: true,
+				showDropdowns: true,
+				minYear: 1901,
+				maxYear: startD
+			});
+			var start = moment().subtract(29, 'days');
+			var end = moment();
+
+			function cb(start, end) {
+				$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+			}
+
+			cb(start, end);
+		});
+	</script>
+
+
+
+
+
+
+
+
+	<script>
+
+		var vuname = 0;
+		var vemail = 0;
+		var vcollegeID = 0;
+
+
+		// just for the demos, avoids form submit
+		jQuery.validator.setDefaults({
+			debug: true,
+			success: "valid"
+		});
+
+
 
 		document.addEventListener("DOMContentLoaded", function (event) {
 
@@ -144,19 +280,101 @@
 				rules: {
 					/////////////////////////////////////
 
+
 					'name': {
 						required: true,
 						minlength: 3,
 						maxlength: 30
 					},
+					'uname': {
+						required: true,
+						minlength: 3,
+						maxlength: 30,
+						remote: {
+							url: "check-username",
+							type: "post",
+							data: {
+								username: function () {
+									return $("#uname").val();
+								}
+							},
+							dataType: 'html',
+							success: function (DATA) {
+								if (DATA == 'sorry') {
+									vuname = 0;
+									message: {
+										uname: 'The username is already in use'
+										alert('The Username already in use');
+										$("#uname").val('');
+										return false;
+									}
+								}
+								else {
+									vuname = 1;
+									return true;
+								}
+							}
+						}
+					},
 					'email': {
 						required: true,
-						email: true
+						email: true,
+						remote: {
+							url: "check-email",
+							type: "post",
+							data: {
+								username: function () {
+									return $("#email").val();
+								}
+							},
+							dataType: 'html',
+							success: function (DATA) {
+								if (DATA == 'sorry') {
+									vemail = 0;
+									message: {
+										uname: 'The Email is already in use'
+										alert('The Email already in use');
+										$("#email").val('');
+										return false;
+									}
+								}
+								else {
+									vemail = 1;
+									return true;
+								}
+							}
+						}
 					},
 					'collegeID': {
 						required: true,
 						minlength: 10,
-						maxlength: 10
+						maxlength: 10,
+						remote: {
+							url: "check-collegeID",
+							type: "post",
+							data: {
+								username: function () {
+									return $("#collegeID").val();
+								}
+							},
+							dataType: 'html',
+							success: function (DATA) {
+								if (DATA == 'sorry') {
+									vcollegeID = 0;
+									message: {
+										uname: 'The College ID is already in use'
+										alert('The College ID already in use');
+										$("#collegeID").val('');
+										$("#confirmCollegeID").val('');
+										return false;
+									}
+								}
+								else {
+									vcollegeID = 1;
+									return true;
+								}
+							}
+						}
 					},
 					'confirmCollegeID': {
 						required: true,
@@ -174,6 +392,13 @@
 						minlength: 4,
 						maxlength: 20,
 						equalTo: 'input[name="password"]'
+					},
+					'dob': {
+						required: true,
+						date: true
+					},
+					'gender': {
+						required: true
 					}
 
 					/////////////////////////////////////
@@ -208,6 +433,17 @@
 
 
 		$(document).ready(function () {
+
+
+			// just for the demos, avoids form submit
+			jQuery.validator.setDefaults({
+				debug: true,
+				success: "valid"
+			});
+
+
+
+
 			var name, email, password, confirmPassword, collegeID, confirmCollegeID;
 
 			$("#toggle").change(function () {
@@ -233,38 +469,86 @@
 
 			$("#submit").click(function () {
 
-				$.ajax({
+
+				var name =  $("#name").val();						
+				var uname = $("#uname").val();
+				var dob = $("#dob").val();
+				var gender = $("#gender").val();
+				var email = $("#email").val();
+				var collegeID = $("#collegeID").val();
+				var confirmCollegeID = $("#confirmCollegeID").val();
+				var password = $("#password").val();
+				var confirmPassword = $("#confirmPassword").val();
+
+				if(name != '' & uname != '' & dob != '' & gender != '' & email != '' & collegeID != '' & confirmCollegeID != '' & password != '' & confirmPassword != '') {
+
+					$.ajax({
 					url: '/signup',
 					type: 'POST',
 					cache: false,
 					data: {
-						name: $("#name").val(),
-						email: $("#email").val(),
-						password: $("#password").val(),
-						confirmPassword: $("#confirmPassword").val(),
-						collegeID: $("#collegeID").val(),
-						confirmCollegeID: $("#confirmCollegeID").val()
+						name: name,
+						uname: uname,
+						dob: dob,
+						gender: gender,
+						email: email,
+						collegeID: collegeID,
+						confirmCollegeID: confirmCollegeID,
+						password: password,
+						confirmPassword: confirmPassword						
 					},
-					success: function () {
-						alert('Your submission was successful');
-					},
-					error: function (data) {
-						if (data === "done") {
+					success: function (DATA) {
+						// alert('Your submission was successful');
+
+						if (DATA === "done") {
 							//redirect to admin page
 							window.location.href = "/profile";
 						}
-						else if (data === "e") {
+						else if (DATA === "u") {
+							alert("Username is taken");
+						}
+						else if (DATA === "e") {
 							alert("Email ID is taken");
 						}
-						else if (data === "c") {
+						else if (DATA === "c") {
 							alert("College ID is taken");
 						}
-						else if (data === "ec") {
-							alert("Email ID and College ID is taken");
+						else if (DATA === "ue") {
+							alert("Username and Email ID is taken");
 						}
+						else if (DATA === "ec") {
+							alert("Email ID and College ID is taken");
+						}						
+						else if (DATA === "uc") {
+							alert("Username and College ID is taken");
+						}
+						else if (DATA === "uec") {
+							alert("Username, Email ID and College ID is taken");
+						}
+					},
+					error: function (DATA) {
+						alert("Some Error");
+						window.location.href = "/home";
 					}
 				});
+
+
+
+
+
+				}
+
+				
+
+
+
+
+
 			});
+
+
+
+
 		});
 
 

@@ -47,7 +47,43 @@ router.get('/', function (req, res, next) {
                 // Session is set in db
                 var Name = results[0].name;
 
-                console.log("Here2");
+
+
+
+
+                // Get avatar image
+                var avatar = 'default/avatar-anonymous.png';
+
+                var sql = 'select avatar from user where collegeID like ?';
+                var values = [
+                    [results[0].collegeID]
+                ];
+                db.query(sql, [values], function (err, results, fields) {
+                    if (err) {
+                        // DB ERROR
+                        console.log('\n\nDB ERROR: ' + err);
+
+                        res.render('messageBoard', {
+                            title: 'USN | Error',
+                            heading: 'Ouch!',
+                            subtitle: 'Something went wrong on our side ?',
+                            body: 'Our engineers are looking into it, if you see them tell them code give below.',
+                            diagnose: '',
+                            comments: '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
+                            returnLink: 'logout'
+                        });
+                    }
+                    else if (results.length === 0) {
+                        
+                    }
+                    else {
+                        avatar = results[0].avatar;
+                    }
+                });
+
+
+
+
 
 
                 // Get user details from details table
@@ -85,6 +121,7 @@ router.get('/', function (req, res, next) {
                                 pageTitle: 'USN | Home',
                                 name: Name,
                                 address: 'Fill your details',
+                                avatar: 'usn_avatar_images/' + avatar,
                                 goBack: '0',
 
                                 connections: '240',
