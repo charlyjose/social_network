@@ -17,7 +17,6 @@ router.get('/', function (req, res, next) {
 
     // Check if signed in
     if (req.session.email) {
-        console.log("Here1");
 
         var sql = 'select name, collegeID from user where email like ?';
         var values = [

@@ -38,7 +38,7 @@
 		<div class="container">
 			<div class="media text-white">
 				<!-- IMAGE TO COME -->
-				<img src="images/charly.jpg" class="avatar img-fluid rounded-circle mr-3" alt="Charly Jose" />
+				<img src=<%= avatar %> class="avatar img-fluid rounded-circle mr-3" alt=" " />
 				<!-- IMAGE TO COME -->
 
 				<div class="media-body">
@@ -191,19 +191,6 @@
 
 				<script>
 
-					/*
-					function random_no() {
-						var ran = Math.random();
-						jQuery('#random_no_container').html(ran);
-					}
-
-					window.setInterval(function () {
-						// call your function here
-						random_no();
-					}, 1000);  // Change Interval here to test. For eg: 5000 for 5 sec
-					*/
-
-
 					$(document).ready(function () {
 						var win = $(window);
 
@@ -211,20 +198,16 @@
 						win.scroll(function () {
 							// End of the document reached?
 							if ($(document).height() - win.height() == win.scrollTop()) {
-
 								//an AJAX request with given parameters
 								$.ajax({
 									type: 'POST',
 									// data: JSON.stringify(data),
 									dataType: 'html',
 									url: 'http://localhost:3000/feeds',
-
 									//on success, received data is used as 'data' function input
 									success: function (html) {
 										// window.alert('Request sent; data received.');
-
 										$('#modify').append(html);
-
 									}
 								});
 							}
@@ -250,7 +233,32 @@
 			<div class="text-muted text-center">
 
 				<p>
-					That's all for today.
+					<a class="postsRefresh" id="postsRefresh" data-toggle="tooltip" title="Want More ❤️" style="color: #6c757d !important" onclick="postRefresher()">That's all for today</a>
+					<script>
+						$(document).ready(function(){
+						  $('[data-toggle="tooltip"]').tooltip();
+						});
+
+
+
+						function postRefresher () {
+							  	//an AJAX request with given parameters
+								$.ajax({
+									type: 'POST',
+									// data: JSON.stringify(data),
+									dataType: 'html',
+									url: 'http://localhost:3000/feeds',
+
+									//on success, received data is used as 'data' function input
+									success: function (html) {
+										// window.alert('Request sent; data received.');
+
+										$('#modify').append(html);
+
+									}
+								});
+						  }
+						</script>
 					<br />
 					<br />
 					<br />
