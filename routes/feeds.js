@@ -369,6 +369,8 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res) {
 
 
+
+    console.log("\n\nERRSORS  1 :::::\n\n\n");
     // // res.setHeader('Content-Type', 'application/json');
 
     // //content generated here
@@ -404,9 +406,12 @@ router.post('/', function (req, res) {
         else if (results.length === 0) {
             // No Post(s)
             res.render('feeds-posts', {});
+            console.log("\n\nERRSORS  2  :::::\n\n\n");
+
         }
         else if (results.length === 1) {
             // 1 Post(s) in DB
+            console.log("\n\nERRSORS  3  :::::\n\n\n");
 
             var content = JSON.parse(results[0].content);
 
@@ -449,10 +454,13 @@ router.post('/', function (req, res) {
                 circulations1: '24'
 
             });
+            console.log("\n\nERRSORS   4   :::::\n\n\n");
 
         }
         else if (results.length === 2) {
             // 2 Post(s)
+            console.log("\n\nERRSORS   5   :::::\n\n\n");
+
 
             for (var i = 0; i < results.length; ++i) {
                 // Fill user details for each post
@@ -538,9 +546,14 @@ router.post('/', function (req, res) {
 
                 });
             }
+
+            console.log("\n\nERRSORS   5   :::::\n\n\n");
+
         }
         else if (results.length === 3) {
             // 3 Post(s)
+            console.log("\n\nERRSORS    6  :::::\n\n\n");
+
 
             for (var i = 0; i < results.length; ++i) {
                 // Fill user details for each post
@@ -662,10 +675,16 @@ router.post('/', function (req, res) {
 
                 });
             }
+
+            console.log("\n\nERRSORS    7   :::::\n\n\n");
+
         }
 
         else if (results.length === 4) {
             // 4 Post(s)
+
+            console.log("\n\nERRSORS    8   :::::\n\n\n");
+
 
             for (var i = 0; i < results.length; ++i) {
                 // Fill user details for each post
@@ -822,6 +841,11 @@ router.post('/', function (req, res) {
 
                 });
             }
+
+            console.log("\n\nERRSORS    9   :::::\n\n\n");
+
+
+
         }
     });
 

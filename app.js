@@ -49,6 +49,14 @@ var checkCollegeIDRouter = require('./routes/check-collegeID');
 
 var errorHandle = require('./routes/error');
 
+// CORS Header Setting
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 // Routers
 
 // Home Page
@@ -105,6 +113,9 @@ app.use(function (err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+
+
+  
   // render the error page
   res.status(err.status || 404);
   // res.render('messageBoard', {
