@@ -3,8 +3,10 @@ var router = express.Router();      //rqd
 var db = require('../connectDB');   //rqd
 var path = require('path');
 var multer = require('multer');
-// var randomstring = require('randomstring');
+var randomstring = require('randomstring');
 var cryptoRandomString = require('crypto-random-string');
+var transporter = require('../mailService');    //rqd
+
 
 // Posts image store directory
 var DIR = path.join(__dirname, '../views/usn_posts_images');
@@ -168,10 +170,19 @@ router.post('/', function (req, res, next) {
                         let POST = JSON.stringify(posts);
                         console.log(POST);
 
+
+                        var post_link = randomstring.generate({
+                            length: 10,
+                            charset: cryptoRandomString(9)
+                        });
+
+                        post_link = post_link + cryptoRandomString(20);
+                        
+
                         // Save post to db
-                        var sql = 'insert into posts(likes, views, shares, edit, content) values ?';
+                        var sql = 'insert into posts(post_link, likes, views, shares, edit, content) values ?';
                         var values = [
-                            [0, 0, 0, 0, POST]
+                            [post_link, 0, 0, 0, 0, POST]
                         ];
 
                         db.query(sql, [values], function (err, results, fields) {
@@ -191,6 +202,29 @@ router.post('/', function (req, res, next) {
                             }
                             else {
                                 // Post added successfully
+
+                                    var email = req.session.email;
+                                
+                                        // MAIL SERVICE
+                                        var html = "<body><center><h1>Thank you for using our service</h1><h2></h2></center><p>Greetings from USN. Your new post is live at this <a href='https://usn.in/feeds/posts/" + post_link  + "' style='text-decoration: none;'>link</a></p><br /><p>For any queries related to your account visit this <a href='https://usn-help.com/content' style='text-decoration: none;'>link</a>, we always love to help you.</p><p>Cheers, </p><p>The USN Team</p><br /><br /><center><p>You received this email because you have <a href='https://usn-help.com/content' style='color: black'>subscribed</a> to our email assistance service.</p><p>&copy; 2019 USN Ltd, 2520 Beehumber Bay, Chetskar County, Kadtle 4534, IN </p></center></body>";
+
+                                        var mailOptions = {
+                                            from: 'usnrobot@gmail.com',
+                                            to: email,
+                                            subject: 'Your new post is live',
+                                            html: html
+                                        };
+
+                                        transporter.sendMail(mailOptions, function (error, info) {
+                                            if (error) {
+                                                console.log(error);
+                                            } else {
+                                                console.log('\nEmail sent: ' + info.response + '\n');
+                                            }
+                                        });
+
+
+
                                 res.render('okay', {
                                     title: 'USN | Post added successfully',
                                     heading: '',

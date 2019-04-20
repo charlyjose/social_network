@@ -1,6 +1,8 @@
 var express = require('express');   //rqd
 var router = express.Router();      //rqd
 var db = require('../connectDB');   //rqd
+var transporter = require('../mailService');    //rqd
+
 
 
 router.get('/', function (req, res, next) {
@@ -57,32 +59,9 @@ router.post('/', function (req, res, next) {
 
 
 
-var sql = 'select uname from user where uname like ?';
-var values = [
-    [req.body.uname]
-];
-
-db.query(sql, [values], function (err, results, fields) {
-    if (err) {
-        // DB ERROR
-        console.log('\n\nDB ERROR: ' + err);
-
-        res.render('messageBoard', {
-            title: 'USN | Error',
-            heading: 'Ouch!',
-            subtitle: 'Something went wrong on our side ?',
-            body: 'Our engineers are looking into it, if you see them tell them code give below.',
-            diagnose: '',
-            comments: '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
-            returnLink: 'logout'
-        });
-    }
-    else if (results.length === 0) {
-        // Username is okay
-        // check if Email ID is taken
-        var sql = 'select email from user where email like ?';
+        var sql = 'select uname from user where uname like ?';
         var values = [
-            [req.body.email]
+            [req.body.uname]
         ];
 
         db.query(sql, [values], function (err, results, fields) {
@@ -101,11 +80,11 @@ db.query(sql, [values], function (err, results, fields) {
                 });
             }
             else if (results.length === 0) {
-                // Email ID is okay
-                // check if College ID is taken
-                var sql = 'select collegeID from user where collegeID like ?';
+                // Username is okay
+                // check if Email ID is taken
+                var sql = 'select email from user where email like ?';
                 var values = [
-                    [req.body.collegeID]
+                    [req.body.email]
                 ];
 
                 db.query(sql, [values], function (err, results, fields) {
@@ -123,33 +102,12 @@ db.query(sql, [values], function (err, results, fields) {
                             returnLink: 'logout'
                         });
                     }
-                    else if (results.length == 0) {
-                        // College ID is okay
-                        // Set sessions
-                        req.session.email = req.body.email;
-                        req.session.password = req.body.password;
-                        // session = req.session.email;
-
-                        var avatar = 'default/avatar-anonymous.png';
-
-                        if (req.body.gender == 3) {
-                            avatar = 'default/avatar-female.png';
-                        }
-                        else if (req.body.gender == 2) {
-                            avatar = 'default/avatar-male.png';
-                        }
-                        else if (req.body.gender == 1) {
-                            avatar = 'default/avatar-other.png';
-                        }
-                        else if (req.body.gender == 0) {
-                            avatar = 'default/avatar-anonymous.png';
-                        }
-
-
-                        // Creating user account
-                        var sql = 'insert into user (name, uname, email, collegeID, password, gender, dob, avatar, secQNID, secAns, enabled) values ?';
+                    else if (results.length === 0) {
+                        // Email ID is okay
+                        // check if College ID is taken
+                        var sql = 'select collegeID from user where collegeID like ?';
                         var values = [
-                            [req.body.name, req.body.uname, req.body.email, req.body.collegeID, req.body.password, req.body.gender, req.body.dob, avatar, req.body.securityQns, req.body.securityAns, 1]
+                            [req.body.collegeID]
                         ];
 
                         db.query(sql, [values], function (err, results, fields) {
@@ -167,38 +125,105 @@ db.query(sql, [values], function (err, results, fields) {
                                     returnLink: 'logout'
                                 });
                             }
+                            else if (results.length == 0) {
+                                // College ID is okay
+                                // Set sessions
+                                req.session.email = req.body.email;
+                                req.session.password = req.body.password;
+                                // session = req.session.email;
+
+                                var avatar = 'default/avatar-anonymous.png';
+
+                                if (req.body.gender == 3) {
+                                    avatar = 'default/avatar-female.png';
+                                }
+                                else if (req.body.gender == 2) {
+                                    avatar = 'default/avatar-male.png';
+                                }
+                                else if (req.body.gender == 1) {
+                                    avatar = 'default/avatar-other.png';
+                                }
+                                else if (req.body.gender == 0) {
+                                    avatar = 'default/avatar-anonymous.png';
+                                }
+
+
+                                // Creating user account
+                                var sql = 'insert into user (name, uname, email, collegeID, password, gender, dob, avatar, secQNID, secAns, enabled) values ?';
+                                var values = [
+                                    [req.body.name, req.body.uname, req.body.email, req.body.collegeID, req.body.password, req.body.gender, req.body.dob, avatar, req.body.securityQns, req.body.securityAns, 1]
+                                ];
+
+                                var name = req.body.name;
+                                var email = req.body.email;
+
+                                db.query(sql, [values], function (err, results, fields) {
+                                    if (err) {
+                                        // DB ERROR
+                                        console.log('\n\nDB ERROR: ' + err);
+
+                                        res.render('messageBoard', {
+                                            title: 'USN | Error',
+                                            heading: 'Ouch!',
+                                            subtitle: 'Something went wrong on our side ?',
+                                            body: 'Our engineers are looking into it, if you see them tell them code give below.',
+                                            diagnose: '',
+                                            comments: '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
+                                            returnLink: 'logout'
+                                        });
+                                    }
+                                    else {
+                                        // Account creation successful
+
+                                        // MAIL SERVICE
+                                        var html = "<body><center><h1>Hi " + name + " ,</h1><h1>Welcome to University Social Network</h1><h2>Build for students, built by students, nothing more nothing less.</h2></center><p>Greetings from USN. Your account has been successfully created!</p><br /><p>For any queries related to your account visit this <a href='https://usn-help.com/new' style='text-decoration: none;'>link</a>, we always love to help you.</p><p>Cheers, </p><p>The USN Team</p><br /><br /><center><p>&copy; 2019 USN Ltd, 2520 Beehumber Bay, Chetskar County, Kadtle 4534, IN </p></center></body>";
+
+                                        var mailOptions = {
+                                            from: 'usnrobot@gmail.com',
+                                            to: email,
+                                            subject: name + ', welcome to your new USN Account',
+                                            html: html
+                                        };
+
+                                        transporter.sendMail(mailOptions, function (error, info) {
+                                            if (error) {
+                                                console.log(error);
+                                            } else {
+                                                console.log('\nEmail sent: ' + info.response + '\n');
+                                            }
+                                        });
+
+
+                                        sendConfirm += "done";
+                                        res.send(sendConfirm);
+                                        // res.redirect('/profile');
+                                    }
+                                });
+                            }
                             else {
-                                // Account creation successful
-                                sendConfirm += "done";
+                                // College ID is taken
+                                sendConfirm += "c";
                                 res.send(sendConfirm);
-                                // res.redirect('/profile');
+                                // res.render('sign-up');
                             }
                         });
                     }
                     else {
-                        // College ID is taken
-                        sendConfirm += "c";
+                        // Email ID is taken
+                        sendConfirm += "e";
                         res.send(sendConfirm);
                         // res.render('sign-up');
                     }
                 });
+
             }
             else {
-                // Email ID is taken
-                sendConfirm += "e";
+                // Username is taken
+                sendConfirm += "u";
                 res.send(sendConfirm);
                 // res.render('sign-up');
             }
         });
-
-    }
-    else {
-        // Username is taken
-        sendConfirm += "u";
-        res.send(sendConfirm);
-        // res.render('sign-up');
-    }
-});
 
 
 

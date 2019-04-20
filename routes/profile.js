@@ -1,6 +1,7 @@
 var express = require('express');   //rqd
 var router = express.Router();      //rqd
 var db = require('../connectDB');   //rqd
+var transporter = require('../mailService');    //rqd
 
 
 router.get('/', function (req, res, next) {
@@ -47,9 +48,6 @@ router.get('/', function (req, res, next) {
                 var Name = results[0].name;
 
 
-
-
-
                 // Get avatar image
                 var avatar = 'default/avatar-anonymous.png';
 
@@ -73,7 +71,7 @@ router.get('/', function (req, res, next) {
                         });
                     }
                     else if (results.length === 0) {
-                        
+
                     }
                     else {
                         avatar = results[0].avatar;
@@ -116,6 +114,32 @@ router.get('/', function (req, res, next) {
                         }
                         else if (skip == 1) {
                             // Basics profile okay
+
+
+
+                            var email = req.session.email;
+
+                            // MAIL SERVICE
+                            var html = "<body><center><h1>Hi " + Name + ", </h1><h3>Your profile speaks</h3></center><br /><p>We have found that you haven't completed your profile. It just take only a minute.</p><br /><p>For any queries related to your account visit this <a href='https://usn-help.com/account' style='text-decoration: none;'>link</a>, we always love to help you.</p><p>Cheers, </p><p>The USN Team</p><br /><br /><center><p>You received this email because you have <a href='https://usn-help.com/content' style='color: black'>subscribed</a> to our email assistance service.</p><p>&copy; 2019 USN Ltd, 2520 Beehumber Bay, Chetskar County, Kadtle 4534, IN </p></center></body>";
+
+                            var mailOptions = {
+                                from: 'usnrobot@gmail.com',
+                                to: email,
+                                subject: 'Complete you profile',
+                                html: html
+                            };
+
+                            transporter.sendMail(mailOptions, function (error, info) {
+                                if (error) {
+                                    console.log(error);
+                                } else {
+                                    console.log('\nEmail sent: ' + info.response + '\n');
+                                }
+                            });
+
+
+
+
                             res.render('profile', {
                                 pageTitle: 'USN | Home',
                                 name: Name,

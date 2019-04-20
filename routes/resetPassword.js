@@ -1,6 +1,7 @@
-var express = require('express');   //rqd
-var router = express.Router();      //rqd
-var db = require('../connectDB');   //rqd
+var express = require('express');               //rqd
+var router = express.Router();                  //rqd
+var db = require('../connectDB');               //rqd
+var transporter = require('../mailService');    //rqd
 
 
 router.get('/', function (req, res, next) {
@@ -89,6 +90,7 @@ router.post('/', function (req, res, next) {
                     }
                     else {
                         // Old password != new password
+                        var email = req.session.email;
                         var sql = "update user set password = '" + req.body.passwordnew1 + "' where email = '" + req.session.email + "'";
                         db.query(sql, function (err, results, fields) {
                             if (err) {
@@ -115,6 +117,27 @@ router.post('/', function (req, res, next) {
                                 //     comments: '',
                                 //     returnLink: '/logout'
                                 // });
+
+
+                                // MAIL SERVICE
+                                var html = "<body><h1>Your password has been changed</h1><p>Greetings from USN. Per your request, we have succesfully changed your password.</p><br /><p>For any queries related to your account visit this <a href='https://usn-help.com/password-assistance' style='text-decoration: none;'>link</a>, we always love to help you.</p><p>Cheers, </p><p>The USN Team</p><br /><br /><center><p>You received this email to let you know about important changes to your USN Account and services.</p><p>&copy; 2019 USN Ltd, 2520 Beehumber Bay, Chetskar County, Kadtle 4534, IN </p></center></body>";
+                                
+                                var mailOptions = {
+                                    from: 'usnrobot@gmail.com',
+                                    to: email,
+                                    subject: 'Revision to Your USN Account',
+                                    //text: 'Your account\'s password has been changed'
+                                    html: html
+                                  };
+                                  
+                                  transporter.sendMail(mailOptions, function(error, info){
+                                    if (error) {
+                                      console.log(error);
+                                    } else {
+                                      console.log('\nEmail sent: ' + info.response + '\n');
+                                    }
+                                  });
+
 
                                 res.send('done');
                             }

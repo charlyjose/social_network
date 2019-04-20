@@ -68,6 +68,7 @@ CREATE TABLE IF NOT EXISTS `auth` (
 
 CREATE TABLE IF NOT EXISTS `posts` (
     `postid` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    `post_link` varchar(100) NOT NULL,
     `likes` int DEFAULT 0,
     `views` int DEFAULT 0,
     `shares` int DEFAULT 0,
