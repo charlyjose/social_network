@@ -145,12 +145,11 @@ db.query(sql, [values], function (err, results, fields) {
                             avatar = 'default/avatar-anonymous.png';
                         }
 
-                        console.log("\n\n\:::::::::::::" + avatar);
 
                         // Creating user account
-                        var sql = 'insert into user (name, uname, email, collegeID, password, gender, dob, avatar) values ?';
+                        var sql = 'insert into user (name, uname, email, collegeID, password, gender, dob, avatar, secQNID, secAns, enabled) values ?';
                         var values = [
-                            [req.body.name, req.body.uname, req.body.email, req.body.collegeID, req.body.password, req.body.gender, req.body.dob, avatar]
+                            [req.body.name, req.body.uname, req.body.email, req.body.collegeID, req.body.password, req.body.gender, req.body.dob, avatar, req.body.securityQns, req.body.securityAns, 1]
                         ];
 
                         db.query(sql, [values], function (err, results, fields) {

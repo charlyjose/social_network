@@ -54,6 +54,32 @@
 											<input type='checkbox' class="custom-control-input" id='toggle' value='0'>
 											<span class="custom-control-label" id="toggleText">Show Password</span>
 										</label>
+
+
+										<p><small id="text" class="form-text">Warning! Caps lock is ON.</small></p>
+
+										<style>
+											#text {
+												display: none;
+												color: red
+											}
+										</style>
+
+										<script>
+											var input = document.getElementById("password");
+											var text = document.getElementById("text");
+											input.addEventListener("keyup", function (event) {
+
+												if (event.getModifierState("CapsLock")) {
+													text.style.display = "block";
+												} else {
+													text.style.display = "none"
+												}
+											});
+										</script>
+
+
+
 										<small>
 											<a href="/forgotPassword">Forgot password?</a>
 										</small>
@@ -77,7 +103,7 @@
 										</small>
 									</center>
 
-									
+
 								</div>
 							</div>
 						</div>

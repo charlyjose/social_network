@@ -18,11 +18,38 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
     // Check if signed in
     if (req.session.email) {
+
+        if (!req.body.passwordold || !req.body.passwordnew1 || !req.body.passwordnew2) {
+            res.render('messageBoard', {
+                title: 'USN | Sign Up Error',
+                heading: 'Sorry',
+                subtitle: 'The account requirements are not satisfied.',
+                body: 'Please provide all details.',
+                diagnose: '',
+                comments: '',
+                returnLink: 'signup'
+            });
+            
+            // res.send('sfm');
+        }
+        else {            
+
         var sql = "select email, password from user where email = '" + req.session.email + "' and password = '" + req.body.passwordold + "'";
 
         db.query(sql, function (err, results, fields) {
             if (err) {
-                console.log('\n\nDB ERROR: ' + err);
+               // DB ERROR
+               console.log('\n\nDB ERROR: ' + err);
+
+               res.render('messageBoard', {
+                   title: 'USN | Error',
+                   heading: 'Ouch!',
+                   subtitle: 'Something went wrong on our side ?',
+                   body: 'Our engineers are looking into it, if you see them tell them code give below.',
+                   diagnose: '',
+                   comments: '1011011 1000100 1000001 1010100 1000001 1000010 1000001 1010011 1000101 100000 1000101 1010010 1010010 1001111 1010010 1011101',
+                   returnLink: 'logout'
+               });
             }
             else if (results.length === 0) {
                 // Session not set | No such user | Old password is wrong
@@ -35,6 +62,8 @@ router.post('/', function (req, res, next) {
                     comments: '1011011011100110110010101110011 1110011011010010110111101101110 1011111011011100110111101110100 1011111011100110110010101110100 1011101001000000111110001111100 100000010110110110111101101100 1100100010111110111000001100001 1110011011100110111011101101111 1110010011001000101111101110111 1110010011011110110111001100111 1011101000000000000000000000000',
                     returnLink: 'home'
                 });
+
+                // res.send('opw');
             }
             else {
                 // Session is set and user found in db
@@ -55,6 +84,8 @@ router.post('/', function (req, res, next) {
                             comments: '',
                             returnLink: '/reset-password'
                         });
+
+                        // res.send('nwps');
                     }
                     else {
                         // Old password != new password
@@ -75,15 +106,17 @@ router.post('/', function (req, res, next) {
                                     }
                                 });
                                 // Password changed
-                                res.render('okay', {
-                                    title: 'USN | Password Changed',
-                                    heading: '',
-                                    subtitle: ' ',
-                                    body: '',
-                                    diagnose: '',
-                                    comments: '',
-                                    returnLink: '/logout'
-                                });
+                                // res.render('okay', {
+                                //     title: 'USN | Password Changed',
+                                //     heading: '',
+                                //     subtitle: ' ',
+                                //     body: '',
+                                //     diagnose: '',
+                                //     comments: '',
+                                //     returnLink: '/logout'
+                                // });
+
+                                res.send('done');
                             }
                         });
                     }
@@ -94,6 +127,12 @@ router.post('/', function (req, res, next) {
                 }
             }
         });
+
+
+
+
+
+        }        
     }
     else {
         // Not signed in

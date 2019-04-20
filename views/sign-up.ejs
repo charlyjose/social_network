@@ -176,6 +176,25 @@
 														name="confirmPassword" placeholder="Confirm password" required>
 												</div>
 
+												<p><small id="text" class="form-text">Warning! Caps lock is ON.</small></p>
+
+												<style>
+													#text {display:none;color:red}
+												</style>
+
+												<script>
+													var input = document.getElementById("password");
+													var text = document.getElementById("text");
+													input.addEventListener("keyup", function(event) {
+													
+													if (event.getModifierState("CapsLock")) {
+														text.style.display = "block";
+													  } else {
+														text.style.display = "none"
+													  }
+													});
+												</script>
+
 												<div class="form-group col-md-12">
 													<label for="password"></label>
 													<label class="custom-control custom-checkbox">
@@ -458,6 +477,12 @@
 					},
 					'gender': {
 						required: true
+					},
+					'securityQns': {
+						required: true
+					},
+					'securityAns': {
+						required: true
 					}
 
 					/////////////////////////////////////
@@ -503,7 +528,7 @@
 
 
 
-			var name, email, password, confirmPassword, collegeID, confirmCollegeID;
+			// var name, email, password, confirmPassword, collegeID, confirmCollegeID;
 
 			$("#toggle").change(function () {
 				// Check the checkbox state
@@ -528,7 +553,6 @@
 
 			$("#submit").click(function () {
 
-
 				var name = $("#name").val().toLowerCase();
 
 				name = name.split(" ");
@@ -537,18 +561,20 @@
 				}
 				name = name.join(" ");
 
-
 				var uname = $("#uname").val().toLowerCase();
 				uname = uname.replace(/\s+/g, '');
 				var dob = $("#dob").val();
 				var gender = $("#gender").val();
 				var email = $("#email").val().toLowerCase();
+				var securityQns = $('#securityQns').val();
+				var securityAns = $('#securityAns').val().toLowerCase();
 				var collegeID = $("#collegeID").val().toLowerCase();
 				var confirmCollegeID = $("#confirmCollegeID").val().toLowerCase();
 				var password = $("#password").val();
 				var confirmPassword = $("#confirmPassword").val();
+				
 
-				if (name != '' & uname != '' & dob != '' & gender != '' & email != '' & collegeID != '' & confirmCollegeID != '' & password != '' & confirmPassword != '') {
+				if (name != '' & uname != '' & dob != '' & gender != '' & email != '' & collegeID != '' & confirmCollegeID != '' & password != '' & confirmPassword != '' & securityQns != '' & securityAns != '') {
 
 					$.ajax({
 						url: '/signup',
@@ -560,6 +586,8 @@
 							dob: dob,
 							gender: gender,
 							email: email,
+							securityQns: securityQns,
+							securityAns: securityAns,
 							collegeID: collegeID,
 							confirmCollegeID: confirmCollegeID,
 							password: password,
@@ -599,24 +627,8 @@
 							window.location.href = "/home";
 						}
 					});
-
-
-
-
-
 				}
-
-
-
-
-
-
-
 			});
-
-
-
-
 		});
 
 

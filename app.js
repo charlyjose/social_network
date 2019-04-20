@@ -46,6 +46,7 @@ var deleteAccRouter = require('./routes/deleteAccount');
 var checkUsernameRouter = require('./routes/check-username');
 var checkEmailRouter = require('./routes/check-email');
 var checkCollegeIDRouter = require('./routes/check-collegeID');
+var checkPasswordOld = require('./routes/check-passwordold');
 
 var errorHandle = require('./routes/error');
 
@@ -97,7 +98,8 @@ app.use('/check-username', checkUsernameRouter);
 app.use('/check-email', checkEmailRouter);
 // Check CollegeID ID
 app.use('/check-collegeID', checkCollegeIDRouter);
-
+// Check Old Password
+app.use('/check-passwordold', checkPasswordOld);
 // Error
 app.use('/error', errorHandle);
 
