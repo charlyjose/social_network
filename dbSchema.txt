@@ -30,10 +30,12 @@ CREATE TABLE IF NOT EXISTS `user` (
     `gender` tinyint(1) DEFAULT 0,
     `dob` varchar(10) DEFAULT 0,
     `avatar` varchar(200) NOT NULL DEFAULT "default/avatar-anonymous.png",
+    `secQNID` varchar(5) NOT NULL,
     `enabled` tinyint(1) DEFAULT 0,
     `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `edit_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 enabled
 -------
@@ -94,10 +96,55 @@ CREATE TABLE IF NOT EXISTS `details` (
 
 
 
+# TABLE  5 securityQNS
+
+CREATE TABLE IF NOT EXISTS `securityQNS` (
+    `qnID` varchar(5) NOT NULL,
+    `category` varchar(15) NOT NULL,
+    `qn` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO securityQNS (qnID, category, qn) values 
+    ("sc1",     "Childhood",    "What was your childhood nickname?"),
+    ("sc2",     "Childhood",    "What is the name of your favorite childhood friend?"),
+    ("sfam1",   "Family",       "In what city or town did your mother and father meet?"),
+    ("sfam2",   "Family",       "In what city or town does your nearest sibling live?"),
+    ("sfav1",   "Favorites",    "What is your favorite team?"),
+    ("sfav2",   "Favorites",    "What is your favorite movie?"),
+    ("se1",     "Education",    "What school did you attend for sixth grade?"),
+    ("se2",     "Education",    "What is the last name of the teacher who gave you your first failing grade?"),
+    ("sw1",     "Work",         "In what town was your first job?"),
+    ("sw2",     "Work",         "What was the name of the company where you had your first job?");
 
 
 
+Security Question
+-----------------
 
+"Childhood"
+"sc1"    "What was your childhood nickname?
+"sc2"    "What is the name of your favorite childhood friend?
+
+
+"Family"
+"sfam1"    "In what city or town did your mother and father meet?"
+"sfam2"    "In what city or town does your nearest sibling live?"
+
+
+"Favorites"
+"sfav1"    "What is your favorite team?"
+"sfav2"    "What is your favorite movie?"
+
+
+"Education"
+"se1"   "What school did you attend for sixth grade?"
+"se2"   "What is the last name of the teacher who gave you your first failing grade?"
+
+
+"Work"
+"sw1"   "In what town was your first job?"
+"sw2"   "What was the name of the company where you had your first job?"
 
 
 
