@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `details` (
 
 
 
-# TABLE  5 securityQNS
+# TABLE 5 securityQNS
 
 CREATE TABLE IF NOT EXISTS `securityQNS` (
     `qnID` varchar(5) NOT NULL,
@@ -149,8 +149,45 @@ Security Question
 "sw2"   "What was the name of the company where you had your first job?"
 
 
+# TABLE 6 verify
+
+CREATE TABLE IF NOT EXISTS `verify` (
+    `collegeID` varchar(10) NOT NULL PRIMARY KEY,
+    `verified` tinyint(1) NOT NULL DEFAULT 0,
+    `otp` varchar(10) NOT NULL,
+    `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+insert into verify (collegeID, verified, otp) values("mut16cs001", 0, "sjkdie");
+insert into verify (collegeID, verified, otp) values("mut16cs011", 0, "DSDDSE");
+
+
+update verify set final_time = (DATE_ADD(SELECT create_time from verify where collegeID like "mut16cs001", INTERVAL 5 MINUTE)) where collegeID like "mut16cs001";
+
+
+select 
+a.*
+from 
+verify a ;
+
+
+
+
+
+SELECT * 
+FROM orders
+WHERE day_of_order >
+(SELECT DATEADD(day,-30, (SELECT MAX(day_of_order) FROM orders)) AS "-30 Days");
+
+
+
+
+
+
+CREATE TRIGGER `timeFind` AFTER INSERT ON  `verify` 
+FOR EACH ROW 
+SET NEW.final_time = SELECT DATE_ADD(SELECT, INTERVAL 5 MINUTE);
 
 
 # TABLE 2 address
