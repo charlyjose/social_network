@@ -43,10 +43,13 @@ var writePostRouter = require('./routes/writePost');
 var resetUserRouter = require('./routes/resetUser');
 var resetContactsRouter = require('./routes/resetContacts');
 var deleteAccRouter = require('./routes/deleteAccount');
+
 var checkUsernameRouter = require('./routes/check-username');
 var checkEmailRouter = require('./routes/check-email');
 var checkCollegeIDRouter = require('./routes/check-collegeID');
 var checkPasswordOld = require('./routes/check-passwordold');
+
+var otpAuth = require('./routes/otpAuth');
 
 var errorHandle = require('./routes/error');
 
@@ -100,6 +103,10 @@ app.use('/check-email', checkEmailRouter);
 app.use('/check-collegeID', checkCollegeIDRouter);
 // Check Old Password
 app.use('/check-passwordold', checkPasswordOld);
+
+// OTP auth
+app.use('/verify', otpAuth);
+
 // Error
 app.use('/error', errorHandle);
 

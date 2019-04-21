@@ -69,7 +69,11 @@
 							<p class="h2 font-weight-normal mt-3 mb-4"><%= body %></p>
 							<p class="h5 font-weight-normal mt-3 mb-4"><%= diagnose %></p>
 							<p class="h6 font-weight-normal mt-3 mb-4"><%= comments %></p>
-							<a href=<%= returnLink %> class="btn btn-primary btn-lg">Go Back</a>
+							<a href=<%= returnLink %> class="btn btn-primary btn-lg goBack" id="goBack"
+								value=<%= returnLink %>>Go Back</a>
+
+							<p class="h6 font-weight-normal mt-3 mb-4">Redirecting in <b><span id="timer">3</span>s</b>
+							</p>
 
 						</div>
 
@@ -80,6 +84,38 @@
 			</div>
 		</div>
 	</main>
+
+
+	<script>
+
+		var a = document.getElementsByTagName("a");
+		var link = a[0].getAttribute("value");
+
+
+		var seconds = document.getElementById("timer").textContent;
+		var countdown = setInterval(function () {
+			seconds--;
+			// document.getElementById("timer").textContent = seconds;
+			document.getElementById("timer").innerHTML = "<b>" + seconds + "</b>";
+			if (seconds <= 0) {
+				clearInterval(countdown);
+
+				var timer = setTimeout(function () {
+					window.location = link
+				}, 0);
+
+			}
+		}, 1000);
+
+
+
+		// var timer = setTimeout(function () {
+		// 	window.location = link
+		// }, 3000);
+
+
+
+	</script>
 
 	<script src="js/app.js"></script>
 
