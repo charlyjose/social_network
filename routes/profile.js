@@ -116,7 +116,7 @@ router.get('/', function (req, res, next) {
                             // Basics profile okay
 
 
-/*
+
                             var email = req.session.email;
 
                             // MAIL SERVICE
@@ -136,7 +136,7 @@ router.get('/', function (req, res, next) {
                                     console.log('\nEmail sent: ' + info.response + '\n');
                                 }
                             });
-*/
+
 
 
 
