@@ -25,6 +25,7 @@
     "node-datetime": "^2.1.2",
     "nodemailer": "^6.1.1",
     "nodemon": "^1.18.10",
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "robotjs": "^0.5.1"
   }
 }
