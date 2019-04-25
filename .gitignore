@@ -64,7 +64,7 @@ typings/
 usn_posts_images/
 usn_avatar_images/
 
-views/usn_posts_images/**
-views/usn_avatar_images/**
+views/usn_posts_images/*
+views/usn_avatar_images/*
 
-!views/usn_avatar_images/default/
+!views/usn_avatar_images/default/*
